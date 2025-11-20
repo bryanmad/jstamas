@@ -239,6 +239,10 @@
 }
     
     
+.bordersubmit {
+    border: 5px solid lime;
+}
+   
     
     
     
@@ -823,6 +827,9 @@ if (arrIdOrder[currentInput] !== "team") {
        units = document.getElementById(arrIdOrder[currentInput]).innerText = id.replace("score", "")
        var teamscore = (tens + units);
        document.getElementById(arrIdOrder[currentInput]).innerText = teamscore;
+       // show green border and allow submit
+       document.getElementById(arrIdOrder[currentInput]).classList.toggle("borderselect");
+       document.getElementById(arrIdOrder[currentInput]).classList.toggle("bordersubmit");
     }   
 }
 /*            
