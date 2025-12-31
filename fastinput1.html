@@ -361,13 +361,13 @@
                 >
                     <tbody>
                         <tr class="plain">
-                            <td class="plain">-</td>
+                            <td class="plain" id="scoreminus" onclick="scoreminus()">-</td>
                             <td class="plain"></td>
                             <td class="plain" colspan="2">
                                 score
                             </td>
                             <td class="plain"></td>
-                            <td class="plain">+</td>
+                            <td class="plain" id="scoreplus" onclick="scoreplus()">+</td>
                         </tr>
                         <tr>
                             <td class="plain"
@@ -390,13 +390,13 @@
                             </td>
                         </tr>
                         <tr class="plain">
-                            <td class="plain">-</td>
+                            <td class="plain" id="pointsminus" onclick="pointsminus()">-</td>
                             <td class="plain"></td>
                             <td class="plain" colspan="2">
                                 points
                             </td>
                             <td class="plain"></td>
-                            <td class="plain">+</td>
+                            <td class="plain" id="pointsplus" onclick="pointsplus()">+</td>
                         </tr>
                         <tr>
                             <td class="plain"
@@ -419,13 +419,13 @@
                             </td>
                         </tr>
                         <tr class="plain">
-                            <td class="plain">-</td>
+                            <td class="plain" id="totalminus" onclick="totalminus()">-</td>
                             <td class="plain"></td>
                             <td class="plain" colspan="2">
                                 team score
                             </td>
                             <td class="plain"></td>
-                            <td class="plain">+</td>
+                            <td class="plain" id="totalplus" onclick="totalplus()">+</td>
                         </tr>
                         <tr>
                            <td  class="plain"
@@ -445,6 +445,14 @@
                                             oninput="totalvalue()"
                                         />
                                     </div>
+                            </td>
+                        </tr>
+                        <tr>
+                           <td  class="plain"
+                                colspan="6"
+                                id="submit"
+                                />
+                                Submit
                             </td>
                         </tr>
                     </tbody>
@@ -1249,6 +1257,45 @@ https://docs.google.com/forms/d/e/1FAIpQLScEMPkMNDTXFyUKMrfeoywXNDd_In2I5IaxK9_v
          selectedplayer = id.replace("player", "");
          document.getElementById(id).style.backgroundColor = "gray";
        }
+
+       function scoreplus() {
+         var newvalue = Number(document.getElementById("myRange1").value) + 1;
+         document.getElementById("myRange1").value = newvalue;
+         document.getElementById("strokes1").innerText = newvalue;
+       }
+
+       function scoreminus() {
+         var newvalue = Number(document.getElementById("myRange1").value) - 1;
+         document.getElementById("myRange1").value = newvalue;
+         document.getElementById("strokes1").innerText = newvalue;
+       }
+
+       function pointsplus() {
+         var newvalue = Number(document.getElementById("myRange2").value) + 1;
+         document.getElementById("myRange2").value = newvalue;
+         document.getElementById("points1").innerText = newvalue;
+       }
+
+       function pointsminus() {
+         var newvalue = Number(document.getElementById("myRange2").value) - 1;
+         document.getElementById("myRange2").value = newvalue;
+         document.getElementById("points1").innerText = newvalue;
+       }
+
+       function totalplus() {
+         var newvalue = Number(document.getElementById("myRange3").value) + 1;
+         document.getElementById("myRange3").value = newvalue;
+         document.getElementById("team").innerText = newvalue;
+       }
+
+       function totalminus() {
+         var newvalue = Number(document.getElementById("myRange3").value) - 1;
+         document.getElementById("myRange3").value = newvalue;
+         document.getElementById("team").innerText = newvalue;
+       }
+
+
+
 
         </script>
     </body>
