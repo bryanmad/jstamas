@@ -205,8 +205,8 @@
                 #score2,
                 #score3 {
                     //margin: 3vh;
-            		padding: 3vh;
-                    height: 11vh;
+            		//padding: 3vh;
+                    //height: 11vh;
                 }
 
 
@@ -246,7 +246,7 @@
 
 
 
-            #hcpeditpopuppanel1, #hcpeditpopuppanel1, #hcpeditpopuppanel1 {
+            #hcpeditpopuppanel1, #hcpeditpopuppanel2, #hcpeditpopuppanel3 {
             position: absolute;
             bottom: 10vh;
             left: 0;
@@ -269,7 +269,7 @@
 
 
                 #demo1, #demo2, #demo3 {
-                font-size: 5.5vh; //6vh; //30px;
+                font-size: 5.5vh;
                 width: 100%;
                 }
 
@@ -284,6 +284,10 @@
                          #d1, #d2, #d3 {
                              opacity: 0.5;
                          }
+                .plain {
+                    color: gray;
+                    border: none;
+                }
         </style>
     </head>
 
@@ -356,14 +360,22 @@
                     style="height: 85%; width: 100%"
                 >
                     <tbody>
+                        <tr class="plain">
+                            <td class="plain">-</td>
+                            <td class="plain"></td>
+                            <td class="plain" colspan="2">
+                                score
+                            </td>
+                            <td class="plain"></td>
+                            <td class="plain">+</td>
+                        </tr>
                         <tr>
-                            <td
+                            <td class="plain"
                                 colspan="6"
                                 id="score1"
                                     <div id="hcpeditpopuppanel1">
-                                        <label for="demo1" id="d1">strokes</label>
                                         <!-- hcp adjustment -->
-                                        <p><span id="demo1"></span></p>
+                                        <p class="plain"><span id="demo1"></span></p>
                                         <input
                                             type="range"
                                             min="70"
@@ -376,16 +388,23 @@
                                         />
                                     </div>
                             </td>
-
                         </tr>
-
-                            <td
+                        <tr class="plain">
+                            <td class="plain">-</td>
+                            <td class="plain"></td>
+                            <td class="plain" colspan="2">
+                                points
+                            </td>
+                            <td class="plain"></td>
+                            <td class="plain">+</td>
+                        </tr>
+                        <tr>
+                            <td class="plain"
                                 colspan="6"
                                 id="score2"
                                     <div id="hcpeditpopuppanel2">
-                                         <label for="demo2" id="d2">points</label>
                                         <!-- hcp adjustment -->
-                                        <p><span id="demo2"></span></p>
+                                        <p class="plain"><span id="demo2"></span></p>
                                         <input
                                             type="range"
                                             min="10"
@@ -398,14 +417,23 @@
                                         />
                                     </div>
                             </td>
+                        </tr>
+                        <tr class="plain">
+                            <td class="plain">-</td>
+                            <td class="plain"></td>
+                            <td class="plain" colspan="2">
+                                team score
+                            </td>
+                            <td class="plain"></td>
+                            <td class="plain">+</td>
+                        </tr>
                         <tr>
-                            <td
+                           <td  class="plain"
                                 colspan="6"
                                 id="score3"
                                     <div id="hcpeditpopuppanel3">
-                                         <label for="demo3" id="d3">total score</label>
                                         <!-- hcp adjustment -->
-                                        <p><span id="demo3"></span></p>
+                                        <p class="plain"><span id="demo3"></span></p>
                                         <input
                                             type="range"
                                             min="10"
