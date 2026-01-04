@@ -165,13 +165,17 @@
 
 
 
-            	.submit {
+            	#submit {
             		font-size: 100%;
             		color: white;
             		//background: dodgerBlue;
-            		height: 100%;
-            		line-height: 10vh;
+            		//height: 100%;
+            		line-height: 7vh;
             		text-align: center;
+              height: 7vh;
+            		font-size: 5vh;
+            		border: 2px solid Gray;
+            		border-radius: 5px;
             	}
 
 
@@ -206,7 +210,9 @@
                 #score3 {
                     //margin: 3vh;
             		//padding: 3vh;
-                    //height: 11vh;
+                    height: 7vh;
+                    border: 1px solid dimgray;
+                    background: rgb(30,30,30);
                 }
 
 
@@ -277,16 +283,36 @@
 
                 #myRange1, #myRange2, #myRange3 {
                          width: 95%;
-                         padding-top: 15px;
+                         //padding-top: 15px;
                          accent-color:cyan;
+                         background: rgb(30,30,30);
+                         }
+                         #myRange1::-webkit-slider-thumb {
+                           -webkit-appearance: none;
+                           appearance: none;
+                           width: 25px;
+                           height: 25px;
+                           //background: #04AA6D;
+                           cursor: pointer;
                          }
 
+                         #myRange1::-moz-range-thumb {
+                           width: 5vh;
+                           height: 5vh;
+                           //background: rgb(30,30,30);
+                           background: cyan;
+                           cursor: pointer;
+                         }
                          #d1, #d2, #d3 {
                              opacity: 0.5;
                          }
                 .plain {
                     color: gray;
                     border: none;
+                }
+                .plaingray {
+                    border: 1px solid dimgray;
+                    background: black;
                 }
         </style>
     </head>
@@ -360,7 +386,7 @@
                     style="height: 85%; width: 100%"
                 >
                     <tbody>
-                        <tr class="plain">
+                        <tr class="plaingray">
                             <td class="plain" id="scoreminus" onclick="scoreminus()">-</td>
                             <td class="plain"></td>
                             <td class="plain" colspan="2">
@@ -389,7 +415,7 @@
                                     </div>
                             </td>
                         </tr>
-                        <tr class="plain">
+                        <tr class="plaingray">
                             <td class="plain" id="pointsminus" onclick="pointsminus()">-</td>
                             <td class="plain"></td>
                             <td class="plain" colspan="2">
@@ -418,7 +444,7 @@
                                     </div>
                             </td>
                         </tr>
-                        <tr class="plain">
+                        <tr class="plaingray">
                             <td class="plain" id="totalminus" onclick="totalminus()">-</td>
                             <td class="plain"></td>
                             <td class="plain" colspan="2">
@@ -1341,25 +1367,25 @@ https://docs.google.com/forms/d/e/1FAIpQLScEMPkMNDTXFyUKMrfeoywXNDd_In2I5IaxK9_v
 
        function pointsminus() {
          if (selectedplayer == 1) {
-         var newvalue = Number(document.getElementById("myRange2").value) + 1;
+         var newvalue = Number(document.getElementById("myRange2").value) - 1;
          document.getElementById("myRange2").value = newvalue;
          document.getElementById("points1").innerText = newvalue;
          }
 
          if (selectedplayer == 2) {
-         var newvalue = Number(document.getElementById("myRange2").value) + 1;
+         var newvalue = Number(document.getElementById("myRange2").value) - 1;
          document.getElementById("myRange2").value = newvalue;
          document.getElementById("points2").innerText = newvalue;
          }
 
          if (selectedplayer == 3) {
-         var newvalue = Number(document.getElementById("myRange2").value) + 1;
+         var newvalue = Number(document.getElementById("myRange2").value) - 1;
          document.getElementById("myRange2").value = newvalue;
          document.getElementById("points3").innerText = newvalue;
          }
 
          if (selectedplayer == 4) {
-         var newvalue = Number(document.getElementById("myRange2").value) + 1;
+         var newvalue = Number(document.getElementById("myRange2").value) - 1;
          document.getElementById("myRange2").value = newvalue;
          document.getElementById("points4").innerText = newvalue;
          }
