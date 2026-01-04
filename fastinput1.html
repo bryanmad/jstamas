@@ -149,18 +149,6 @@
 
             	/* default "keyboard" */
 
-            	.small {
-            		font-size: 4vh;
-            		display: inline-block;
-            		height: 7vh;
-            		line-height: 7vh;
-            		padding-left: 20%;
-            		padding-right: 20%;
-            		border: 1px solid Gray;
-            		text-align: center;
-            		font-family: Arial, Helvetica, sans-serif;
-            		border-radius: 5px;
-            	}
 
 
 
@@ -195,6 +183,7 @@
 
                 tr {
                     text-align: center;
+
                 }
                 td {
                     width: calc(100vw/6);
@@ -211,7 +200,7 @@
                     //margin: 3vh;
             		//padding: 3vh;
                     height: 7vh;
-                    border: 1px solid dimgray;
+                 //   border: 1px solid dimgray;
                     background: rgb(30,30,30);
                 }
 
@@ -260,11 +249,11 @@
             //display: none;
                 background-color: dodgerBlue;
                   font-size: 3vh;
-                  border-radius: 3px;
-                  border: 3px solid rgba(255, 255, 255, 0.2);
-            		border-radius: 10px;
-            		box-shadow: 10px 10px 25px black;
-            		background-clip: padding-box;
+                  //border-radius: 3px;
+                  //border: 3px solid rgba(255, 255, 255, 0.2);
+            		//border-radius: 10px;
+            		//box-shadow: 10px 10px 25px black;
+            		//background-clip: padding-box;
                   padding: 10px;
                   margin: 3vw;
                   text-align: center;
@@ -309,10 +298,11 @@
                          }
                 .plain {
                     color: gray;
-                    border: none;
+                    border:none;
                 }
                 .plaingray {
-                    border: 1px solid dimgray;
+                    border:none;
+                    border-bottom: 1px solid white;
                     background: black;
                 }
         </style>
@@ -381,13 +371,13 @@
 
                 <table
                     align="left"
-                    border="1"
+                    border="none"
                     cellpadding="1"
                     cellspacing="1"
                     style="height: 85%; width: 100%"
                 >
                     <tbody>
-                        <tr class="plaingray">
+                        <tr class="plain">
                             <td class="plain" id="scoreminus" onclick="scoreminus()">-</td>
                             <td class="plain"></td>
                             <td class="plain" colspan="2">
@@ -397,7 +387,7 @@
                             <td class="plain" id="scoreplus" onclick="scoreplus()">+</td>
                         </tr>
                         <tr>
-                            <td class="plain"
+                            <td class="plaingray"
                                 colspan="6"
                                 id="score1"
                                     <div id="hcpeditpopuppanel1">
@@ -416,7 +406,7 @@
                                     </div>
                             </td>
                         </tr>
-                        <tr class="plaingray">
+                        <tr class="plain">
                             <td class="plain" id="pointsminus" onclick="pointsminus()">-</td>
                             <td class="plain"></td>
                             <td class="plain" colspan="2">
@@ -426,7 +416,7 @@
                             <td class="plain" id="pointsplus" onclick="pointsplus()">+</td>
                         </tr>
                         <tr>
-                            <td class="plain"
+                            <td class="plaingray"
                                 colspan="6"
                                 id="score2"
                                     <div id="hcpeditpopuppanel2">
@@ -445,7 +435,7 @@
                                     </div>
                             </td>
                         </tr>
-                        <tr class="plaingray">
+                        <tr class="plain">
                             <td class="plain" id="totalminus" onclick="totalminus()">-</td>
                             <td class="plain"></td>
                             <td class="plain" colspan="2">
@@ -455,7 +445,7 @@
                             <td class="plain" id="totalplus" onclick="totalplus()">+</td>
                         </tr>
                         <tr>
-                           <td  class="plain"
+                           <td  class="plaingray"
                                 colspan="6"
                                 id="score3"
                                     <div id="hcpeditpopuppanel3">
