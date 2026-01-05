@@ -212,14 +212,6 @@
                 background: silver;
             }
 
-            .borderselect {
-                border: 3px solid cyan;
-            }
-
-            .bordersubmit {
-                border: 5px solid lime;
-            }
-
             #hcpeditpopuppanel1,
             #hcpeditpopuppanel2,
             #hcpeditpopuppanel3 {
@@ -877,6 +869,10 @@ https://docs.google.com/forms/d/e/1FAIpQLScEMPkMNDTXFyUKMrfeoywXNDd_In2I5IaxK9_v
             ];
             var currentInput = 0;
 
+            setPlayer("player4");
+            setPlayer("player3");
+            setPlayer("player2");
+            setPlayer("player1");
             //==============================================================
             // data may change so retrieve it on each occasion
             //==============================================================
@@ -1101,7 +1097,10 @@ https://docs.google.com/forms/d/e/1FAIpQLScEMPkMNDTXFyUKMrfeoywXNDd_In2I5IaxK9_v
                         openDropdown.classList.remove("show");
                     }
                 }
-
+                setPlayer("player4");
+                setPlayer("player3");
+                setPlayer("player2");
+                setPlayer("player1");
                 // recalc in case a player name has changed
                 //calcAllHoles()
             }
@@ -1167,9 +1166,9 @@ https://docs.google.com/forms/d/e/1FAIpQLScEMPkMNDTXFyUKMrfeoywXNDd_In2I5IaxK9_v
                         document
                             .getElementById(arrIdOrder[currentInput])
                             .classList.toggle("borderselect");
-                        document
-                            .getElementById(arrIdOrder[currentInput])
-                            .classList.toggle("bordersubmit");
+                        //document
+                        //    .getElementById(arrIdOrder[currentInput])
+                        //    .classList.toggle("bordersubmit");
                     }
                 }
             }
@@ -1301,6 +1300,52 @@ https://docs.google.com/forms/d/e/1FAIpQLScEMPkMNDTXFyUKMrfeoywXNDd_In2I5IaxK9_v
                 }
                 selectedplayer = id.replace("player", "");
                 document.getElementById(id).style.backgroundColor = "gray";
+
+                // when a player is set, update sliders
+                // score
+                if (id == "player1") {
+                    document.getElementById("myRange1").value =
+                        document.getElementById("strokes1").innerText;
+
+                    document.getElementById("myRange2").value =
+                        document.getElementById("points1").innerText;
+
+                    document.getElementById("myRange3").value =
+                        document.getElementById("team").innerText;
+                }
+
+                if (id == "player2") {
+                    document.getElementById("myRange1").value =
+                        document.getElementById("strokes2").innerText;
+
+                    document.getElementById("myRange2").value =
+                        document.getElementById("points2").innerText;
+
+                    document.getElementById("myRange3").value =
+                        document.getElementById("team").innerText;
+                }
+
+                if (id == "player3") {
+                    document.getElementById("myRange1").value =
+                        document.getElementById("strokes3").innerText;
+
+                    document.getElementById("myRange2").value =
+                        document.getElementById("points3").innerText;
+
+                    document.getElementById("myRange3").value =
+                        document.getElementById("team").innerText;
+                }
+
+                if (id == "player4") {
+                    document.getElementById("myRange1").value =
+                        document.getElementById("strokes4").innerText;
+
+                    document.getElementById("myRange2").value =
+                        document.getElementById("points4").innerText;
+
+                    document.getElementById("myRange3").value =
+                        document.getElementById("team").innerText;
+                }
             }
 
             function scoreplus() {
