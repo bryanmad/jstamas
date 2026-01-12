@@ -53,8 +53,8 @@
                         }, 300);
                     });
 
-                    button.addEventListener("mouseup", clearTimers);
-                    button.addEventListener("mouseleave", clearTimers);
+                    button.addEventListener("touchstop", clearTimers);
+                    //button.addEventListener("mouseleave", clearTimers);
 
                     function clearTimers() {
                         clearTimeout(timeout);
