@@ -32,16 +32,16 @@
         <br />
         <span id="skill_1">0</span>
         <script>
-            // prevent default menu of options
-            document.addEventListener("contextmenu", (event) => {
-                event.preventDefault();
-            });
-
             var timeout, interval;
 
             [].forEach.call(
                 document.querySelectorAll(".add"),
                 function (button) {
+                    // prevent default menu of options
+                    document.addEventListener("contextmenu", (event) => {
+                        event.preventDefault();
+                    });
+
                     button.addEventListener("contextmenu", function () {
                         var id = button.dataset.target;
                         incrementValue(id);
@@ -50,11 +50,10 @@
                             interval = setInterval(function () {
                                 incrementValue(id);
                             }, 50);
-                        }, 300);
+                        }, 100);
                     });
 
                     button.addEventListener("touchend", clearTimers);
-                    //button.addEventListener("mouseleave", clearTimers);
 
                     function clearTimers() {
                         clearTimeout(timeout);
@@ -66,6 +65,10 @@
             [].forEach.call(
                 document.querySelectorAll(".subtract"),
                 function (button) {
+                    // prevent default menu of options
+                    document.addEventListener("contextmenu", (event) => {
+                        event.preventDefault();
+                    });
                     button.addEventListener("contextmenu", function () {
                         var id = button.dataset.target;
                         decrementValue(id);
@@ -74,11 +77,10 @@
                             interval = setInterval(function () {
                                 decrementValue(id);
                             }, 50);
-                        }, 300);
+                        }, 100);
                     });
 
                     button.addEventListener("touchend", clearTimers);
-                    //button.addEventListener("mouseleave", clearTimers);
 
                     function clearTimers() {
                         clearTimeout(timeout);
