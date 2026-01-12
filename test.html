@@ -42,7 +42,7 @@
             [].forEach.call(
                 document.querySelectorAll(".add"),
                 function (button) {
-                    button.addEventListener("mousedown", function () {
+                    button.addEventListener("contextmenu", function () {
                         var id = button.dataset.target;
                         incrementValue(id);
 
