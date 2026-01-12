@@ -32,6 +32,11 @@
         <br />
         <span id="skill_1">0</span>
         <script>
+            // prevent default menu of options
+            document.addEventListener("contextmenu", (event) => {
+                event.preventDefault();
+            });
+
             var timeout, interval;
 
             [].forEach.call(
