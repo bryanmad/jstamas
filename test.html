@@ -53,7 +53,7 @@
                         }, 300);
                     });
 
-                    button.addEventListener("touchstop", clearTimers);
+                    button.addEventListener("touchend", clearTimers);
                     //button.addEventListener("mouseleave", clearTimers);
 
                     function clearTimers() {
@@ -66,7 +66,7 @@
             [].forEach.call(
                 document.querySelectorAll(".subtract"),
                 function (button) {
-                    button.addEventListener("mousedown", function () {
+                    button.addEventListener("contextmenu", function () {
                         var id = button.dataset.target;
                         decrementValue(id);
 
@@ -77,8 +77,8 @@
                         }, 300);
                     });
 
-                    button.addEventListener("mouseup", clearTimers);
-                    button.addEventListener("mouseleave", clearTimers);
+                    button.addEventListener("touchend", clearTimers);
+                    //button.addEventListener("mouseleave", clearTimers);
 
                     function clearTimers() {
                         clearTimeout(timeout);
