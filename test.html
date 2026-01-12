@@ -42,6 +42,11 @@
                         event.preventDefault();
                     });
 
+                    button.addEventListener("touchstart", function () {
+                        var id = button.dataset.target;
+                        incrementValue(id);
+                    });
+
                     button.addEventListener("contextmenu", function () {
                         var id = button.dataset.target;
                         incrementValue(id);
@@ -69,6 +74,12 @@
                     button.addEventListener("contextmenu", (event) => {
                         event.preventDefault();
                     });
+
+                    button.addEventListener("touchstart", function () {
+                        var id = button.dataset.target;
+                        decrementValue(id);
+                    });
+
                     button.addEventListener("contextmenu", function () {
                         var id = button.dataset.target;
                         decrementValue(id);
