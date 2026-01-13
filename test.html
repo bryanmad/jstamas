@@ -32,11 +32,15 @@
                 clip-path: polygon(0 0, 50% 100%, 100% 0);
             }
 
-            #skill_1 {
-                font-size: 20vh;
+            #datatarget,
+            #datatarget2,
+            #datatarget3 {
+                font-size: 10vh;
                 font-family:
                     "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
                     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+                border: 1px solid black;
+                border-radius: 5px;
             }
             .blank {
                 height: 10vh;
@@ -51,110 +55,101 @@
             #uparrow,
             #downarrow {
                 height: 20vh;
-                border: 1px solid blue;
+                border: 1px solid black;
+                border-radius: 5px;
             }
         </style>
     </head>
     <body>
-        <span class="arrow add" data-target="skill_1">
+        <span id="button1up" class="arrow">
             <img id="uparrow" src="uparrow.png" alt="" />
         </span>
-        <span class="arrow subtract" data-target="skill_1">
-            <img id="uparrow" src="downarrow.png" alt="" />
+        <span id="button1down" class="arrow">
+            <img id="downarrow" src="downarrow.png" alt="" />
         </span>
         <br />
-
-        <!--
-        <button id="b1" class="add" data-target="skill_1">
-            <div class="blank"></div>
-        </button>
-        <div class="blank">
-            <button id="b2" class="subtract" data-target="skill_1"></button
-            ><br />
-        </div>
-        <br />
-        <br />
-        -->
-        <span id="skill_1">0</span>
+        <span id="datatarget" onclick="usethis(this.id)">0</span>
+        <span id="datatarget2" onclick="usethis(this.id)">0</span>
+        <span id="datatarget3" onclick="usethis(this.id)">0</span>
         <script>
+            var targetID = "";
+            var sourceID = "";
+            // code for input areas: score, points etc.
+            function usethis(id) {
+                console.log("usethis");
+                targetID = document.getElementById(id);
+                console.log(targetID.textContent);
+                document.getElementById("datatarget").style.background = "";
+                document.getElementById("datatarget2").style.background = "";
+                document.getElementById("datatarget3").style.background = "";
+                targetID.style.background = "silver";
+                //respondup();
+            }
+
+            // code for arrows
+            // for up arrow
+            //function respondup() {
             var timeout, interval;
+            var button1up = document.getElementById("button1up");
+            // prevent default menu of options
+            button1up.addEventListener("contextmenu", (event) => {
+                event.preventDefault();
+            });
+            button1up.addEventListener("touchstart", function () {
+                incrementValue(targetID);
+            });
+            button1up.addEventListener("contextmenu", function () {
+                incrementValue(targetID);
+                timeout = setTimeout(function () {
+                    interval = setInterval(function () {
+                        incrementValue(targetID);
+                    }, 50);
+                }, 10);
+            });
 
-            [].forEach.call(
-                document.querySelectorAll(".add"),
-                function (button) {
-                    // prevent default menu of options
-                    button.addEventListener("contextmenu", (event) => {
-                        event.preventDefault();
-                    });
+            button1up.addEventListener("touchend", clearTimers);
 
-                    button.addEventListener("touchstart", function () {
-                        var id = button.dataset.target;
-                        incrementValue(id);
-                    });
+            function clearTimers() {
+                clearTimeout(timeout);
+                clearInterval(interval);
+            }
+            //}
+            // for down arrow
+            //function responddown() {
+            //    var timeout, interval;
+            var button1down = document.getElementById("button1down");
+            // prevent default menu of options
+            button1down.addEventListener("contextmenu", (event) => {
+                event.preventDefault();
+            });
+            button1down.addEventListener("touchstart", function () {
+                decrementValue(targetID);
+            });
+            button1down.addEventListener("contextmenu", function () {
+                decrementValue(targetID);
+                timeout = setTimeout(function () {
+                    interval = setInterval(function () {
+                        decrementValue(targetID);
+                    }, 50);
+                }, 10);
+            });
 
-                    button.addEventListener("contextmenu", function () {
-                        var id = button.dataset.target;
-                        incrementValue(id);
+            button1down.addEventListener("touchend", clearTimers);
 
-                        timeout = setTimeout(function () {
-                            interval = setInterval(function () {
-                                incrementValue(id);
-                            }, 50);
-                        }, 10);
-                    });
-
-                    button.addEventListener("touchend", clearTimers);
-
-                    function clearTimers() {
-                        clearTimeout(timeout);
-                        clearInterval(interval);
-                    }
-                },
-            );
-
-            [].forEach.call(
-                document.querySelectorAll(".subtract"),
-                function (button) {
-                    // prevent default menu of options
-                    button.addEventListener("contextmenu", (event) => {
-                        event.preventDefault();
-                    });
-
-                    button.addEventListener("touchstart", function () {
-                        var id = button.dataset.target;
-                        decrementValue(id);
-                    });
-
-                    button.addEventListener("contextmenu", function () {
-                        var id = button.dataset.target;
-                        decrementValue(id);
-
-                        timeout = setTimeout(function () {
-                            interval = setInterval(function () {
-                                decrementValue(id);
-                            }, 50);
-                        }, 10);
-                    });
-
-                    button.addEventListener("touchend", clearTimers);
-
-                    function clearTimers() {
-                        clearTimeout(timeout);
-                        clearInterval(interval);
-                    }
-                },
-            );
+            function clearTimers() {
+                clearTimeout(timeout);
+                clearInterval(interval);
+            }
+            //}
 
             function incrementValue(id) {
-                var el = document.getElementById(id);
-                var value = parseInt(el.textContent, 10);
-                document.getElementById(id).textContent = ++value;
+                var value = parseInt(id.textContent, 10);
+                id.textContent = ++value;
             }
 
             function decrementValue(id) {
-                var el = document.getElementById(id);
-                var value = parseInt(el.textContent, 10);
-                document.getElementById(id).textContent = --value;
+                var value = parseInt(id.textContent, 10);
+                id.textContent = --value;
             }
         </script>
     </body>
