@@ -15,8 +15,8 @@
                 height: 20vh;
                 width: 40vw;
                 font-size: 20vh;
-                clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-                background: gray;
+                //clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+                //background: gray;
                 background: linear-gradient(
                     0deg,
                     rgba(255, 255, 255, 1) 20%,
@@ -39,16 +39,34 @@
                     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
             }
             .blank {
-                height: 20vh;
-                width: 40vw;
+                height: 10vh;
+                width: 80%;
                 background: gray;
+                clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            }
+            #arrow {
+                border: 1px solid blue;
+            }
+            #uparrow {
+                height: 30vh;
             }
         </style>
     </head>
     <body>
-        <div class="blank">
-            <button id="b1" class="add" data-target="skill_1"></button><br />
+        <div id="arrow">
+            <img id="uparrow" src="uparrow.png" alt="" />
         </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+
+        <button id="b1" class="add" data-target="skill_1">
+            <div class="blank"></div>
+        </button>
+
         <div class="blank">
             <button id="b2" class="subtract" data-target="skill_1"></button
             ><br />
