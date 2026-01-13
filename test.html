@@ -11,25 +11,8 @@
         />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <style>
-            #b1 {
-                height: 20vh;
-                width: 40vw;
-                font-size: 20vh;
-                //clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-                //background: gray;
-                background: linear-gradient(
-                    0deg,
-                    rgba(255, 255, 255, 1) 20%,
-                    rgba(45, 55, 253, 1) 100%
-                );
-            }
-
-            #b2 {
-                height: 20vh;
-                width: 40vw;
-                font-size: 20vh;
-
-                clip-path: polygon(0 0, 50% 100%, 100% 0);
+            * {
+                box-sizing: border-box;
             }
 
             #datatarget,
@@ -42,31 +25,31 @@
                 border: 1px solid black;
                 border-radius: 5px;
             }
-            .blank {
-                height: 10vh;
-                width: 80%;
-                background: gray;
-                clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-            }
+
             .arrow {
                 //border: 1px solid blue;
-                width: 40%;
+                //width: 50%;
             }
             #uparrow,
-            #downarrow {
+            #downarrow,
+            #button1up,
+            #button1down {
                 height: 20vh;
-                border: 1px solid black;
+                width: 49%;
+                //border: 1px solid black;
                 border-radius: 5px;
             }
         </style>
     </head>
     <body>
+        <!--
         <span id="button1up" class="arrow">
-            <img id="uparrow" src="uparrow.png" alt="" />
-        </span>
-        <span id="button1down" class="arrow">
-            <img id="downarrow" src="downarrow.png" alt="" />
-        </span>
+        -->
+        <img id="button1up" src="uparrow.png" alt="" />
+        <!-- </span> -->
+
+        <img id="button1down" src="downarrow.png" alt="" />
+
         <br />
         <span id="datatarget" onclick="usethis(this.id)">0</span>
         <span id="datatarget2" onclick="usethis(this.id)">0</span>
