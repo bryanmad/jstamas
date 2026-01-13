@@ -44,35 +44,37 @@
                 background: gray;
                 clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
             }
-            #arrow {
+            .arrow {
                 //border: 1px solid blue;
                 width: 40%;
             }
-            #uparrow {
+            #uparrow,
+            #downarrow {
                 height: 20vh;
                 border: 1px solid blue;
             }
         </style>
     </head>
     <body>
-        <div id="arrow" class="add" data-target="skill_1">
+        <div class="arrow add" data-target="skill_1">
             <img id="uparrow" src="uparrow.png" alt="" />
         </div>
-        <br />
-        <br />
-        <br />
-        <br />
+        <div class="arrow subtract" data-target="skill_1">
+            <img id="uparrow" src="downarrow.png" alt="" />
+        </div>
         <br />
         <br />
         <!--
         <button id="b1" class="add" data-target="skill_1">
             <div class="blank"></div>
         </button>
--->
+
         <div class="blank">
             <button id="b2" class="subtract" data-target="skill_1"></button
             ><br />
         </div>
+        -->
+
         <br />
         <br />
         <span id="skill_1">0</span>
