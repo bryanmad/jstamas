@@ -1,365 +1,419 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, user-scalable=no"
+        />
+        <title>js2026</title>
+        <meta content="Bryan M" name="author" />
+        <meta name="theme-color" content="indigo" />
+        <meta name="robots" content="noindex" />
+        <link href="originalgolf.svg" rel="icon" type="image/x-icon" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="originalgolf.svg.png"
+        />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <link
+            href="https://fonts.googleapis.com/css?family=Kalam"
+            rel="stylesheet"
+        />
+        <style>
+            :root {
+            }
 
-<head>
-	<meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-    <title>js2026</title>
-    <meta content="Bryan M" name="author" />
-    <meta name="theme-color" content="indigo">
-    <meta name="robots" content="noindex">
-    <link href="originalgolf.svg" rel="icon" type="image/x-icon" />
-    <link rel="apple-touch-icon" sizes="180x180" href="originalgolf.svg.png" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
-	<style>
-:root {
+            body {
+                height: 88vh;
+                background-color: black;
+                color: white;
+                font-family: Helvetica, Arial, sans-serif;
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+                //overflow: hidden;
+            }
 
-}
+            /* menu */
 
-    body {
-		height: 88vh;
-      background-color: black;
-	  color: white;
-      font-family: Helvetica, Arial, sans-serif;
-      padding: 0;
-      margin: 0;
-	  box-sizing: border-box;
-      //overflow: hidden;
-    }
+            /* holds menu */
+            .container {
+                position: relative;
+            }
 
- /* menu */ 
- 
- /* holds menu */
-.xcontainer {
-    position: relative;
-	height: 88vh;
-	width: 100%;
-	color: white;
-}
- 
-.icons {
-position: absolute;
-bottom: 0;
-left: 0;
-    width: 100%;
-    height: 100%;
-	//background: indigo;
-	background-image: url("arcot.jpg");
-	height: 88vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-	color: white;
-	
-	
-	
-	display: flex;
-	align-items: flex-end;
-  justify-content: center;
-}	
+            .icons {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                //background: indigo;
+                background-image: url("arcot.jpg");
+                height: 88vh;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                position: relative;
+                color: white;
 
-#img1x,
-#img2x,
-#img3x,
+                display: flex;
+                align-items: flex-end;
+                justify-content: center;
+            }
 
-#img5x {
-	padding: 5vw;
-	//width: 20vw;
-//background: yellow;
+            #img1x,
+            #img2x,
+            #img3x,
+            #img5x {
+                padding: 5vw;
+                //width: 20vw;
+                //background: yellow;
+            }
 
-}
+            #img1x,
+            #img3x,
+            #img5x {
+                background: gray;
+            }
 
-#img1x,
-#img3x,
-#img5x {
-	background: gray;
-}
+            #img2x {
+                background: lightgray;
+            }
 
-#img2x {
-	background: lightgray;
-}
+            .img1a {
+                width: 25vw;
+                text-align: center;
+                font-size: 4vw;
+                color: white;
+            }
 
+            /* end of menu */
 
-.img1a {
-	width: 25vw;
-	text-align: center;
-	font-size: 4vw;
-	color: white;
-}
+            /* point at which pages are inserted */
+            #replace {
+                color: white;
+                font-size: 7vw;
+                background: gray;
+                height: 100%;
+            }
 
-/* end of menu */
+            .bs {
+                animation: slidein 2s;
+            }
 
-/* point at which pages are inserted */
-#replace {
-	color: white;
-	font-size: 7vw;
-	background: gray;
-	height: 100%;
-}
+            @keyframes slidein {
+                0% {
+                    right: -100%;
+                }
+                100% {
+                    right: 0;
+                    display: block;
+                }
+            }
 
+            .imgbackcontainer {
+                position: absolute;
+                bottom: 5vh;
+                left: 2vw;
+                width: 20vw;
+                height: 20vw;
+                //background-color: green;
+                border-radius: 50%;
+                color: white;
+                //opacity: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 20vw;
+                animation: fadein 2s;
+                opacity: 1;
 
+                text-shadow:
+                    0px 4px 3px rgba(0, 0, 0, 0.4),
+                    0px 8px 13px rgba(0, 0, 0, 0.1),
+                    0px 18px 23px rgba(0, 0, 0, 0.1);
+                background-color: dodgerBlue;
+                //text-align: center;
+                //border-radius: 10px;
+                border: 5px solid rgba(255, 255, 255, 0.2);
+                box-shadow: 10px 10px 25px black;
+                background-clip: padding-box;
+            }
 
-.bs {
-	animation: slidein 2s;
-}
+            @keyframes fadein {
+                0% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
 
-@keyframes slidein {
-  0% { right: -100%;}
-  100% { right: 0; display: block;}
-}
+            #spacer {
+                height: 2vh;
+            }
 
+            .txt1,
+            .txt2 {
+                //position: absolute;
+                //top: 10vh;
+                //left: 0;
+                font-size: 12vw;
+                width: 100%;
+                height: 40vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                //background: green;
 
+                color: white;
+                font-family: "Kalam";
+                //font-size: 7vh;
+                font-weight: bold;
+                //margin-top: 20vh;
+                height: 13vh;
+                font-weight: 900;
+                text-shadow:
+                    -2px -2px 0 gray,
+                    2px -2px 0 gray,
+                    -2px 2px 0 gray,
+                    2px 2px 0 gray,
+                    -3px 0px 0 gray,
+                    3px 0px 0 gray,
+                    0px -3px 0 gray,
+                    0px 3px 0 gray;
+            }
 
+            .txt1 {
+                position: absolute;
+                top: 5vh;
+                left: 0;
+            }
+            .txt2 {
+                position: absolute;
+                top: 11vh;
+                left: 0;
+            }
 
+            .subtxt1,
+            .subtxt2 {
+                //position: absolute;
+                //top: 20vh;
+                //left: 0;
+                font-size: 8vw;
+                width: 100%;
+                height: 40vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                //background: green;
 
-.imgbackcontainer {
-	position:absolute;
-    bottom:5vh;
-    left: 2vw;
-	width: 20vw;
-	height: 20vw;
-    //background-color: green;
-	border-radius: 50%;
-    color:white;
-	//opacity: 0;
-	display: flex;
-	align-items: center;
-  justify-content: center;
-  font-size: 20vw;
-  animation: fadein 2s;
-  opacity: 1;
-  
-  
-  
-  
-  
-  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-		background-color: dodgerBlue;
-		//text-align: center;
-		//border-radius: 10px;
-		border: 5px solid rgba(255, 255, 255, 0.2);
-		box-shadow: 10px 10px 25px black;
-		background-clip: padding-box;
-  
-  
-  
-  
-  
-  
-  
-  
-  
-}
+                color: white;
+                font-family: "Kalam";
+                //font-size: 7vh;
+                font-weight: bold;
+                //margin-top: 20vh;
+                height: 13vh;
+                font-weight: 900;
+                text-shadow:
+                    -2px -2px 0 gray,
+                    2px -2px 0 gray,
+                    -2px 2px 0 gray,
+                    2px 2px 0 gray,
+                    -3px 0px 0 gray,
+                    3px 0px 0 gray,
+                    0px -3px 0 gray,
+                    0px 3px 0 gray;
+            }
 
+            .subtxt1 {
+                position: absolute;
+                top: 20vh;
+                left: 0;
+            }
+            .subtxt2 {
+                position: absolute;
+                top: 25vh;
+                left: 0;
+            }
 
-@keyframes fadein {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
+            #warning {
+                display: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: indigo;
+                width: 100vw;
+                height: 100vh;
+                z-index: 999;
+                text-align: center;
+                color: white;
+                padding-top: 40vh;
+                font-size: 5vw;
+                font-family: "Kalam";
+            }
+            #round {
+                position: absolute;
+                top: 40vh;
+                right: 30vw;
+                width: 40vw;
+                height: 40vw;
+                border: 3px solid white;
+                border-radius: 50%;
+            }
 
-#spacer {
-	height: 2vh;
-}
+            #js {
+                max-height: 100%;
+                max-width: 100%;
+                border-radius: 50%;
+            }
 
-.txt1, .txt2 {
-	//position:absolute;
-    //top:10vh;
-    //left: 0;
-	font-size: 12vw;
-	width: 100%;
-	height: 40vh;
-	display: flex;
-	align-items: center;
-  justify-content: center;
-	//background: green;
-	
-	
-	color: white;
-      font-family: 'Kalam';
-      //font-size: 7vh;
-      font-weight: bold;
-      //margin-top: 20vh;
-      height: 13vh;
-      font-weight: 900;
-      text-shadow:
-                -2px -2px 0 gray,
-                2px 				-2px 0 gray,
-                -2px 2px 0 gray,
-                2px 2px 0 gray,
-                -3px 0px 0 gray,
-                3px 0px 0 gray,
-                0px -3px 0 gray,
-                0px 3px 0 gray;
-	  
-}
+            #round.half {
+              background: white; //dodgerBlue;
+              //padding: 3px;
+              //border-top-left-radius: 5px;
+              //border-bottom-left-radius: 5px;
+              //box-shadow: 10px 10px 10px black;
+              //transform: scale(2) translateX(-25%) translateY(-80%);
+              transform: scale(2.2);
+              //content: url(winterqrcode.png);
+            }
+        </style>
+    </head>
+    <body>
+        <!-- main menu -->
 
-.txt1 {
-	position:absolute;
-    top:5vh;
-    left: 0;
-}
-.txt2 {
-	position:absolute;
-    top:11vh;
-    left: 0;
-}
+        <div id="warning">Not available in landscape orientation</div>
 
+        <div class="container">
+            <!-- main menu and pages go in here -->
 
-.subtxt1, .subtxt2 {
-	//position:absolute;
-    //top:20vh;
-    //left: 0;
-	font-size: 8vw;
-	width: 100%;
-	height: 40vh;
-	display: flex;
-	align-items: center;
-  justify-content: center;
-	//background: green;
-	
-	
-	color: white;
-      font-family: 'Kalam';
-      //font-size: 7vh;
-      font-weight: bold;
-      //margin-top: 20vh;
-      height: 13vh;
-      font-weight: 900;
-      text-shadow:
-                -2px -2px 0 gray,
-                2px -2px 0 gray,
-                -2px 2px 0 gray,
-                2px 2px 0 gray,
-                -3px 0px 0 gray,
-                3px 0px 0 gray,
-                0px -3px 0 gray,
-                0px 3px 0 gray;
-}
+            <div class="icons" id="icons">
+                <div id="round">
+                    <img
+                        id="js"
+                        src="jimstamas2.jpeg"
+                        alt=""
+                        onclick="enlarge(this.id)"
+                    />
+                </div>
 
-.subtxt1 {
-	position:absolute;
-    top:20vh;
-    left: 0;
-}
-.subtxt2 {
-	position:absolute;
-    top:25vh;
-    left: 0;
-}
+                <div class="txt1">5th Jim Stamas</div>
+                <div class="txt2">Memorial Cup</div>
 
+                <div class="subtxt1">Arcot Hall golf club</div>
+                <div class="subtxt2">28th July 2026</div>
 
-  #warning {
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      background: indigo;
-      width: 100vw;
-      height: 100vh;
-      z-index: 999;
-      text-align: center;
-      color: white;
-      padding-top: 40vh;
-      font-size: 5vw;
-      font-family: 'Kalam';
-    }
+                <div class="img1a" onclick="showTeeTimes()">
+                    <img
+                        id="img1"
+                        style="border: 0; height: 15vw; width: 15vw"
+                        src="teetimes.png"
+                        alt=""
+                    />
+                    <br />tee<br />times
+                    <div id="spacer"></div>
+                </div>
+                <div class="img1a" onclick="showTeamResults()">
+                    <img
+                        id="img3"
+                        style="border: 0; height: 15vw; width: 15vw"
+                        src="teamresults.png"
+                        alt=""
+                    />
+                    <br />team<br />results
+                    <div id="spacer"></div>
+                </div>
+                <div class="img1a" onclick="showIndividualGross()">
+                    <img
+                        id="img4"
+                        style="border: 0; height: 15vw; width: 15vw"
+                        src="gross.png"
+                        alt=""
+                    />
+                    <br />individual<br />gross
+                    <div id="spacer"></div>
+                </div>
+                <div class="img1a" onclick="showIndividualPoints()">
+                    <img
+                        id="img5"
+                        style="border: 0; height: 15vw; width: 15vw"
+                        src="points.png"
+                        alt=""
+                    />
+                    <br />individual<br />points
+                    <div id="spacer"></div>
+                </div>
+            </div>
 
+            <!-- -alternative screens here -->
 
-</style>
-</head>
-<body>
-<!-- main menu --> 
+            <!-- -end of alternative screens here -->
+            <!-- end of main menu and pages go in here -->
+        </div>
 
+        <script>
+            // detect using a phone or not
+            if (
+                /Android|webOS|iPhone|iPad|iPod|BlackBerryAndroid|webOS/i.test(
+                    navigator.userAgent,
+                ) ||
+                /iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+                    navigator.userAgent,
+                )
+            ) {
+                //console.log("phone or tablet");
+                //alert("phone or tablet");
+            } else {
+                console.log("not a phone or tablet");
+                alert("not a phone or tablet");
+            }
 
- <div id="warning">Not available in landscape orientation</div>
+            // Detect whether device supports orientationchange event, otherwise fall back to
+            // the resize event.
+            var supportsOrientationChange = "onorientationchange" in window,
+                orientationEvent = supportsOrientationChange
+                    ? "orientationchange"
+                    : "resize";
 
-<div class="container">
- 
-  <!-- main menu and pages go in here --> 
-  
-  
-  
-  
-  <div class="icons" id="icons">
-  
-  
-  
-  <div class="txt1">5th Jim Stamas</div>
-  <div class="txt2">Memorial Cup</div>
-  
-  <div class="subtxt1">Arcot Hall golf club</div>
-  <div class="subtxt2">28th July 2026</div>
-  
-  
-     <div class="img1a" onclick="showTeeTimes()">
-        <img id="img1" style="border: 0; height: 15vw; width: 15vw; " src="teetimes.png" alt="">
-		<br>tee<br>times
-		<div id="spacer"></div>
-     </div>
-	 <div class="img1a" onclick="showTeamResults()">
-        <img id="img3" style="border: 0; height: 15vw; width: 15vw; " src="teamresults.png" alt="">
-		<br>team<br>results
-		<div id="spacer"></div>
-     </div> 
-     <div class="img1a" onclick="showIndividualGross()">
-        <img id="img4" style="border: 0; height: 15vw; width: 15vw; " src="gross.png" alt="">
-		<br>individual<br>gross
-		<div id="spacer"></div>
-     </div>
-     <div class="img1a" onclick="showIndividualPoints()">
-        <img id="img5" style="border: 0; height: 15vw; width: 15vw; " src="points.png" alt="">
-		<br>individual<br>points
-		<div id="spacer"></div>
-     </div>
-  </div>
-  
-  <!-- -alternative screens here -->
-  
-  
-  
-  
-  <!-- -end of alternative screens here -->
-  <!-- end of main menu and pages go in here --> 
+            window.addEventListener(
+                orientationEvent,
+                function () {
+                    if (window.orientation == 0) {
+                        document.getElementById("warning").style.display =
+                            "none";
+                    } else if (
+                        window.orientation == 90 ||
+                        window.orientation == -90
+                    ) {
+                        document.getElementById("warning").style.display =
+                            "block";
+                    }
+                },
+                false,
+            );
 
-  </div>
- 
- 
- <script>
- 
-    // Detect whether device supports orientationchange event, otherwise fall back to
-    // the resize event.
-    var supportsOrientationChange = "onorientationchange" in window,
-      orientationEvent = supportsOrientationChange ? "orientationchange" : "resize";
+            function showTeeTimes() {
+                location.href = "jsviewtees.html";
+            }
 
-    window.addEventListener(orientationEvent, function() {
-      if (window.orientation == 0) {
-        document.getElementById("warning").style.display = "none";
-      } else if (window.orientation == 90 || window.orientation == -90) {
-        document.getElementById("warning").style.display = "block";
-      }
-    }, false);
- 
-  
- function showTeeTimes() {
-	 location.href = "jsviewtees.html";
- }
- 
- function showTeamResults() {
-	 location.href = "jsteam.html";
- }
- 
- function showIndividualGross() {
-	 location.href = "jsgross.html";
- }
- 
- function showIndividualPoints() {
-	 location.href = "jspoints.html";
- }
- 
- </script>
- 
- 
- 
- </body>
+            function showTeamResults() {
+                location.href = "jsteam.html";
+            }
+
+            function showIndividualGross() {
+                location.href = "jsgross.html";
+            }
+
+            function showIndividualPoints() {
+                location.href = "jspoints.html";
+            }
+
+            function enlarge() {
+                document.getElementById("round").classList.toggle("half");
+            }
+        </script>
+    </body>
+</html>
