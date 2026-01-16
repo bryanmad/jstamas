@@ -192,7 +192,7 @@
                 start();
             }
 
-            function start() {
+            async function start() {
                 console.log("arrOptions length = " + arrOptions.length);
                 // add empty values to array to make multiples of 4
                 if (arrOptions.length % 4 !== 0) {
@@ -213,56 +213,52 @@
                 // build a set of 4-ball tee times
                 var t = 0;
                 var teecontainer = document.getElementById("teecontainer");
-                var intval = 0;
 
                 for (let j = 0; j < arrOptions.length; j += 4) {
-                    intval++;
-                    setTimeout(function () {
-                        // create a 4-ball group
+                    // create a 4-ball group
+                    await wait(400);
+                    t++;
+                    let outerbox = document.createElement("div");
+                    outerbox.id = "aa" + t;
+                    outerbox.className = "teegroup";
 
-                        t++;
-                        let outerbox = document.createElement("div");
-                        outerbox.id = "aa" + t;
-                        outerbox.className = "teegroup";
+                    // create a tee time
+                    dd = new Date(2026, 5, 28, 2, 0, 0);
+                    var tt = t * 8 - 8;
+                    ddd = addMinutes(dd, tt);
 
-                        // create a tee time
-                        dd = new Date(2026, 5, 28, 2, 0, 0);
-                        var tt = t * 8 - 8;
-                        ddd = addMinutes(dd, tt);
+                    let heading = document.createElement("div");
+                    heading.id = "h" + j;
+                    heading.className = "head";
+                    heading.innerText = "tee " + t + " at " + ddd + "pm.";
+                    teecontainer.appendChild(heading);
+                    await wait(200);
+                    // then add 4 players
+                    let box1 = document.createElement("div");
+                    box1.id = "a" + j;
+                    box1.className = "tee";
+                    box1.innerText = arrPlayers[j];
+                    outerbox.appendChild(box1);
 
-                        let heading = document.createElement("div");
-                        heading.id = "h" + j;
-                        heading.className = "head";
-                        heading.innerText = "tee " + t + " at " + ddd + "pm.";
-                        teecontainer.appendChild(heading);
+                    let box2 = document.createElement("div");
+                    box2.id = "a" + (j + 1);
+                    box2.className = "tee";
+                    box2.innerText = arrPlayers[j + 1];
+                    outerbox.appendChild(box2);
 
-                        // then add 4 players
-                        let box1 = document.createElement("div");
-                        box1.id = "a" + j;
-                        box1.className = "tee";
-                        box1.innerText = arrPlayers[j];
-                        outerbox.appendChild(box1);
+                    let box3 = document.createElement("div");
+                    box3.id = "a" + (j + 2);
+                    box3.className = "tee";
+                    box3.innerText = arrPlayers[j + 2];
+                    outerbox.appendChild(box3);
 
-                        let box2 = document.createElement("div");
-                        box2.id = "a" + (j + 1);
-                        box2.className = "tee";
-                        box2.innerText = arrPlayers[j + 1];
-                        outerbox.appendChild(box2);
-
-                        let box3 = document.createElement("div");
-                        box3.id = "a" + (j + 2);
-                        box3.className = "tee";
-                        box3.innerText = arrPlayers[j + 2];
-                        outerbox.appendChild(box3);
-
-                        let box4 = document.createElement("div");
-                        box4.id = "a" + (j + 3);
-                        box4.className = "tee";
-                        box4.innerText = arrPlayers[j + 3];
-                        outerbox.appendChild(box4);
-
-                        teecontainer.appendChild(outerbox);
-                    }, intval * 200);
+                    let box4 = document.createElement("div");
+                    box4.id = "a" + (j + 3);
+                    box4.className = "tee";
+                    box4.innerText = arrPlayers[j + 3];
+                    outerbox.appendChild(box4);
+                    await wait(300);
+                    teecontainer.appendChild(outerbox);
                 }
             } // end of start()
 
@@ -283,6 +279,11 @@
                 console.log("go back");
                 location.href = "jsfront.html";
             }
+
+            const wait = (time) =>
+                new Promise((resolve) => {
+                    setTimeout(() => resolve(), time);
+                });
         </script>
     </body>
 </html>
