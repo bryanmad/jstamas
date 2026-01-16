@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+font-family: arial;
+font-size: 5vw;	
+width: 98vw;
+}
+
+.position {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    z-index: 2;
+    display: none;
+}
+
+.container {
+    width: 220px;
+    height: auto;
+    border: 1px solid black;
+    background: rgb(245, 243, 243);
+}
+
+.container p {
+    height: 30px;
+    font-size: 18px;
+    font-family: arial;
+    width: 99%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(245, 243, 243);
+    color: black;
+    transition: 0.2s;
+}
+
+.container p:hover {
+    background: lightblue;
+}
+
+td {
+    font-family: arial;
+    font-size: 20px;
+	//padding: 1vh;
+}
+
+td:hover {
+    background: lightblue;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+
+.teegroup {
+	//background: gray;
+	border: 2px solid black;
+	border-radius: 5px;
+	width: 50%;
+	margin: 1vh;
+}
+
+.tee {
+	padding: 1vh;
+}
+
+.head {
+	background: gray;
+	border: 2px solid black;
+	border-radius: 5px;
+	width: calc(50% - 2vh);
+	margin: 1vh;
+	color: white;
+	padding:1vh;
+}
+
+div#msgbox {
+    position:absolute;
+	text-align: center;
+    //display:none;
+    top:10%;
+    left:10%;
+    width:60%; 
+    //margin-left:-250px;
+    border: 2px solid black;
+	border-radius: 5px; 
+    padding:1vh;
+    background-color:white;
+}
+
+#answeryes {
+	text-align: center;
+	border: 2px solid black;
+	border-radius: 5px;
+	padding: 3vh;
+	margin: 3vh;
+	float: left;
+	width: 20%;
+}
+
+#answerno {
+	text-align: center;
+	border: 2px solid black;
+	border-radius: 5px;
+	padding: 3vh;
+	margin: 3vh;
+float: right;
+	width: 20%;
+}
+
+</style>
+</head>
+<body style="background-color:white;">
+
+<div id="msgbox"><p>Previous data exists, restore ?</p>
+    <p>
+        <a id="answeryes" onclick=restoreTeeData()>
+            Yes
+        </a>
+        <a id="answerno" onclick=saveTeeData()>
+            No
+        </a>
+    </p>
+</div>
+
+<div id="teecontainer"></div>
+<!--
+<div id="a0" oncontextmenu="selected(this.id)">aaaaaaaaaa</div>
+<div id="a1" oncontextmenu="selected(this.id)">bbbbbbbbbb</div>
+<div id="a2" oncontextmenu="selected(this.id)">cccccccccc</div>
+<div id="a3" oncontextmenu="selected(this.id)">dddddddddd</div>
+<div id="a4" oncontextmenu="selected(this.id)">eeeeeeeeee</div>
+<div id="a5" oncontextmenu="selected(this.id)">ffffffffff</div>
+-->
+
+
+
+<div class="position">
+    <div class="container" align="center" style="overflow-y: scroll; height:400px;">
+        <table style="text-align: left; width: 99%; margin-left: auto; margin-right: auto;" border="0" cellpadding="2" cellspacing="2">
+            <tbody id="tbody">
+<!-- code creates HTML here -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+// set up variables etc.
+
+var selectedteeslotplayer = "";
+var selectedteeslot = "";
+var oldteeslotvalue = "";
+
+
+playersarray = [
+"Bryan",
+"Dale",
+"Dean",
+"Graham",
+
+"John",
+"Peter",
+"Richard",
+"Robert",
+
+"SteveA",
+"SteveW",
+"Bryan",
+"Dale",
+
+"Dean",
+"Graham",
+"John",
+"Peter",
+
+"Richard",
+"Robert",
+
+
+
+
+
+
+
+
+
+
+
+
+]
+
+//console.log("old playersarray.length = " + playersarray.length)
+
+// add empty values to array to make multiples of 4
+if (playersarray.length%4 !== 0) {
+	playersarray.push("----------")
+	console.log("1 added")
+}
+if (playersarray.length%4 !== 0) {
+	playersarray.push("----------")
+	console.log("1 added")
+}
+if (playersarray.length%4 !== 0) {
+	playersarray.push("----------")
+	console.log("1 added")
+}
+
+//console.log("new playersarray.length = " + playersarray.length)
+//console.log(playersarray)
+
+// build set of options - names of players in a dropdown
+// format is as below
+
+//<tr>
+//<td style="vertical-align: middle; text-align: center;">Option 1<br>
+//</td>
+//</tr>
+
+var dropdowncontainer = document.getElementById("tbody")
+for (let j = 0; j < playersarray.length; j++) {
+let box = document.createElement("tr");
+box.id= "box" + j;
+box.className = "team";
+
+let name = document.createElement("td");
+name.id = "name" + j
+name.className = "name";
+name.style.verticalAlign = "middle";
+name.style.textAlign = "left";
+
+let used = document.createElement("span");
+used.id = "used" + j
+used.className = "used";
+used.innerText = "no";	
+name.innerText = playersarray[j];
+box.appendChild(name);
+box.appendChild(used);
+
+dropdowncontainer.appendChild(box);
+
+}
+
+// build a set of 4-ball tee times
+var t = 0;
+var teecontainer = document.getElementById("teecontainer")
+for (let j = 0; j < playersarray.length; j+=4) {
+   // create a 4-ball group
+   console.log("j = " + j)
+   t++
+   let outerbox = document.createElement("div");
+   outerbox.id= "aa" + t;
+   outerbox.className = "teegroup";
+   
+   //console.log(teecontainer.innerHTML)
+ 
+ 
+ 
+ 
+let heading = document.createElement("div");
+heading.id= "h" + j;
+heading.className = "head";
+heading.innerText = "tee " + t;
+teecontainer.appendChild(heading)
+
+
+
+
+  
+// then add 4 players
+let box1 = document.createElement("div");
+   box1.id= "a" + j;
+   box1.className = "tee";
+   //box.style.setProperty("--i", i);  
+   box1.setAttribute( "oncontextmenu", "javascript: selected(this.id);" );
+   box1.innerText = "----------"
+   outerbox.appendChild(box1);
+
+let box2 = document.createElement("div");
+   box2.id= "a" + (j+1);
+   box2.className = "tee";
+   //box.style.setProperty("--i", i);  
+   box2.setAttribute( "oncontextmenu", "javascript: selected(this.id);" );
+   box2.innerText = "----------"
+   outerbox.appendChild(box2);
+
+let box3 = document.createElement("div");
+   box3.id= "a" + (j+2);
+   box3.className = "tee";
+   //box.style.setProperty("--i", i);  
+   box3.setAttribute( "oncontextmenu", "javascript: selected(this.id);" );
+   box3.innerText = "----------"
+   outerbox.appendChild(box3);
+
+let box4 = document.createElement("div");
+   box4.id= "a" + (j+3);
+   box4.className = "tee";
+   //box.style.setProperty("--i", i);  
+   box4.setAttribute( "oncontextmenu", "javascript: selected(this.id);" );
+   box4.innerText = "----------"
+   outerbox.appendChild(box4);
+
+teecontainer.appendChild(outerbox);
+
+}
+
+// menu
+var cls = true;
+var ops;
+
+window.onload = function() {
+    document.querySelector(".container").addEventListener("mouseenter", function() {
+        cls = false;
+    });
+    document.querySelector(".container").addEventListener("mouseleave", function() {
+        cls = true;
+    });
+    ops = document.querySelectorAll(".container td");
+	
+	//console.log("ops.length or dropdown list numbers = " + ops.length)
+	
+    // hide menu on click
+    for (let i = 0; i < ops.length; i++) {
+        ops[i].addEventListener("click", function() {
+            document.querySelector(".position").style.display = "none";
+        });
+    }
+	
+	// menu
+	for (let i = 0; i < ops.length; i++) {
+	   ops[i].addEventListener("click", function() {
+        setTimeout(function() {
+         
+		if (   document.getElementById("used" + i).innerText !== "in use") {
+			
+			// replace tee slot with selected player from dropdown
+			selectedteeslotplayer = playersarray[i]
+			oldteeslotvalue = document.getElementById(selectedteeslot).innerText
+			document.getElementById(selectedteeslot).innerText = selectedteeslotplayer
+			if (playersarray[i] !== "----------") {
+				//console.log("used + i = "+ document.getElementById("used" + i).innerText)
+               document.getElementById("used" + i).innerText = "in use";
+			} else {
+			   document.getElementById("used" + i).innerText = "no";
+			}
+			
+			
+			
+			
+			
+			
+		//console.log("old value = " + oldteeslotvalue)
+		//console.log("selected value = " + selectedteeslotplayer)
+	
+			// if player name changes, reset the "in use"
+			if (oldteeslotvalue !== "----------") {
+				if (oldteeslotvalue !== selectedteeslotplayer) {
+					var ii = playersarray.indexOf(oldteeslotvalue);
+					document.getElementById("used" + ii).innerText = "no";
+				}
+			}
+			
+			//console.log("after used + i = "+ document.getElementById("used" + i).innerText)
+			// testing
+	saveTeeData()	
+			
+			
+		}
+			
+			
+			
+			
+			
+			
+			//document.getElementById(selectedteeslot).style.background = "white";
+        }, 50);
+       });
+	}	
+	
+
+	
+	
+}
+
+// right-click
+document.addEventListener("contextmenu", function() {
+    var e = window.event;
+    e.preventDefault();
+    document.querySelector(".container").style.padding = "0px";
+	
+    // tee slots	
+    selectedteeslot = e.target.id
+    //console.log(e.target.id + " " + selectedteeslotplayer)
+    // set all backgrounds to white, then selected to cyan; 
+    //for (let k = 0; k < ops.length; k++) {
+    //    document.getElementById("a" + k).style.background = "white";
+    //}
+    //document.getElementById(e.target.id).style.background = "cyan";
+
+    var x = e.clientX;
+    var y = e.clientY;
+
+    var docX = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth || document.body.offsetWidth;
+    var docY = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight || document.body.offsetHeight;
+
+    var border = parseInt(getComputedStyle(document.querySelector(".container"), null).getPropertyValue('border-width'));
+
+    var objX = parseInt(getComputedStyle(document.querySelector(".container"), null).getPropertyValue('width')) + 2;
+    var objY = parseInt(getComputedStyle(document.querySelector(".container"), null).getPropertyValue('height')) + 2;
+/*
+    if (x + objX > docX) {
+        let diff = (x + objX) - docX;
+        x -= diff + border;
+    }
+
+    if (y + objY > docY) {
+        let diff = (y + objY) - docY;
+        y -= diff + border;
+    }
+*/
+    document.querySelector(".position").style.display = "block";
+
+    document.querySelector(".position").style.top = y + "px";
+    document.querySelector(".position").style.left = x + "px";
+});
+
+window.addEventListener("resize", function() {
+    document.querySelector(".position").style.display = "none";
+});
+
+document.addEventListener("click", function() {
+    if (cls) {
+        document.querySelector(".position").style.display = "none";
+    }
+});
+
+document.addEventListener("wheel", function() {
+    if (cls) {
+        document.querySelector(".position").style.display = "none";
+        static = false;
+    }
+});
+
+
+
+
+// - save or restore - //
+//saveDropdownData()
+
+//setTimeout(restoreDropdownData,500);
+
+//setTimeout(saveTeeData,10000)
+
+//setTimeout(restoreTeeData,14000);
+
+
+// - functions - //
+
+
+
+
+
+
+// right click tee time
+function selected(id) {
+	selectedteeslotplayer = document.getElementById(id).innerText
+	//console.log("selectedteeslotplayer = " + selectedteeslotplayer)
+}
+
+function saveDropdownData() {
+	var tempnamesarray = [];
+	var tempusedarray = [];
+	var ops = document.querySelectorAll(".container td");
+	for (let i = 0; i < ops.length; i++) {
+		// array of names
+		tempnamesarray.push(document.getElementById("name" + i).innerText);
+		// array of states for now
+		tempusedarray.push(document.getElementById("used" + i).innerText);
+		
+		//console.log(tempnamesarray)
+		//console.log(tempusedarray)
+		
+		localStorage.setItem("names", JSON.stringify(tempnamesarray));
+		localStorage.setItem("used", JSON.stringify(tempusedarray));
+		
+	}	
+	
+	
+	
+	
+}
+
+function restoreDropdownData() {
+	var tempnamesarray = [];
+	var tempusedarray = [];
+	tempnamesarray =  JSON.parse(localStorage.getItem("names"));
+	tempusedarray =  JSON.parse(localStorage.getItem("used"));
+	//console.log(tempnamesarray);
+	for (let i = 0; i < tempnamesarray.length; i++) {
+		document.getElementById("name" + i).innerText = tempnamesarray[i];
+	    document.getElementById("used" + i).innerText = tempusedarray[i];
+		// tidy up any cyan color left over
+		//document.getElementById("name" + i).style.background = "white";
+		
+		
+	}
+	//document.getElementById("msgbox").style.display = "none";
+	/*
+	var ops = document.querySelectorAll(".container td");
+	for (let i = 0; i < ops.length; i++) {
+		// array of names
+		tempnamesarray.push(document.getElementById("name" + i).innerText);
+		// array of hcps - states for now
+		tempusedarray.push(document.getElementById("used" + i).innerText);
+		
+		console.log(tempnamesarray)
+		console.log(tempusedarray)
+		
+		localStorage.setItem("names", JSON.stringify(tempnamesarray));
+		localStorage.setItem("used", JSON.stringify(tempusedarray));
+*/
+}
+
+
+
+function saveTeeData() {
+	var tempteenamesarray = [];
+	//var tempusedarray = [];
+	var ops = document.querySelectorAll(".container td");
+	for (let i = 0; i < ops.length; i++) {
+		// array of names
+		tempteenamesarray.push(document.getElementById("a" + i).innerText);
+		// array of hcps - states for now
+		//tempusedarray.push(document.getElementById("used" + i).innerText);
+		
+		
+		
+		localStorage.setItem("teenames", JSON.stringify(tempteenamesarray));
+		//localStorage.setItem("used", JSON.stringify(tempusedarray));
+		
+	}	
+	console.log("saveTeeData = " + tempteenamesarray)
+		//console.log(tempusedarray)
+		document.getElementById("msgbox").style.display = "none";
+		saveDropdownData();
+}
+
+
+
+
+
+function restoreTeeData() {
+	var tempteenamesarray = [];
+	//var tempusedarray = [];
+	tempteenamesarray =  JSON.parse(localStorage.getItem("teenames"));
+	console.log("restoreTeeData = " + tempteenamesarray);
+	for (let i = 0; i < tempteenamesarray.length; i++) {
+		document.getElementById("a" + i).innerText = tempteenamesarray[i];
+	    //document.getElementById("used" + i).innerText = tempteeusednamesarray[i];
+	}
+	document.getElementById("msgbox").style.display = "none";
+	restoreDropdownData();
+}	
+
+</script>
+
+</body>
+</html>
