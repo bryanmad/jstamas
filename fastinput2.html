@@ -700,16 +700,20 @@ https://docs.google.com/forms/d/e/1FAIpQLScEMPkMNDTXFyUKMrfeoywXNDd_In2I5IaxK9_v
             button1up.addEventListener("contextmenu", (event) => {
                 event.preventDefault();
             });
+            // single touch
             button1up.addEventListener("touchstart", function () {
                 incrementValue(targetID);
             });
+            // long touch
             button1up.addEventListener("contextmenu", function () {
                 incrementValue(targetID);
+                // delay until longpress detected
                 timeout = setTimeout(function () {
+                    // increment every 50ms during long press
                     interval = setInterval(function () {
                         incrementValue(targetID);
                     }, 50);
-                }, 10);
+                }, 200);
             });
 
             button1up.addEventListener("touchend", clearTimers);
@@ -732,11 +736,13 @@ https://docs.google.com/forms/d/e/1FAIpQLScEMPkMNDTXFyUKMrfeoywXNDd_In2I5IaxK9_v
             });
             button1down.addEventListener("contextmenu", function () {
                 decrementValue(targetID);
+                // delay until longpress detected
                 timeout = setTimeout(function () {
+                    // increment every 50ms during long press
                     interval = setInterval(function () {
                         decrementValue(targetID);
                     }, 50);
-                }, 10);
+                }, 200);
             });
 
             button1down.addEventListener("touchend", clearTimers);
