@@ -361,8 +361,14 @@
             var elem = document.documentElement;
 
             /* View in fullscreen */
-            window.scrollTo(0, 1);
-            document.getElementById("icons").scrollIntoView();
+            // When ready...
+            window.addEventListener("load", function () {
+                // Set a timeout...
+                setTimeout(function () {
+                    // Hide the address bar!
+                    window.scrollTo(0, 1);
+                }, 0);
+            });
 
             // detect using a phone or not
             if (
