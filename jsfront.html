@@ -309,7 +309,8 @@
 
                 <div class="txt1">5th Jim Stamas</div>
                 <div class="txt2">Memorial Cup</div>
-
+                <div class="subtxt1">Arcot Hall golf club</div>
+                <div class="subtxt2">28th July 2026</div>
 
 
 
@@ -369,14 +370,7 @@
         </div>
 
         <script>
-            /* View in fullscreen */
-            const scrollingElement = (document.scrollingElement || document.body);
 
-
-            const scrollToBottom = () => {
-                scrollingElement.scrollTop = scrollingElement.scrollHeight;
-            };
-            scrollToBottom();
 
             // detect using a phone or not
             if (
@@ -390,8 +384,8 @@
                 //console.log("phone or tablet");
                 //alert("phone or tablet");
             } else {
-                console.log("not a phone or tablet");
-                alert("not a phone or tablet");
+                console.log("This is not a phone or tablet");
+                alert("Info: This is not a phone or tablet\nThis app is only created for use by a\nphone or small tablet in portrait orientation");
             }
 
             // Detect whether device supports orientationchange event, otherwise fall back to
