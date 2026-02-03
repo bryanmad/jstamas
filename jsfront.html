@@ -22,8 +22,6 @@
             rel="stylesheet"
         />
         <style>
-
-
             body {
                 height: 100vh;
                 background-color: black;
@@ -35,9 +33,9 @@
                 overflow: auto;
                 background-image: url("arcot.png");
                 background-position: center;
-                 background-repeat: no-repeat;
-                 background-size: cover;
-                 animation: fadein 2s;
+                background-repeat: no-repeat;
+                background-size: cover;
+                animation: fadein 1s;
             }
 
             /* menu */
@@ -49,42 +47,14 @@
 
             .icons {
                 height: 20vh;
-                  background: transparent;
-                  color: white;
-                  display: flex;
-                  align-items: flex-end;
-                  justify-content: center;
-                  position: fixed;
-                  bottom: 0;
-                  width: 100%;
-            }
-
-
-
-
-
-
-
-
-
-
-            #img1x,
-            #img2x,
-            #img3x,
-            #img5x {
-                padding: 5vw;
-                //width: 20vw;
-                //background: yellow;
-            }
-
-            #img1x,
-            #img3x,
-            #img5x {
-                background: gray;
-            }
-
-            #img2x {
-                background: lightgray;
+                background: transparent;
+                color: white;
+                display: flex;
+                align-items: flex-end;
+                justify-content: center;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
             }
 
             .img1a {
@@ -95,18 +65,6 @@
             }
 
             /* end of menu */
-
-            /* point at which pages are inserted */
-            #replace {
-                color: white;
-                font-size: 7vw;
-                background: gray;
-                height: 100%;
-            }
-
-            .bs {
-                animation: slidein 2s;
-            }
 
             @keyframes slidein {
                 0% {
@@ -162,9 +120,6 @@
 
             .txt1,
             .txt2 {
-                //position: absolute;
-                //top: 10vh;
-                //left: 0;
                 font-size: 12vw;
                 width: 100%;
                 height: 40vh;
@@ -175,9 +130,9 @@
 
                 color: white;
                 font-family: "Kalam";
-                //font-size: 7vh;
+
                 font-weight: bold;
-                //margin-top: 20vh;
+
                 height: 13vh;
                 font-weight: 900;
                 text-shadow:
@@ -276,23 +231,15 @@
             }
 
             #round.half {
-              background: white; //dodgerBlue;
-              //padding: 3px;
-              //border-top-left-radius: 5px;
-              //border-bottom-left-radius: 5px;
-              box-shadow: 10px 10px 10px black;
-              //transform: scale(2) translateX(-25%) translateY(-80%);
-              transform: scale(2.2) translateX(0.5%);
-              //content: url(winterqrcode.png);
+                background: white;
+
+                box-shadow: 10px 10px 10px black;
+
+                transform: scale(2.2) translateX(0.5%);
             }
         </style>
     </head>
     <body>
-        <!--
-        <body onload="document.body.style.height=(2*window.innerHeight-window.outerHeight)+'px';">
--->
-        <!-- main menu -->
-
         <div id="warning">Not available in landscape orientation</div>
 
         <div class="container">
