@@ -288,9 +288,9 @@
         </style>
     </head>
     <body>
-
+        <!--
         <body onload="document.body.style.height=(2*window.innerHeight-window.outerHeight)+'px';">
-
+-->
         <!-- main menu -->
 
         <div id="warning">Not available in landscape orientation</div>
@@ -298,72 +298,67 @@
         <div class="container">
             <!-- main menu and pages go in here -->
 
+            <div id="round">
+                <img
+                    id="js"
+                    src="jspicture.png"
+                    alt=""
+                    onclick="enlarge(this.id)"
+                />
+            </div>
 
-                <div id="round">
-                    <img
-                        id="js"
-                        src="jspicture.png"
-                        alt=""
-                        onclick="enlarge(this.id)"
-                    />
-                </div>
+            <div class="txt1">5th Jim Stamas</div>
+            <div class="txt2">Memorial Cup</div>
+            <div class="subtxt1">Arcot Hall golf club</div>
+            <div class="subtxt2">28th July 2026</div>
 
-                <div class="txt1">5th Jim Stamas</div>
-                <div class="txt2">Memorial Cup</div>
-                <div class="subtxt1">Arcot Hall golf club</div>
-                <div class="subtxt2">28th July 2026</div>
+            <div>
+                <div class="icons" id="icons">
+                    <div class="subtxt1">Arcot Hall golf club</div>
+                    <div class="subtxt2">28th July 2026</div>
 
-
-
-<div>
-            <div class="icons" id="icons">
-
-
-                <div class="subtxt1">Arcot Hall golf club</div>
-                <div class="subtxt2">28th July 2026</div>
-
-                <div class="img1a" onclick="showTeeTimes()">
-                    <img
-                        id="img1"
-                        style="border: 0; height: 15vw; width: 15vw"
-                        src="teetimes.png"
-                        alt=""
-                    />
-                    <br />tee<br />times
-                    <div id="spacer"></div>
-                </div>
-                <div class="img1a" onclick="showTeamResults()">
-                    <img
-                        id="img3"
-                        style="border: 0; height: 15vw; width: 15vw"
-                        src="teamresults.png"
-                        alt=""
-                    />
-                    <br />team<br />results
-                    <div id="spacer"></div>
-                </div>
-                <div class="img1a" onclick="showIndividualGross()">
-                    <img
-                        id="img4"
-                        style="border: 0; height: 15vw; width: 15vw"
-                        src="gross.png"
-                        alt=""
-                    />
-                    <br />individual<br />gross
-                    <div id="spacer"></div>
-                </div>
-                <div class="img1a" onclick="showIndividualPoints()">
-                    <img
-                        id="img5"
-                        style="border: 0; height: 15vw; width: 15vw"
-                        src="points.png"
-                        alt=""
-                    />
-                    <br />individual<br />points
-                    <div id="spacer"></div>
+                    <div class="img1a" onclick="showTeeTimes()">
+                        <img
+                            id="img1"
+                            style="border: 0; height: 15vw; width: 15vw"
+                            src="teetimes.png"
+                            alt=""
+                        />
+                        <br />tee<br />times
+                        <div id="spacer"></div>
+                    </div>
+                    <div class="img1a" onclick="showTeamResults()">
+                        <img
+                            id="img3"
+                            style="border: 0; height: 15vw; width: 15vw"
+                            src="teamresults.png"
+                            alt=""
+                        />
+                        <br />team<br />results
+                        <div id="spacer"></div>
+                    </div>
+                    <div class="img1a" onclick="showIndividualGross()">
+                        <img
+                            id="img4"
+                            style="border: 0; height: 15vw; width: 15vw"
+                            src="gross.png"
+                            alt=""
+                        />
+                        <br />individual<br />gross
+                        <div id="spacer"></div>
+                    </div>
+                    <div class="img1a" onclick="showIndividualPoints()">
+                        <img
+                            id="img5"
+                            style="border: 0; height: 15vw; width: 15vw"
+                            src="points.png"
+                            alt=""
+                        />
+                        <br />individual<br />points
+                        <div id="spacer"></div>
+                    </div>
                 </div>
             </div>
-</div>
             <!-- -alternative screens here -->
 
             <!-- -end of alternative screens here -->
@@ -371,8 +366,6 @@
         </div>
 
         <script>
-
-
             // detect using a phone or not
             if (
                 /Android|webOS|iPhone|iPad|iPod|BlackBerryAndroid|webOS/i.test(
@@ -382,11 +375,13 @@
                     navigator.userAgent,
                 )
             ) {
-              console.log("phone or tablet");
+                console.log("phone or tablet");
                 //alert("phone or tablet");
             } else {
                 console.log("This is not a phone or tablet");
-                alert("Info: Device set to use the Desktop site\nSo assuming this is not a phone or tablet\nThis app is only created for use by a\nphone or small tablet in portrait orientation");
+                alert(
+                    "Info: Device set to use the Desktop site\nSo assuming this is not a phone or tablet\nThis app is only created for use by a\nphone or small tablet in portrait orientation",
+                );
             }
 
             // Detect whether device supports orientationchange event, otherwise fall back to
