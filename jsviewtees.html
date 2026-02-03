@@ -157,42 +157,53 @@
             // https://docs.google.com/spreadsheets/d/e/2PACX-1vTZXo5wqMAIQ5cdGyb_ZczrereiMQd5wGFIdNbyirolhaSJ8Fex2_-q641jVzV0Srted6EvDMtdfQE3/pub?gid=342576676&single=true&output=csv
 
             async function getData() {
+                // get scores tab
                 var dataStream = await fetch(
-                    "https://opensheet.elk.sh/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5ya0/teeslotscsv",
+                    "https://opensheet.elk.sh/18v--oTO4IICCTf8uCQEmFgItvVFIHukQz9Q0D_Sp1FQ/scores",
                 );
                 if (!dataStream.ok) {
                     const message = `An error has occured: ${dataStream.status}`;
                     //throw new Error(message);
                     alert("error: " + message);
                 }
-                var resultsarray = await dataStream.json();
+                var data = await dataStream.json();
+
+                console.log(data);
+                data = data.filter(function (el) {
+                    return el.invalid != "Y";
+                });
+                console.log(data);
+
                 // split into separate arrays
-                arrPlayers = resultsarray.map((d) => d.players);
+                arrPlayers = data.map((d) => d.players);
                 //arrTeeSlots = resultsarray.map(d => d.teeslots);
-                arrOptions = resultsarray.map((d) => d.allplayers);
+                arrTeeSlots = data.map((d) => d.teeslots);
+
+                //arrTeamScores = data.map((d) => d.teamscore);
                 // remove null items
-                arrPlayers = arrPlayers.filter(function (el) {
-                    return el != null;
-                });
+                //arrPlayers = arrPlayers.filter(function (el) {
+                //    return el != null;
+                //});
                 //arrTeeSlots = arrTeeSlots.filter(function(el) {return el != null;})
-                arrOptions = arrOptions.filter(function (el) {
-                    return el != null;
-                });
+                //arrOptions = arrOptions.filter(function (el) {
+                //    return el != null;
+                //});
                 // remove empty items
-                arrPlayers = arrPlayers.filter(function (el) {
-                    return el != "";
-                });
+                //arrPlayers = arrPlayers.filter(function (el) {
+                //    return el != "";
+                //});
                 //arrTeeSlots = arrTeeSlots.filter(function(el) {return el != "";})
-                arrOptions = arrOptions.filter(function (el) {
-                    return el != "";
-                });
+                //arrOptions = arrOptions.filter(function (el) {
+                //    return el != "";
+                //});
                 console.log(arrPlayers);
                 //console.log(arrTeeSlots)
-                console.log(arrOptions);
+                console.log(arrTeeSlots);
                 start();
             }
 
             async function start() {
+                /*
                 console.log("arrOptions length = " + arrOptions.length);
                 // add empty values to array to make multiples of 4
                 if (arrOptions.length % 4 !== 0) {
@@ -209,12 +220,12 @@
                 }
 
                 console.log("arrOptions length = " + arrOptions.length);
-
+*/
                 // build a set of 4-ball tee times
                 var t = 0;
                 var teecontainer = document.getElementById("teecontainer");
 
-                for (let j = 0; j < arrOptions.length; j += 4) {
+                for (let j = 0; j < arrPlayers.length; j += 4) {
                     // create a 4-ball group
                     await wait(400);
                     t++;
