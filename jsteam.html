@@ -19,7 +19,7 @@
 }
 
     body {
-      background-color: white;
+      background-color: DarkSlateBlue;
       font-family: Helvetica, Arial, sans-serif;
       padding: 0;
       margin: 0;
@@ -27,20 +27,20 @@
       overflow: auto;
     }
 
-  
+
  /* holds menu */
 .container {
     position: relative;
 	height: 187vh;
 	//margin-top: 10vh;
 }
- 
+
  #titlecontainer {
     position: relative;
 	height: 10vh;
 	//margin-top: 10vh;
 }
- 
+
 /* for each day */
 #menu1 {
 		//border: 2px solid white;
@@ -60,8 +60,8 @@
         //        3px 0px 0 gray,
         //        0px -3px 0 gray,
         //        0px 3px 0 gray;
-		
-		
+
+
 		display:block;
 }
 
@@ -72,10 +72,10 @@
 	    height: 187vh;
 	    transition: all 1s ease;
 		opacity: 1;
-		
+
 }
 
-/* for return to menu days */	
+/* for return to menu days */
 .contractmenu {
         opacity: 0.6;
 	    transition: all 1s ease;
@@ -101,7 +101,7 @@
 	padding-top: 1vh;
 	padding-bottom: 1vh;
 	display: none;
-	
+
 }
 
 .name {
@@ -113,12 +113,12 @@
     color: white;
     font-weight: 400;
     text-transform: capitalize;
-	
+
 }
 
 .score {
     width: 20%;
-    font-size: 12vw;
+    font-size: 7vw;
     color: white;
     font-weight: 400;
 	display: inline-flex;
@@ -131,7 +131,7 @@
     font-size: 6vw;
     color: white;
     font-weight: 400;
-    display: inline-flex;	
+    display: inline-flex;
 	text-align: center;
 	justify-content: center;
 }
@@ -175,7 +175,7 @@
     justify-content: center;
     animation: fadein 1.5s;
   text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-		background-color: dodgerBlue;
+		background-color: DarkSlateBlue;
 		border-radius: 10px;
 		border: 5px solid rgba(255, 255, 255, 0.2);
 		box-shadow: 10px 10px 25px black;
@@ -209,12 +209,12 @@
 	color: white;
 	font-size: 7vw;
 	//display: block;
-	
-	
+
+
 }
 
 .tteam {
-	
+
 	display: block;
 }
 
@@ -231,12 +231,17 @@
   <div id="warning">Not available in landscape orientation</div>
   <div class="spacer2vh"></div>
   <div id="titlecontainer">
-     <div id="title"><div id="spacer4"></div>Team best 2 points</div>
+     <div id="title"><div id="spacer4"></div>Team best 2 points</div><div id="title">
+         <div id="spacer4"></div>
+         &nbsp;Team scores
+         <div id="spacer4"></div>
+         <div id="subtitle">( best 2 points per hole )</div>
+     </div>
   </div>
   <div class="spacer2vh"></div>
   <div id="container" class="container">
      <div id="imgbackcontainer" class="imgbackcontainer" onclick= "goBack()";">
-        <img id="imgback" style="border: 0; height: 20vw; width: 20vw;" src="arrow.png" alt="x">
+        <img id="imgback" style="border: 0; height: 20vw; width: 20vw;" src="arrowdarkslateblue.png" alt="x">
      </div>
      <div id="menu1" onclick="activateMenu(this.id)"></div>
   </div>
@@ -253,13 +258,15 @@
         document.getElementById("warning").style.display = "block";
       }
     }, false);
-    
+
 //------------------------------------------------------------------------------
-	
+
 var data;
 var dayCount = 6;
 var url
 var makeTeam = "";
+var currentscore = 0;
+var currentpos = 0;
 //document.getElementById("menu1").innerText = "Gross score"
 document.getElementById("menu1").className = "contractmenu"
 activateMenu("menu1")
@@ -284,7 +291,7 @@ https://docs.google.com/spreadsheets/d/e/2PACX-1vTZXo5wqMAIQ5cdGyb_ZczrereiMQd5w
 */
 
 async function getData() {
-url = "https://opensheet.elk.sh/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5ya0/teamscorecsv";
+url = "https://opensheet.elk.sh/18v--oTO4IICCTf8uCQEmFgItvVFIHukQz9Q0D_Sp1FQ/teamscorecsv";
 try {
      const dataStream = await fetch(url);
      if (!dataStream.ok) {
@@ -296,10 +303,10 @@ try {
 }
 
 // get rid of "blanks"
-//console.log(data)
+console.log(data)
 data = data.filter(function(el) {return el.name != "\n\n\n";})
 
-//console.log(data)
+console.log(data)
 
 
      useData();
@@ -316,12 +323,13 @@ data.forEach((el, i) => {
    let box = document.createElement("div");
    box.id= "box" + i;
    box.className = "team";
-   box.style.setProperty("--i", i);  
+   box.style.setProperty("--i", i);
    let name = document.createElement("span");
    name.id = "name" + i
    name.className = "name";
    let score = document.createElement("span");
    score.id = "score" + i
+   score.className = "score";
    let position = document.createElement("span");
    position.id = "position" + i
    position.className = "position";
@@ -334,18 +342,19 @@ data.forEach((el, i) => {
 })
 j=0
 
-data.forEach((elstartx,j) => {	
+data.forEach((elstartx,j) => {
 	//console.log(elstartx)
-	initialBodyUpdate(elstartx.name,j);
+	initialBodyUpdate(elstartx.name,j,elstartx.score);
 })
 k=0;
 // do proper display
 
-data.forEach((el) => {	
+data.forEach((el) => {
 	k++
 	setTimeout(function() {
 		if (el.name !== "") {
             //console.log("el.name = " + el.name)
+            console.log("el.score = " + el.score)
 	bodyUpdate(el.name,el.score);
 		}
    },k*300);
@@ -354,7 +363,7 @@ data.forEach((el) => {
 }
 
 
-function bodyUpdate(nom,scr) {	 
+function bodyUpdate(nom,scr) {
 //console.log("scr = " + scr)
 let elName = nom;
 data.find((team) => team.name === elName);
@@ -369,7 +378,7 @@ data.forEach((elem, ind) => {
 	}
 	held = elem.position;
 	heldscore = elem.score;
-});  
+});
 let AllTeams = Array.from(document.querySelectorAll(".team"));
 var k=0
 AllTeams.forEach((elx,j) => {
@@ -386,17 +395,27 @@ let elementScore = document.getElementById("score" + j).innerText
       elx.style.display = "flex";
    }
 })
-	
-}  
 
-function initialBodyUpdate(nom,pos) {
+}
+
+function initialBodyUpdate(nom,pos,score) {
 	document.getElementById("name" + pos).innerText = nom;
-    var newpos = (pos + 1);
-	arrpos = ["dummy","1st","2nd","3rd","4th","5th","6th","7th","8th","9th","10th","11th","12th","13th","14th","15th","16th","17th","18th","19th","20th","21st","22nd","23rd","24th","25th","26th","27th","28th","29th","30th"]
-	document.getElementById("position" + pos).innerText = arrpos[newpos];	
-	
+    if (pos == 0) {
+      currentscore = score;
+      currentpos = (pos + 1);
+    }
 
-}	
+	if (score !== currentscore) {
+       currentpos = (pos + 1)
+    } else {
+      //currentpos++;
+    }
+
+	arrpos = ["dummy","1st","2nd","3rd","4th","5th","6th","7th","8th","9th","10th","11th","12th","13th","14th","15th","16th","17th","18th","19th","20th","21st","22nd","23rd","24th","25th","26th","27th","28th","29th","30th"]
+	document.getElementById("position" + pos).innerText = arrpos[currentpos];
+	document.getElementById("score" + pos).innerText = score;
+	currentscore = score;
+}
 
 function goBack() {
 	console.log("go back")
