@@ -286,6 +286,12 @@
         </style>
     </head>
     <body>
+        // Source - https://stackoverflow.com/a/18806406
+        // Posted by ranjan_purbey, modified by community. See post 'Timeline' for change history
+        // Retrieved 2026-02-03, License - CC BY-SA 3.0
+
+        <body onload="document.body.style.height=(2*window.innerHeight-window.outerHeight)+'px';">
+
         <!-- main menu -->
 
         <div id="warning">Not available in landscape orientation</div>
@@ -359,6 +365,9 @@
 
         <script>
             /* View in fullscreen */
+            const scrollingElement = (document.scrollingElement || document.body);
+
+
             const scrollToBottom = () => {
                 scrollingElement.scrollTop = scrollingElement.scrollHeight;
             };
