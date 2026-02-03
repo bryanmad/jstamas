@@ -361,14 +361,7 @@
             var elem = document.documentElement;
 
             /* View in fullscreen */
-            // When ready...
-            window.addEventListener("load", function () {
-                // Set a timeout...
-                setTimeout(function () {
-                    // Hide the address bar!
-                    window.scrollTo(0, 1);
-                }, 0);
-            });
+            /window.scrollTo(0, document.body.scrollHeight);
 
             // detect using a phone or not
             if (
