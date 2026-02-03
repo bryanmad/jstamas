@@ -358,10 +358,11 @@
         </div>
 
         <script>
-            var elem = document.documentElement;
-
             /* View in fullscreen */
-            /window.scrollTo(0, document.body.scrollHeight);
+            const scrollToBottom = () => {
+                scrollingElement.scrollTop = scrollingElement.scrollHeight;
+            };
+            scrollToBottom();
 
             // detect using a phone or not
             if (
