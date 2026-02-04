@@ -22,296 +22,365 @@
             rel="stylesheet"
         />
         <style>
-            body {
-                height: 100vh;
-                background-color: black;
-                color: white;
-                font-family: Helvetica, Arial, sans-serif;
-                padding: 0;
-                margin: 0;
-                box-sizing: border-box;
-                overflow: auto;
-                background-image: url("arcot.png");
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-                animation: fadein 1s;
-            }
 
-            /* menu */
 
-            /* holds menu */
-            .container {
-                position: relative;
-            }
 
-            .icons {
-                height: 20vh;
-                background: transparent;
-                color: white;
-                display: flex;
-                align-items: flex-end;
-                justify-content: center;
-                position: fixed;
-                bottom: 0;
-                width: 100%;
-            }
 
-            .img1a {
-                width: 25vw;
-                text-align: center;
-                font-size: 4vw;
-                color: white;
-            }
+ body {
+                 height: 100vh;
+                 background-color: black;
+                 color: white;
+                 font-family: Helvetica, Arial, sans-serif;
+                 padding: 0;
+                 margin: 0;
+                 box-sizing: border-box;
+                 overflow: auto;
+                 background-image: url("arcot.png");
+                 background-position: center;
+                 background-repeat: no-repeat;
+                 background-size: cover;
+                 animation: fadein 1s;
+             }
 
-            /* end of menu */
+             /* menu */
 
-            @keyframes slidein {
-                0% {
-                    right: -100%;
-                }
-                100% {
-                    right: 0;
-                    display: block;
-                }
-            }
+             /* holds menu */
+             .container {
+                 position: relative;
+             }
 
-            .imgbackcontainer {
-                position: absolute;
-                bottom: 5vh;
-                left: 2vw;
-                width: 20vw;
-                height: 20vw;
-                //background-color: green;
-                border-radius: 50%;
-                color: white;
-                //opacity: 0;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 20vw;
-                animation: fadein 2s;
-                opacity: 1;
+             .icons {
+                 height: 20vh;
+                 background: transparent;
+                 color: white;
+                 display: flex;
+                 align-items: flex-end;
+                 justify-content: center;
+                 width: 100%;
+                 width: 150vw;
+                 margin: 20px auto;
+                 padding: 15px;
+                 max-width: 150vw;
+             }
 
-                text-shadow:
-                    0px 4px 3px rgba(0, 0, 0, 0.4),
-                    0px 8px 13px rgba(0, 0, 0, 0.1),
-                    0px 18px 23px rgba(0, 0, 0, 0.1);
-                background-color: dodgerBlue;
-                //text-align: center;
-                //border-radius: 10px;
-                border: 5px solid rgba(255, 255, 255, 0.2);
-                box-shadow: 10px 10px 25px black;
-                background-clip: padding-box;
-            }
+             .img1a {
+                 width: 25vw;
+                 text-align: center;
+                 font-size: 4vw;
+                 color: white;
+             }
 
-            @keyframes fadein {
-                0% {
-                    opacity: 0;
-                }
-                100% {
-                    opacity: 1;
-                }
-            }
+             /* end of menu */
 
-            #spacer {
-                height: 2vh;
-            }
+             @keyframes slidein {
+                 0% {
+                     right: -100%;
+                 }
+                 100% {
+                     right: 0;
+                     display: block;
+                 }
+             }
 
-            .txt1,
-            .txt2 {
-                font-size: 12vw;
-                width: 100%;
-                height: 40vh;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                //background: green;
+             .spacer {
+                 height: 2vh;
+             }
 
-                color: white;
-                font-family: "Kalam";
+             .txt1,
+             .txt2 {
+                 font-size: 12vw;
+                 width: 100%;
+                 height: 40vh;
+                 display: flex;
+                 align-items: center;
+                 justify-content: center;
+                 color: white;
+                 font-family: "Kalam";
 
-                font-weight: bold;
+                 font-weight: bold;
 
-                height: 13vh;
-                font-weight: 900;
-                text-shadow:
-                    -2px -2px 0 gray,
-                    2px -2px 0 gray,
-                    -2px 2px 0 gray,
-                    2px 2px 0 gray,
-                    -3px 0px 0 gray,
-                    3px 0px 0 gray,
-                    0px -3px 0 gray,
-                    0px 3px 0 gray;
-            }
+                 height: 13vh;
+                 font-weight: 900;
+                 text-shadow:
+                     -2px -2px 0 gray,
+                     2px -2px 0 gray,
+                     -2px 2px 0 gray,
+                     2px 2px 0 gray,
+                     -3px 0px 0 gray,
+                     3px 0px 0 gray,
+                     0px -3px 0 gray,
+                     0px 3px 0 gray;
+             }
 
-            .txt1 {
-                position: absolute;
-                top: 3vh;
-                left: 0;
-            }
-            .txt2 {
-                position: absolute;
-                top: 9vh;
-                left: 0;
-            }
+             .txt1 {
+                 position: absolute;
+                 top: 3vh;
+                 left: 0;
+             }
+             .txt2 {
+                 position: absolute;
+                 top: 9vh;
+                 left: 0;
+             }
 
-            .subtxt1,
-            .subtxt2 {
-                //position: absolute;
-                //top: 20vh;
-                //left: 0;
-                font-size: 8vw;
-                width: 100%;
-                height: 40vh;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                //background: green;
+             .subtxt1,
+             .subtxt2 {
+                 font-size: 8vw;
+                 width: 100%;
+                 height: 40vh;
+                 display: flex;
+                 align-items: center;
+                 justify-content: center;
+                 color: white;
+                 font-family: "Kalam";
+                 font-weight: bold;
+                 height: 13vh;
+                 font-weight: 900;
+                 text-shadow:
+                     -2px -2px 0 gray,
+                     2px -2px 0 gray,
+                     -2px 2px 0 gray,
+                     2px 2px 0 gray,
+                     -3px 0px 0 gray,
+                     3px 0px 0 gray,
+                     0px -3px 0 gray,
+                     0px 3px 0 gray;
+             }
 
-                color: white;
-                font-family: "Kalam";
-                //font-size: 7vh;
-                font-weight: bold;
-                //margin-top: 20vh;
-                height: 13vh;
-                font-weight: 900;
-                text-shadow:
-                    -2px -2px 0 gray,
-                    2px -2px 0 gray,
-                    -2px 2px 0 gray,
-                    2px 2px 0 gray,
-                    -3px 0px 0 gray,
-                    3px 0px 0 gray,
-                    0px -3px 0 gray,
-                    0px 3px 0 gray;
-            }
+             .subtxt1 {
+                 position: absolute;
+                 top: 16vh;
+                 left: 0;
+             }
 
-            .subtxt1 {
-                position: absolute;
-                top: 16vh;
-                left: 0;
-            }
-            .subtxt2 {
-                position: absolute;
-                top: 21vh;
-                left: 0;
-            }
+             .subtxt2 {
+                 position: absolute;
+                 top: 21vh;
+                 left: 0;
+             }
 
-            #warning {
-                display: none;
-                position: absolute;
-                top: 0;
-                left: 0;
-                background: indigo;
-                width: 100vw;
-                height: 100vh;
-                z-index: 999;
-                text-align: center;
-                color: white;
-                padding-top: 40vh;
-                font-size: 5vw;
-                font-family: "Kalam";
-            }
-            #round {
-                position: absolute;
-                top: 40vh;
-                right: 30vw;
-                width: 40vw;
-                height: 40vw;
-                border: 3px solid white;
-                border-radius: 50%;
-            }
+             #warning {
+                 display: none;
+                 position: absolute;
+                 top: 0;
+                 left: 0;
+                 background: indigo;
+                 width: 100vw;
+                 height: 100vh;
+                 z-index: 999;
+                 text-align: center;
+                 color: white;
+                 padding-top: 40vh;
+                 font-size: 5vw;
+                 font-family: "Kalam";
+             }
 
-            #js {
-                max-height: 100%;
-                max-width: 100%;
-                border-radius: 50%;
-            }
+             #round {
+                 position: absolute;
+                 top: 40vh;
+                 right: 30vw;
+                 width: 40vw;
+                 height: 40vw;
+                 border: 3px solid white;
+                 border-radius: 50%;
+             }
 
-            #round.half {
-                background: white;
+             #js {
+                 max-height: 100%;
+                 max-width: 100%;
+                 border-radius: 50%;
+             }
 
-                box-shadow: 10px 10px 10px black;
+             #round.half {
+                 background: white;
+                 box-shadow: 10px 10px 10px black;
+                 transform: scale(2.2) translateX(0.5%);
+             }
 
-                transform: scale(2.2) translateX(0.5%);
-            }
-        </style>
-    </head>
-    <body>
-        <div id="warning">Not available in landscape orientation</div>
+             /* back arrow */
+             .imgrightcontainer {
+                 width: 10vw;
+                 height: 10vw;
+                 position: fixed;
+                 bottom: 10vh;
+                 right: 10vw;
+                 display: flex;
+                 align-items: center;
+                 justify-content: center;
+                 animation: fadein 1.5s;
+                 background: transparent;
+                 border-radius: 50%;
+                 border: 5px solid rgba(255, 255, 255, 0.2);
+                 box-shadow: 10px 10px 25px black;
+                 background-clip: padding-box;
+                 z-index: 9;
+                 opacity: .9;
+                 animation: bounce 2.5s 2;
+             }
 
-        <div class="container">
-            <!-- main menu and pages go in here -->
+             @keyframes fadein {
+                 0% {
+                     opacity: 0;
+                 }
+                 100% {
+                     opacity: 1;
+                 }
+             }
 
-            <div id="round">
-                <img
+             @keyframes bounce {
+               0%, 20%, 50%, 80%, 100% {
+                 transform: translateY(0);
+               }
+               40% {
+                 transform: translateY(-30px);
+               }
+               60% {
+                 transform: translateY(-15px);
+               }
+             }
+
+             .scroll {
+                      height: 25vh;
+                      background: transparent;
+                      color: white;
+                      display: flex;
+                      position: fixed;
+                      bottom: 0;
+                      width: 100%;
+                      overflow-y: hidden;
+                      overflow-x: scroll;
+                      white-space: nowrap;
+                      max-width: 100%;
+                      overflow-x: auto;
+                      overflow-y: hidden;
+                      white-space: nowrap;
+                      }
+     </style>
+ </head>
+
+<body>
+	<div id="warning">Not available in landscape orientation</div>
+	<div class="container">
+		<!-- main menu and pages go in here -->
+		<div id="round">
+			<img
                     id="js"
                     src="jspicture.png"
                     alt=""
                     onclick="enlarge(this.id)"
                 />
+		</div>
+		<div class="txt1">5th Jim Stamas</div>
+		<div class="txt2">Memorial Cup</div>
+		<div class="subtxt1">Arcot Hall golf club</div>
+		<div class="subtxt2">28th July 2026</div>
+		<div class="scroll">
+			<div class="icons" id="icons">
+				<div class="img1a" onclick="showIndividualPoints()">
+					<img
+      id="img6"
+      style="border: 0; height: 15vw; width: 15vw"
+      src="avatar.png"
+      alt=""
+      />
+					<br />about
+					<br />Jim
+
+					<div class="spacer"></div>
+				</div>
+				<div class="img1a" onclick="showIndividualPoints()">
+					<img
+      id="img6"
+      style="border: 0; height: 15vw; width: 15vw"
+      src="agenda.png"
+      alt=""
+      />
+					<br />day
+					<br />info
+
+					<div class="spacer"></div>
+				</div>
+				<div class="img1a" onclick="showTeeTimes()">
+					<img
+      id="img1"
+      style="border: 0; height: 15vw; width: 15vw"
+      src="teetimes.png"
+      alt=""
+      />
+					<br />tee
+					<br />times
+
+					<div class="spacer"></div>
+				</div>
+				<div class="img1a" onclick="showTeamResults()">
+					<img
+      id="img3"
+      style="border: 0; height: 15vw; width: 15vw"
+      src="teamresults.png"
+      alt=""
+      />
+					<br />team
+					<br />results
+
+					<div class="spacer"></div>
+				</div>
+				<div class="img1a" onclick="showIndividualGross()">
+					<img
+      id="img4"
+      style="border: 0; height: 15vw; width: 15vw"
+      src="gross.png"
+      alt=""
+      />
+					<br />individual
+					<br />gross
+
+					<div class="spacer"></div>
+				</div>
+				<div class="img1a" onclick="showIndividualPoints()">
+					<img
+      id="img5"
+      style="border: 0; height: 15vw; width: 15vw"
+      src="points.png"
+      alt=""
+      />
+					<br />individual
+					<br />points
+
+					<div class="spacer"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+	        <div
+                id="imgrightcontainer"
+                class="imgrightcontainer"
+            >
+                <img
+                    id="tempright"
+                    style="border: 0; height: 5vw; width: 3vw"
+                    src="rightedge.png"
+                    alt=">"
+                />
             </div>
 
-            <div class="txt1">5th Jim Stamas</div>
-            <div class="txt2">Memorial Cup</div>
-            <div class="subtxt1">Arcot Hall golf club</div>
-            <div class="subtxt2">28th July 2026</div>
 
-            <div>
-                <div class="icons" id="icons">
-                    <div class="subtxt1">Arcot Hall golf club</div>
-                    <div class="subtxt2">28th July 2026</div>
 
-                    <div class="img1a" onclick="showTeeTimes()">
-                        <img
-                            id="img1"
-                            style="border: 0; height: 15vw; width: 15vw"
-                            src="teetimes.png"
-                            alt=""
-                        />
-                        <br />tee<br />times
-                        <div id="spacer"></div>
-                    </div>
-                    <div class="img1a" onclick="showTeamResults()">
-                        <img
-                            id="img3"
-                            style="border: 0; height: 15vw; width: 15vw"
-                            src="teamresults.png"
-                            alt=""
-                        />
-                        <br />team<br />results
-                        <div id="spacer"></div>
-                    </div>
-                    <div class="img1a" onclick="showIndividualGross()">
-                        <img
-                            id="img4"
-                            style="border: 0; height: 15vw; width: 15vw"
-                            src="gross.png"
-                            alt=""
-                        />
-                        <br />individual<br />gross
-                        <div id="spacer"></div>
-                    </div>
-                    <div class="img1a" onclick="showIndividualPoints()">
-                        <img
-                            id="img5"
-                            style="border: 0; height: 15vw; width: 15vw"
-                            src="points.png"
-                            alt=""
-                        />
-                        <br />individual<br />points
-                        <div id="spacer"></div>
-                    </div>
-                </div>
-            </div>
-            <!-- -alternative screens here -->
 
-            <!-- -end of alternative screens here -->
-            <!-- end of main menu and pages go in here -->
-        </div>
 
+
+
+
+
+</body>
+ </html>
         <script>
             // detect using a phone or not
             if (
@@ -354,6 +423,26 @@
                 },
                 false,
             );
+
+            setTimeout(
+                function () {
+                    if (document.getElementById("imgrightcontainer").style.display !== "none") {
+                        document.getElementById("imgrightcontainer").style.display = "none";
+                    }
+                },
+                5000,
+            );
+
+
+
+
+
+
+
+
+
+
+
 
             function showTeeTimes() {
                 location.href = "jsviewtees.html";
