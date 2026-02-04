@@ -26,7 +26,7 @@
             body {
                 background-color: indigo;
             }
-           
+
             /* back arrow */
             .imgbackcontainer {
                 position: fixed;
@@ -58,7 +58,10 @@
                 }
             }
 
-           
+            #notes {
+                font-size: 10vw;
+                color: white;
+            }
         </style>
     </head>
     <body>
@@ -70,15 +73,21 @@
                 alt="x0"
             />
         </div>
-        
+
+        <div id="notes">
+            <br />
+            <br />
+            Page yet to be created
+            <br />
+            <br />
+            Information about today (procedures, food, drinks, prizes etc.)
+        </div>
 
         <script type="text/javascript">
-           
             function goBack() {
                 console.log("go back");
                 location.href = "jsfront.html";
             }
-
         </script>
     </body>
 </html>
