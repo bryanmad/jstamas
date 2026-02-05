@@ -239,7 +239,7 @@
                 <div id="spacer4"></div>
                 &nbsp;Gross scores
                 <div id="spacer4"></div>
-                <div id="subtitle">( points minus hcp )</div>
+                <div id="subtitle">( points with no hcp adjustment )</div>
             </div>
         </div>
         <div class="spacer2vh"></div>
@@ -308,6 +308,13 @@
                     data = data.filter(function (el) {
                         return el.players !== "----------";
                     });
+                    // sort by score, highest first
+                    //data.sort(
+                    //    (a, b) =>
+                    //        parseInt(b.playergross) - parseInt(a.playergross),
+                    //);
+                    // sort by hcp, lowest first
+                    data.sort((a, b) => parseInt(a.hcp) - parseInt(b.hcp));
                     // sort by score, highest first
                     data.sort(
                         (a, b) =>

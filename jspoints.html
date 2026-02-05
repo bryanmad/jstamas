@@ -309,6 +309,13 @@
                         return el.players !== "----------";
                     });
                     // sort by score, highest first
+                    //data.sort(
+                    //    (a, b) =>
+                    //       parseInt(b.playerpoints) - parseInt(a.playerpoints),
+                    //);
+                    // sort by hcp, lowest first
+                    data.sort((a, b) => parseInt(a.hcp) - parseInt(b.hcp));
+                    // sort by score, highest first
                     data.sort(
                         (a, b) =>
                             parseInt(b.playerpoints) - parseInt(a.playerpoints),
