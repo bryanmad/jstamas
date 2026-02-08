@@ -204,7 +204,7 @@
                  position: fixed;
                  bottom: 15vh;
                  right: 10vw;
-                 display: flex;
+                 display: none; //flex;
                  align-items: center;
                  justify-content: center;
                  animation: fadein 1.5s;
@@ -382,6 +382,12 @@
 </body>
  </html>
         <script>
+        if (history.length < 2) {
+          document.getElementById("imgrightcontainer").style.display = "flex";
+        }
+
+
+
             // detect using a phone or not
             if (
                 /Android|webOS|iPhone|iPad|iPod|BlackBerryAndroid|webOS/i.test(
@@ -423,6 +429,8 @@
                 },
                 false,
             );
+
+            // set first run
 
             setTimeout(
                 function () {
