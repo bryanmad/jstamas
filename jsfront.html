@@ -207,14 +207,14 @@
                  display: none; //flex;
                  align-items: center;
                  justify-content: center;
-                 animation: fadein 1.5s;
+                 animation: fadein 5s;
                  background: transparent;
                  border-radius: 50%;
                  border: 5px solid rgba(255, 255, 255, 0.2);
                  box-shadow: 10px 10px 25px black;
                  background-clip: padding-box;
                  z-index: 9;
-                 opacity: .9;
+                 opacity: 0;
                  animation: bounce 2.5s 2;
              }
 
@@ -228,14 +228,21 @@
              }
 
              @keyframes bounce {
-               0%, 20%, 50%, 80%, 100% {
+               0%, 20%, 50%, 80% {
                  transform: translateX(0);
+                 opacity: 1;
                }
                40% {
                  transform: translateX(-50px);
+                 opacity: 1;
                }
                60% {
                  transform: translateX(-15px);
+                 opacity: 1;
+               }
+               100% {
+                   transform: translateX(0);
+                   opacity: 0;
                }
              }
 
@@ -382,7 +389,7 @@
 </body>
  </html>
         <script>
-        if (history.length < 2) {
+        if (history.length < 3) {
           document.getElementById("imgrightcontainer").style.display = "flex";
         }
 
@@ -432,14 +439,14 @@
 
             // set first run
 
-            setTimeout(
-                function () {
-                    if (document.getElementById("imgrightcontainer").style.display !== "none") {
-                        document.getElementById("imgrightcontainer").style.display = "none";
-                    }
-                },
-                5000,
-            );
+            //setTimeout(
+            //    function () {
+            //        if (document.getElementById("imgrightcontainer").style.display !== "none") {
+            //            document.getElementById("imgrightcontainer").style.display = "none";
+            //        }
+            //    },
+            //    5000,
+            //);
 
 
 
