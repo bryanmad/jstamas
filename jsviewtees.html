@@ -41,6 +41,8 @@
             #teecontainer {
                 animation: fadein 1.5s;
                 opacity: 1;
+
+                padding-bottom: 10vh;
             }
 
             .teegroup {
@@ -182,23 +184,9 @@
                 //arrTeeSlots = resultsarray.map(d => d.teeslots);
                 arrTeeSlots = data.map((d) => d.teeslots);
 
-                //arrTeamScores = data.map((d) => d.teamscore);
-                // remove null items
-                //arrPlayers = arrPlayers.filter(function (el) {
-                //    return el != null;
-                //});
-                //arrTeeSlots = arrTeeSlots.filter(function(el) {return el != null;})
-                //arrOptions = arrOptions.filter(function (el) {
-                //    return el != null;
-                //});
-                // remove empty items
-                //arrPlayers = arrPlayers.filter(function (el) {
-                //    return el != "";
-                //});
-                //arrTeeSlots = arrTeeSlots.filter(function(el) {return el != "";})
-                //arrOptions = arrOptions.filter(function (el) {
-                //    return el != "";
-                //});
+                console.log(arrPlayers.length);
+                console.log(arrTeeSlots.length);
+
                 console.log(arrPlayers);
                 //console.log(arrTeeSlots)
                 console.log(arrTeeSlots);
@@ -206,24 +194,6 @@
             }
 
             async function start() {
-                /*
-                console.log("arrOptions length = " + arrOptions.length);
-                // add empty values to array to make multiples of 4
-                if (arrOptions.length % 4 !== 0) {
-                    arrOptions.push("----------");
-                    console.log("1 added");
-                }
-                if (arrOptions.length % 4 !== 0) {
-                    arrOptions.push("----------");
-                    console.log("1 added");
-                }
-                if (arrOptions.length % 4 !== 0) {
-                    arrOptions.push("----------");
-                    console.log("1 added");
-                }
-
-                console.log("arrOptions length = " + arrOptions.length);
-*/
                 // build a set of 4-ball tee times
                 var t = 0;
                 var teecontainer = document.getElementById("teecontainer");
@@ -237,7 +207,7 @@
                     outerbox.className = "teegroup";
 
                     // create a tee time
-                    dd = new Date(2026, 5, 28, 2, 0, 0);
+                    dd = new Date(2026, 5, 28, 2, 4, 0);
                     var tt = t * 8 - 8;
                     ddd = addMinutes(dd, tt);
 
