@@ -364,7 +364,17 @@ total 88vh ?
             <!--
 https://docs.google.com/forms/d/1-GEKe7IMBmNfrb-yZnVQtXJ_f7zEkQRmwkQ1_7wn034/preview
 https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5ya0/edit?resourcekey=&gid=348036107#gid=348036107
-
+// entry.1954606909=p1
+// entry.89122071=p2
+// entry.842961819=p3
+// entry.1180492687=p4
+//
+// entry.1395829184=po1
+// entry.2018604116=po2
+// entry.390274217=po3
+// entry.754308496=po4
+//
+// entry.346825177=tp
 -->
             <!-- invisible but necessary for submit of data	-->
             <!-- form to construct data prior to submit -->
@@ -375,7 +385,7 @@ https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5
                 name="my-form"
                 target="my-response-iframe"
             >
-                <!-- name, hcp, day, total -->
+                <!-- player -->
                 <input
                     id="mx1954606909"
                     name="entry.1954606909"
@@ -383,18 +393,55 @@ https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5
                     value="default"
                 />
                 <input
+                    id="mx89122071"
+                    name="entry.89122071"
+                    type="text"
+                    value="default"
+                />
+                <input
+                    id="mx842961819"
+                    name="entry.842961819"
+                    type="text"
+                    value="default"
+                />
+                <input
+                    id="mx1180492687"
+                    name="entry.1180492687"
+                    type="text"
+                    value="default"
+                />
+                <!-- points -->
+                <input
                     id="mx1395829184"
                     name="entry.1395829184"
                     type="text"
                     value="default"
                 />
                 <input
+                    id="mx2018604116"
+                    name="entry.2018604116"
+                    type="text"
+                    value="default"
+                />
+                <input
+                    id="mx390274217"
+                    name="entry.390274217"
+                    type="text"
+                    value="default"
+                />
+                <input
+                    id="mx754308496"
+                    name="entry.754308496"
+                    type="text"
+                    value="default"
+                />
+                <!-- teamscore -->
+                <input
                     id="mx346825177"
                     name="entry.346825177"
                     type="text"
                     value="default"
                 />
-
                 <input type="submit" />
             </form>
             <!-- google iframe inserted here - invisible -->
@@ -407,16 +454,6 @@ https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5
             >
             </iframe>
         </div>
-
-        <!--
-/*
-https://docs.google.com/forms/d/e/1FAIpQLScEMPkMNDTXFyUKMrfeoywXNDd_In2I5IaxK9_vClpfdi5QJw/viewform?usp=pp_url
-&entry.970437057=(20)+Bryan+Maddison
-&entry.1993210278=Bryan+Maddison
-&entry.1205777830=20
-&entry.1657395643=tee1
-*/
--->
 
         <script>
             //=================================================================================
@@ -973,51 +1010,41 @@ https://docs.google.com/forms/d/e/1FAIpQLScEMPkMNDTXFyUKMrfeoywXNDd_In2I5IaxK9_v
                 // get the relevant info into a form
                 // make sure everything is updated
                 // player1 score entry
-
+                //https://docs.google.com/forms/d/e/1FAIpQLSedd8eNHGeq6yjuzooApefrLSpIrBLFu-4oJF14cidzdu8SFQ/viewform?usp=pp_url
+                // entry.1954606909=p1
+                // entry.89122071=p2
+                // entry.842961819=p3
+                // entry.1180492687=p4
+                //
+                // entry.1395829184=po1
+                // entry.2018604116=po2
+                // entry.390274217=po3
+                // entry.754308496=po4
+                //
+                // entry.346825177=tp
                 document.getElementById("mx1954606909").value =
                     document.getElementById("player1").innerText;
+                document.getElementById("mx89122071").value =
+                    document.getElementById("player2").innerText;
+                document.getElementById("mx842961819").value =
+                    document.getElementById("player3").innerText;
+                document.getElementById("mx1180492687").value =
+                    document.getElementById("player4").innerText;
+
                 document.getElementById("mx1395829184").value =
                     document.getElementById("points1").innerText;
-                document.getElementById("mx346825177").value =
-                    document.getElementById("teamscore").innerText;
-                //===== submit data ==========
-                //============================
-                document.forms[0].submit();
-
-                clearValues();
-
-                document.getElementById("mx1954606909").value =
-                    document.getElementById("player2").innerText;
-                document.getElementById("mx1395829184").value =
+                document.getElementById("mx2018604116").value =
                     document.getElementById("points2").innerText;
-                document.getElementById("mx346825177").value =
-                    document.getElementById("teamscore").innerText;
-                //===== submit data ==========
-                //============================
-                document.forms[0].submit();
-
-                clearValues();
-
-                document.getElementById("mx1954606909").value =
-                    document.getElementById("player3").innerText;
-                document.getElementById("mx1395829184").value =
+                document.getElementById("mx390274217").value =
                     document.getElementById("points3").innerText;
-                document.getElementById("mx346825177").value =
-                    document.getElementById("teamscore").innerText;
-                //===== submit data ==========
-                //============================
-                document.forms[0].submit();
-
-                clearValues();
-
-                document.getElementById("mx1954606909").value =
-                    document.getElementById("player4").innerText;
-                document.getElementById("mx1395829184").value =
+                document.getElementById("mx754308496").value =
                     document.getElementById("points4").innerText;
+
                 document.getElementById("mx346825177").value =
                     document.getElementById("teamscore").innerText;
                 //===== submit data ==========
                 //============================
+                document.getElementById("submit").innerText = "submit here";
                 document.forms[0].submit();
 
                 // vibrate if android phone or "pop" for anything else
@@ -1047,25 +1074,6 @@ https://docs.google.com/forms/d/e/1FAIpQLScEMPkMNDTXFyUKMrfeoywXNDd_In2I5IaxK9_v
                 for (var i = 1; i < arrTemp; i++) {
                     document.getElementById(arrTemp[i]).innerText = "0";
                 }
-            }
-
-            // 1954606909 player
-            // 1395829184 points
-            // 346825177 teampoints
-            //entry.1954606909=p1&entry.1395829184=p2&entry.346825177=t1
-
-            async function clearValues() {
-                document.getElementById("submit").innerText = "clear in";
-                await sleep(1000);
-                document.getElementById("mx1954606909").value = "";
-                document.getElementById("mx1395829184").value = "";
-                document.getElementById("mx346825177").value = "";
-                //await sleep(1000);
-                document.getElementById("submit").innerText = "clear out";
-            }
-
-            function sleep(ms) {
-                return new Promise((resolve) => setTimeout(resolve, ms));
             }
         </script>
     </body>
