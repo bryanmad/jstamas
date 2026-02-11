@@ -168,10 +168,10 @@
 
 
             	.submit {
-            		font-size: 5vh;
+            		font-size: 7vh;
             		color: white;
             		//background: dodgerBlue;
-            		height: 15vh;
+            		height: 10vh;
             		//line-height: 10vh;
             		display: flex;
             		justify-content: center;
@@ -1313,8 +1313,12 @@ https://docs.google.com/forms/d/e/1FAIpQLScEMPkMNDTXFyUKMrfeoywXNDd_In2I5IaxK9_v
                 document.getElementById("mx1954606909").value = "";
                 document.getElementById("mx1591797769").value = "";
                 document.getElementById("mx1941667842").value = "";
-                await new Promise((resolve) => setTimeout(resolve, 2000));
+                await sleep(1000));
                 //console.log("clear out");
+            }
+
+            function sleep(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
             }
         </script>
     </body>
