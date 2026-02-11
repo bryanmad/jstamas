@@ -473,7 +473,7 @@ https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5
                 document.getElementById("points2").style.background = "";
                 document.getElementById("points3").style.background = "";
                 document.getElementById("points4").style.background = "";
-                document.getElementById("team").style.background = "";
+                document.getElementById("teamscore").style.background = "";
 
                 targetID.style.background = "dodgerBlue";
                 //respondup();
@@ -551,6 +551,7 @@ https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5
                 document.getElementById(id).innerText = ++value;
                 console.log("-" + id.slice(0, 6) + "-");
                 console.log("id = " + id.replace("points", "player"));
+                /*
                 if (id.slice(0, 6) == "points") {
                     gross = document
                         .getElementById(id.replace("points", "player"))
@@ -568,6 +569,7 @@ https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5
                         id.replace("points", "strokes"),
                     ).innerText = value - Number(gross);
                 }
+                */
             }
 
             function decrementValue(id) {
@@ -580,6 +582,7 @@ https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5
                 document.getElementById(id).innerText = --value;
                 console.log("-" + id.slice(0, 6) + "-");
                 console.log("id = " + id.replace("points", "player"));
+                /*
                 if (id.slice(0, 6) == "points") {
                     gross = document
                         .getElementById(id.replace("points", "player"))
@@ -597,6 +600,7 @@ https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5
                         id.replace("points", "strokes"),
                     ).innerText = value - Number(gross);
                 }
+                */
             }
 
             // prevent default img menu of options
