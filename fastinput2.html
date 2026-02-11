@@ -345,6 +345,10 @@
                 <img id="button1down" src="downarrow.png" alt="" />
 
                 <br />
+
+                <div id="submit" class="child-one" onclick="submitForm()">
+                    submit
+                </div>
             </div>
 
             <!--
@@ -1218,29 +1222,58 @@ https://docs.google.com/forms/d/e/1FAIpQLScEMPkMNDTXFyUKMrfeoywXNDd_In2I5IaxK9_v
             // - send info from HTML form to google form
             //=============================================================
             function submitForm() {
+                //console.log("player1name = " + player1);
                 // get the relevant info into a form
                 // make sure everything is updated
-                if (player1name !== "player 1") {
-                    // player1 score entry
-                    document.getElementById("mx1954606909").value = player1name;
-                    document.getElementById("mx1591797769").value = player1hcp;
-                    document.getElementById("mx1941667842").value = fullday; // tee now
+                // player1 score entry
 
-                    //===== submit data ==========
-                    //============================
-                    document.forms[0].submit();
+                document.getElementById("mx1954606909").value =
+                    document.getElementById("player1").innerText;
+                document.getElementById("mx1591797769").value =
+                    document.getElementById("points1").innerText;
+                document.getElementById("mx1941667842").value =
+                    document.getElementById("strokes1").innerText;
+                //===== submit data ==========
+                //============================
+                document.forms[0].submit();
+                document.getElementById("mx1954606909").value =
+                    document.getElementById("player2").innerText;
+                document.getElementById("mx1591797769").value =
+                    document.getElementById("points2").innerText;
+                document.getElementById("mx1941667842").value =
+                    document.getElementById("strokes2").innerText;
+                //===== submit data ==========
+                //============================
+                document.forms[0].submit();
+                document.getElementById("mx1954606909").value =
+                    document.getElementById("player3").innerText;
+                document.getElementById("mx1591797769").value =
+                    document.getElementById("points3").innerText;
+                document.getElementById("mx1941667842").value =
+                    document.getElementById("strokes3").innerText;
+                //===== submit data ==========
+                //============================
+                document.forms[0].submit();
+                document.getElementById("mx1954606909").value =
+                    document.getElementById("player4").innerText;
+                document.getElementById("mx1591797769").value =
+                    document.getElementById("points4").innerText;
+                document.getElementById("mx1941667842").value =
+                    document.getElementById("strokes4").innerText;
+                //===== submit data ==========
+                //============================
+                document.forms[0].submit();
 
-                    // vibrate if android phone or "pop" for anything else
-                    const canVibrate = window.navigator.vibrate;
-                    if (canVibrate) {
-                        window.navigator.vibrate(50);
-                    } else {
-                        var audio = new Audio("golf.wav");
-                        audio.play();
-                    }
+                // vibrate if android phone or "pop" for anything else
+                const canVibrate = window.navigator.vibrate;
+                if (canVibrate) {
+                    window.navigator.vibrate(50);
+                } else {
+                    var audio = new Audio("golf.wav");
+                    audio.play();
+                }
 
-                    clearForm();
-                } // end of IF player .....
+                clearForm();
             }
 
             function resetInput() {
