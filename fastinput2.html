@@ -1236,6 +1236,9 @@ https://docs.google.com/forms/d/e/1FAIpQLScEMPkMNDTXFyUKMrfeoywXNDd_In2I5IaxK9_v
                 //===== submit data ==========
                 //============================
                 document.forms[0].submit();
+
+                clearValues();
+
                 document.getElementById("mx1954606909").value =
                     document.getElementById("player2").innerText;
                 document.getElementById("mx1591797769").value =
@@ -1294,6 +1297,13 @@ https://docs.google.com/forms/d/e/1FAIpQLScEMPkMNDTXFyUKMrfeoywXNDd_In2I5IaxK9_v
                 for (var i = 1; i < arrTemp; i++) {
                     document.getElementById(arrTemp[i]).innerText = "0";
                 }
+            }
+
+            async function clearValues() {
+                document.getElementById("mx1954606909").value = "";
+                document.getElementById("mx1591797769").value = "";
+                document.getElementById("mx1941667842").value = "";
+                await new Promise((resolve) => setTimeout(resolve, 1000));
             }
         </script>
     </body>
