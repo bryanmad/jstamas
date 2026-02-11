@@ -171,7 +171,7 @@
             		font-size: 5vh;
             		color: white;
             		//background: dodgerBlue;
-            		height: 20vh;
+            		height: 15vh;
             		//line-height: 10vh;
             		display: flex;
             		justify-content: center;
@@ -1309,10 +1309,12 @@ https://docs.google.com/forms/d/e/1FAIpQLScEMPkMNDTXFyUKMrfeoywXNDd_In2I5IaxK9_v
             }
 
             async function clearValues() {
+                console.log("clear in");
                 document.getElementById("mx1954606909").value = "";
                 document.getElementById("mx1591797769").value = "";
                 document.getElementById("mx1941667842").value = "";
                 await new Promise((resolve) => setTimeout(resolve, 1000));
+                console.log("clear out");
             }
         </script>
     </body>
