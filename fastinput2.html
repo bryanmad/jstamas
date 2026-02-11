@@ -570,6 +570,10 @@ https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5
                     ).innerText = value - Number(gross);
                 }
                 */
+
+                console.log(
+                    "team = " + document.getElementById("team").innerText,
+                );
             }
 
             function decrementValue(id) {
@@ -1046,11 +1050,15 @@ https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5
 
                 document.getElementById("mx346825177").value =
                     document.getElementById("team").innerText;
+                console.log(
+                    "submit team = " +
+                        document.getElementById("team").innerText,
+                );
+
                 //===== submit data ==========
                 //============================
-                document.getElementById("submit").innerText = "submit here";
                 document.forms[0].submit();
-
+                document.getElementById("submit").innerText = "submit done";
                 // vibrate if android phone or "pop" for anything else
                 const canVibrate = window.navigator.vibrate;
                 if (canVibrate) {
