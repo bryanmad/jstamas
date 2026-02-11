@@ -1309,12 +1309,13 @@ https://docs.google.com/forms/d/e/1FAIpQLScEMPkMNDTXFyUKMrfeoywXNDd_In2I5IaxK9_v
             }
 
             async function clearValues() {
-                //console.log("clear in");
+                document.getElementById("submit").innerText = "clear in";
+                await sleep(1000);
                 document.getElementById("mx1954606909").value = "";
                 document.getElementById("mx1591797769").value = "";
                 document.getElementById("mx1941667842").value = "";
-                await sleep(1000);
-                //console.log("clear out");
+                //await sleep(1000);
+                document.getElementById("submit").innerText = "clear out";
             }
 
             function sleep(ms) {
