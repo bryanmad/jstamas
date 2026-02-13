@@ -138,16 +138,6 @@
                 }
 
 
-            #points1, #points2, #points3, #points4,
-            #strokes1, #strokes2, #strokes3, #strokes4 {
-                //height: 4vh;
-            }
-
-            #strokes1, #strokes2, #strokes3, #strokes4 {
-                color: silver;
-            }
-
-
 
             	/* default "keyboard" */
 
@@ -301,33 +291,82 @@
                     <tbody>
                         <tr>
                             <td colspan="3" class="head">player</td>
-                            <td class="head">points</td>
-                            <td class="head">gross</td>
+                            <td colspan="2" class="head">points</td>
                         </tr>
                         <tr>
-                            <td colspan="3" id="player1">1</td>
-                            <td id="points1" onclick="usethis(this.id)">0</td>
-                            <td id="strokes1">0</td>
+                            <td
+                                colspan="3"
+                                id="player1"
+                                onclick="usethis(this.id)"
+                            >
+                                1
+                            </td>
+                            <td
+                                colspan="2"
+                                id="points1"
+                                onclick="usethis(this.id)"
+                            >
+                                0
+                            </td>
                         </tr>
                         <tr>
-                            <td colspan="3" id="player2">2</td>
-                            <td id="points2" onclick="usethis(this.id)">0</td>
-                            <td id="strokes2">0</td>
+                            <td
+                                colspan="3"
+                                id="player2"
+                                onclick="usethis(this.id)"
+                            >
+                                2
+                            </td>
+                            <td
+                                colspan="2"
+                                id="points2"
+                                onclick="usethis(this.id)"
+                            >
+                                0
+                            </td>
                         </tr>
 
                         <tr>
-                            <td colspan="3" id="player3">3</td>
-                            <td id="points3" onclick="usethis(this.id)">0</td>
-                            <td id="strokes3">0</td>
+                            <td
+                                colspan="3"
+                                id="player3"
+                                onclick="usethis(this.id)"
+                            >
+                                3
+                            </td>
+                            <td
+                                colspan="2"
+                                id="points3"
+                                onclick="usethis(this.id)"
+                            >
+                                0
+                            </td>
                         </tr>
                         <tr>
-                            <td colspan="3" id="player4">4</td>
-                            <td id="points4" onclick="usethis(this.id)">0</td>
-                            <td id="strokes4">0</td>
+                            <td
+                                colspan="3"
+                                id="player4"
+                                onclick="usethis(this.id)"
+                            >
+                                4
+                            </td>
+                            <td
+                                colspan="2"
+                                id="points4"
+                                onclick="usethis(this.id)"
+                            >
+                                0
+                            </td>
                         </tr>
 
                         <tr>
-                            <td colspan="3" id="teamscore">Team score</td>
+                            <td
+                                colspan="3"
+                                id="teamscore"
+                                onclick="usethis(this.id)"
+                            >
+                                Team score
+                            </td>
                             <td
                                 colspan="2"
                                 id="team"
@@ -465,18 +504,45 @@ https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5
             var sourceID = "";
             // code for input areas: score, points etc.
             function usethis(id) {
-                console.log("usethis");
-                sourceID = id;
-                targetID = document.getElementById(id);
-                console.log(targetID.textContent);
+                //console.log("usethis");
+                // clear all
                 document.getElementById("points1").style.background = "";
                 document.getElementById("points2").style.background = "";
                 document.getElementById("points3").style.background = "";
                 document.getElementById("points4").style.background = "";
                 document.getElementById("team").style.background = "";
+                document.getElementById("teamscore").style.background = "";
+                document.getElementById("player1").style.background = "";
+                document.getElementById("player2").style.background = "";
+                document.getElementById("player3").style.background = "";
+                document.getElementById("player4").style.background = "";
+
+                // blue for team and teamscore
+                if (id == "team" || id == "teamscore") {
+                    // make sure of id
+                    id = "team";
+                    document.getElementById("team").style.background =
+                        "dodgerBlue";
+                    document.getElementById("teamscore").style.background =
+                        "dodgerBlue";
+                }
+
+                // blue for players and points
+                // cope with selecting player instead of points
+                id = id.replace("player", "points");
+
+                sourceID = id;
+                targetID = document.getElementById(id);
+                //console.log(targetID.textContent);
 
                 targetID.style.background = "dodgerBlue";
+
+                document.getElementById(
+                    id.replace("points", "player"),
+                ).style.background = "dodgerBlue";
                 //respondup();
+                //
+                //
             }
 
             // code for arrows
@@ -543,14 +609,14 @@ https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5
 
             function incrementValue(id) {
                 id = sourceID;
-                console.log("sourceid = " + sourceID);
-                console.log("id = " + id);
+                //console.log("sourceid = " + sourceID);
+                //console.log("id = " + id);
                 //console.log("incrementValue " + id + " " + id.textContent);
                 value = parseInt(document.getElementById(id).innerText, 10);
-                console.log(value);
+                //console.log(value);
                 document.getElementById(id).innerText = ++value;
-                console.log("-" + id.slice(0, 6) + "-");
-                console.log("id = " + id.replace("points", "player"));
+                //console.log("-" + id.slice(0, 6) + "-");
+                //console.log("id = " + id.replace("points", "player"));
                 /*
                 if (id.slice(0, 6) == "points") {
                     gross = document
@@ -559,9 +625,9 @@ https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5
                         .replace("(", "")
                         .replace(")", "")
                         .replace(" ", "");
-                    console.log("gross = " + gross);
-                    console.log(id.replace("points", "strokes"));
-                    console.log(
+                    //console.log("gross = " + gross);
+                    //console.log(id.replace("points", "strokes"));
+                    //console.log(
                         document.getElementById(id.replace("points", "strokes"))
                             .innerText,
                     );
@@ -571,21 +637,21 @@ https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5
                 }
                 */
 
-                console.log(
-                    "team = " + document.getElementById("team").innerText,
-                );
+                //console.log(
+                //    "team = " + document.getElementById("team").innerText,
+                //);
             }
 
             function decrementValue(id) {
                 id = sourceID;
-                console.log("sourceid = " + sourceID);
-                console.log("id = " + id);
+                //console.log("sourceid = " + sourceID);
+                //console.log("id = " + id);
                 //console.log("incrementValue " + id + " " + id.textContent);
                 value = parseInt(document.getElementById(id).innerText, 10);
-                console.log(value);
+                //console.log(value);
                 document.getElementById(id).innerText = --value;
-                console.log("-" + id.slice(0, 6) + "-");
-                console.log("id = " + id.replace("points", "player"));
+                //console.log("-" + id.slice(0, 6) + "-");
+                //console.log("id = " + id.replace("points", "player"));
                 /*
                 if (id.slice(0, 6) == "points") {
                     gross = document
@@ -594,9 +660,9 @@ https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5
                         .replace("(", "")
                         .replace(")", "")
                         .replace(" ", "");
-                    console.log("gross = " + gross);
-                    console.log(id.replace("points", "strokes"));
-                    console.log(
+                    //console.log("gross = " + gross);
+                    //console.log(id.replace("points", "strokes"));
+                    //console.log(
                         document.getElementById(id.replace("points", "strokes"))
                             .innerText,
                     );
@@ -780,22 +846,22 @@ https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5
                     }
                 }
 
-                console.log("=================================");
-                console.log(arrTemp[0]);
-                console.log("=================================");
-                console.log(arrTemp[1]);
-                console.log("=================================");
-                console.log(arrTemp[2]);
-                console.log("=================================");
-                console.log(arrTemp[3]);
-                console.log("=================================");
-                console.log(arrTemp[4]);
-                console.log("=================================");
-                console.log(arrTemp[5]);
+                //console.log("=================================");
+                // console.log(arrTemp[0]);
+                //console.log("=================================");
+                //console.log(arrTemp[1]);
+                //console.log("=================================");
+                //console.log(arrTemp[2]);
+                //console.log("=================================");
+                // console.log(arrTemp[3]);
+                //console.log("=================================");
+                //console.log(arrTemp[4]);
+                // console.log("=================================");
+                // console.log(arrTemp[5]);
 
                 //arrOptions = arrOptions.filter(function(el) {return el != "";})
                 //arrHcps = arrHcps.filter(function(el) {return el != "";})
-                console.log(arrPlayers);
+                // console.log(arrPlayers);
                 //console.log(arrTeeSlots)
                 //console.log(arrOptions)
                 //console.log(arrHcps)
@@ -865,13 +931,13 @@ https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5
                 document.getElementById("points3").innerText = "0";
                 document.getElementById("points4").innerText = "0";
 
-                document.getElementById("strokes1").innerText = "0";
-                document.getElementById("strokes2").innerText = "0";
-                document.getElementById("strokes3").innerText = "0";
-                document.getElementById("strokes4").innerText = "0";
+                //document.getElementById("strokes1").innerText = "0";
+                //document.getElementById("strokes2").innerText = "0";
+                //document.getElementById("strokes3").innerText = "0";
+                //document.getElementById("strokes4").innerText = "0";
                 //console.log(document.getElementById("team").innerText);
                 document.getElementById("team").innerText = "0";
-                console.log(document.getElementById("team").innerText);
+                //console.log(document.getElementById("team").innerText);
                 usethis("points1");
 
                 var player1 = playerName.split("\n")[0];
@@ -879,10 +945,10 @@ https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5
                 var player3 = playerName.split("\n")[2];
                 var player4 = playerName.split("\n")[3];
 
-                console.log(player1);
-                console.log(player2);
-                console.log(player3);
-                console.log(player4);
+                //console.log(player1);
+                // console.log(player2);
+                // console.log(player3);
+                // console.log(player4);
 
                 document.getElementById("player1").innerText = player1;
                 document.getElementById("player2").innerText = player2;
@@ -933,82 +999,6 @@ https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5
                     .classList.toggle("show");
             }
 
-            //=================================================================================
-            // function numberScore(id)
-            // - enter player score and move on
-            //=================================================================================
-            function numberScore(id) {
-                // id is number button pressed eg. score5
-                // color the button etc.
-                console.log("currentid = " + id);
-                console.log("currentInput = " + currentInput);
-                console.log("currentInput = " + arrIdOrder[currentInput]);
-                if (arrIdOrder[currentInput] !== "team") {
-                    console.log("id = " + id);
-                    console.log("currentInput = " + arrIdOrder[currentInput]);
-                    document.getElementById(
-                        arrIdOrder[currentInput],
-                    ).innerText = id.replace("score", "");
-                    //document.getElementById(arrIdOrder[currentInput]).classList.toggle("borderselect");
-                    if (currentInput < 8) {
-                        currentInput++;
-                    }
-                    document
-                        .getElementById(arrIdOrder[currentInput])
-                        .classList.toggle("borderselect");
-                    document
-                        .getElementById(arrIdOrder[currentInput - 1])
-                        .classList.toggle("borderselect");
-                    //document.getElementById("points1").classList.toggle("borderselect");
-                } else {
-                    console.log("id2 = " + id);
-                    console.log("currentInput2 = " + arrIdOrder[currentInput]);
-                    if (tens == " ") {
-                        if (currentInput < 8) {
-                            currentInput++;
-                        }
-                        tens = document.getElementById(
-                            arrIdOrder[currentInput],
-                        ).innerText = id.replace("score", "");
-                    } else {
-                        units = document.getElementById(
-                            arrIdOrder[currentInput],
-                        ).innerText = id.replace("score", "");
-                        var teamscore = tens + units;
-                        document.getElementById(
-                            arrIdOrder[currentInput],
-                        ).innerText = teamscore;
-                        // show green border and allow submit
-                        document
-                            .getElementById(arrIdOrder[currentInput])
-                            .classList.toggle("borderselect");
-                        document
-                            .getElementById(arrIdOrder[currentInput])
-                            .classList.toggle("bordersubmit");
-                    }
-                }
-            }
-
-            //=============================================================
-            // function resethole(id)
-            // - allow restart of score entry from a point
-            //=============================================================
-            function resethole(id) {
-                // reset hole current selection
-                for (var i = 1; i <= 18; i++) {
-                    document.getElementById("strokes" + i).style.color = "cyan";
-                    document.getElementById("strokes" + i).style.background =
-                        "black";
-                }
-                currenthole = id.replace("hole", "");
-                document.getElementById("strokes" + currenthole).style.color =
-                    "black";
-                document.getElementById(
-                    "strokes" + currenthole,
-                ).style.background = "lime";
-                currenthole--;
-            }
-
             //=============================================================
             // function submitForm()
             // - send info from HTML form to google form
@@ -1050,10 +1040,6 @@ https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5
 
                 document.getElementById("mx346825177").value =
                     document.getElementById("team").innerText;
-                console.log(
-                    "submit team = " +
-                        document.getElementById("team").innerText,
-                );
 
                 //===== submit data ==========
                 //============================
