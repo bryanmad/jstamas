@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, user-scalable=no"
+        />
+        <title>cardrona2026</title>
+        <meta content="Bryan M" name="author" />
+        <meta name="theme-color" content="indigo" />
+        <meta name="robots" content="noindex" />
+        <link href="originalgolf.svg" rel="icon" type="image/x-icon" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="originalgolf.svg.png"
+        />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <link
+            href="https://fonts.googleapis.com/css?family=Kalam"
+            rel="stylesheet"
+        />
+        <style>
+                        @import url(https://fonts.googleapis.com/css?family=Lato);
+
+                        * {
+                            font-family: inherit;
+                            font-smoothing: antialiased;
+                        }
+
+                        html {
+                            font-size: 7vh;
+                            font-family: "Lato", sans-serif;
+                            color: white;
+                        }
+
+                        body {
+                            background: black;
+                            height: 100vh;
+                            overflow: clip;
+                        }
+                        /*
+                                    .wrapper {
+                                        height: 480px;
+                                        width: 320px;
+                                        background: #2e394b;
+                                        overflow: hidden;
+                                        position: relative;
+                                        margin: 20px auto 0;
+                                    }
+                        */
+                        .menu-btn {
+                            position: absolute;
+                            z-index: 10;
+                            top: 0;
+                            left: 2;
+                            height: 70px;
+                            width: 54px;
+                            cursor: pointer;
+                            background: url(3-lines.png) no-repeat center;
+                            background-size: 44px;
+                            animation: 1.5s fadeInDown;
+
+
+
+                            //&:active {
+                            //    opacity: 0.2;
+                            //}
+                        }
+
+                        @keyframes fadeInDown {
+                          0% {
+                            transform: translateY(-100%);
+                            opacity: 0;
+                          }
+                          100% {
+                            transform: translateY(0%);
+                            opacity: 1;
+                          }
+                        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        section {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            //padding-top: 2vh;
+
+                            //display: grid;
+                            //place-items: center;
+
+                            border-radius: 8px 8px 0 0;
+                            transition: transform 0.3s;
+
+                            &.one {
+                                background: red;
+                                transition-delay: 0s;
+                            }
+
+                            &.two {
+                                background: green;
+                                transition-delay: 0.05s;
+                            }
+
+                            &.three {
+                                background: orange;
+                                transition-delay: 0.1s;
+                            }
+
+                            &.four {
+                                background: blue;
+                                transition-delay: 0.15s;
+                            }
+
+                            &.five {
+                                background: indigo;
+                                transition-delay: 0.2s;
+                            }
+
+                            &.after {
+                                transform: translateY(100%);
+                            }
+                        }
+
+                        h1 {
+                            color: white;
+                            font-weight: 500;
+                            font-size: 4vh;
+                            text-align: center;
+                            margin: 0;
+                            line-height: 10vh;
+                            user-select: none;
+                        }
+
+                        .page-one {
+                            section {
+                                &.one {
+                                    transition-delay: 0s;
+                                }
+                                &.two {
+                                    transition-delay: 0.2s;
+                                }
+                                &.three {
+                                    transition-delay: 0.15s;
+                                }
+                                &.four {
+                                    transition-delay: 0.1s;
+                                }
+                                &.five {
+                                    transition-delay: 0.05s;
+                                }
+                            }
+                        }
+
+                        .page-two {
+                            section {
+                                &.one {
+                                    transition-delay: 0s;
+                                }
+                                &.two {
+                                    transition-delay: 0.05s;
+                                }
+                                &.three {
+                                    transition-delay: 0.1s;
+                                }
+                                &.four {
+                                    transition-delay: 0.05s;
+                                }
+                                &.five {
+                                    transition-delay: 0.1s;
+                                }
+                            }
+                        }
+
+                        .menu-open {
+                            section {
+                                cursor: pointer;
+
+                                &.one {
+                                    transform: translateY(10vh);
+                                    transition-delay: 0.2s;
+
+                                    &:active {
+                                        background: lighten(red, 30%);
+                                    }
+                                }
+
+                                &.two {
+                                    transform: translateY(28vh);
+                                    transition-delay: 0.15s;
+
+                                    &:active {
+                                        background: lighten(green, 30%);
+                                    }
+                                }
+
+                                &.three {
+                                    transform: translateY(46vh);
+                                    transition-delay: 0.1s;
+
+                                    &:active {
+                                        background: lighten(orange, 30%);
+                                    }
+                                }
+
+                                &.four {
+                                    transform: translateY(64vh);
+                                    transition-delay: 0.05s;
+
+                                    &:active {
+                                        background: lighten(blue, 30%);
+                                    }
+                                }
+
+                                &.five {
+                                    transform: translateY(82vh);
+                                    transition-delay: 0s;
+
+                                    &:active {
+                                        background: lighten(indigo, 30%);
+                                    }
+                                }
+                            }
+
+                            &.page-one {
+                                section {
+                                    &.one {
+                                        transition-delay: 0s;
+                                    }
+                                    &.two {
+                                        transition-delay: 0.05s;
+                                    }
+                                    &.three {
+                                        transition-delay: 0.1s;
+                                    }
+                                    &.four {
+                                        transition-delay: 0.15s;
+                                    }
+                                    &.five {
+                                        transition-delay: 0.2s;
+                                    }
+                                }
+                            }
+
+                            &.page-two {
+                                section {
+                                    &.one {
+                                        transition-delay: 0s;
+                                    }
+                                    &.two {
+                                        transition-delay: 0.05s;
+                                    }
+                                    &.three {
+                                        transition-delay: 0.1s;
+                                    }
+                                    &.four {
+                                        transition-delay: 0.15s;
+                                    }
+                                    &.four {
+                                        transition-delay: 0.2s;
+                                    }
+                                }
+                            }
+                        }
+
+                        .header {
+                            background: black;
+                            height: 20vh;
+                            color: rgba(116, 119, 121, 255);
+                            text-align: center;
+                            font-size: 4vh;
+                        }
+
+                        /*
+                        /======================================================
+                        */
+
+
+
+                        .team {
+                            //position: absolute;
+                            width: 95%;
+                            //height: var(--team-height);
+                            //background: gray;
+                            border-radius: 10px;
+                            border: 4px solid rgba(255, 255, 255, 0.3);
+                            background-clip: padding-box;
+                            height: 4.5vh;
+                            display: flex;
+                                        flex-direction: row;
+
+                                        justify-content: center;
+                                        align-items: center;
+
+            margin-left: 1.5%;
+            margin-top: 0.5vh;
+            border-radius:10px;
+
+                        }
+
+                        .name {
+                            width: 30%;
+                            //display: inline-block; //flex;
+                            display: flex;
+                                        flex-direction: row;
+
+
+
+                            align-items: center;
+                            justify-content: left;
+                            font-size: 3vh;
+                            color: white;
+                            font-weight: 400;
+                            height: 100%;
+                            //text-transform: capitalize;
+
+
+
+                        }
+
+                        .score {
+                            width: 15%;
+                            font-size: 3vh;
+                            color: white;
+                            font-weight: 400;
+                            //display: inline-block; //flex;
+                            text-align: center;
+                            justify-content: center;
+                            height: 100%;
+                            display: flex;
+                                        flex-direction: row;
+
+                                        justify-content: center;
+                                        align-items: center;
+                        }
+
+                        .position {
+                            width: 12%;
+                            font-size: 3vh;
+                            color: white;
+                            font-weight: 400;
+                            //display: inline-block; //flex;
+                            text-align: center;
+                            justify-content: center;
+                            height: 100%;
+                            display: flex;
+                                        flex-direction: row;
+
+                                        justify-content: center;
+                                        align-items: center;
+                                        padding-right: 1vw;
+                        }
+
+                        .xteam i {
+                            width: 80px;
+                            height: var(--team-height);
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            color: white;
+                            font-size: 3vh;
+                            border-radius: 10px;
+                            border: 4px solid rgba(255, 255, 255, 0.3);
+                            background-clip: padding-box;
+                        }
+
+
+                        .bird {
+                            //display: none;    //position: absolute;
+                            visibility: hidden;
+
+                            //z-index: 10;
+                           // top: 0;
+                            //left: 2;
+                            height: 3vh;
+                            width: calc(37% / 6); // 2vh
+                            cursor: pointer;
+                            background: url("bird.png") no-repeat center;
+                            background-size: 3vh;
+                        }
+        </style>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="header">
+                <a class="header">Cardrona Golf</a>
+            </div>
+            <a class="menu-btn" id="menu-btn" onclick="toggleMenu()"></a>
+            <section class="one" onclick="goToPage(0)">
+                <h1>Monday</h1>
+                <div id="mondayresults"></div>
+            </section>
+            <section class="two" onclick="goToPage(1)">
+                <h1>Tuesday</h1>
+            </section>
+            <section class="three" onclick="goToPage(2)">
+                <h1>Wednesday</h1>
+            </section>
+            <section class="four" onclick="goToPage(3)">
+                <h1>Thursday</h1>
+            </section>
+            <section class="five" onclick="goToPage(4)">
+                <h1>Final Results</h1>
+            </section>
+        </div>
+
+        <script>
+            toggleMenu();
+            var pages = new Array("one", "two", "three", "four", "five");
+
+            function toggleMenu() {
+                document
+                    .getElementsByClassName("wrapper")[0]
+                    .classList.add("menu-open");
+                //.classList.toggle("menu-open");
+                document.getElementById("menu-btn").style.display = "none";
+
+                // clear page
+                document.getElementById("mondayresults").innerHTML = "";
+            }
+
+            function goToPage(page) {
+                document.getElementById("menu-btn").style.display = "flex";
+                var wrapper = document.getElementsByClassName("wrapper")[0];
+                var sections = document.getElementsByTagName("section");
+                for (i = 0; i < sections.length; i++) {
+                    sections[i].classList.remove("before", "after");
+                    if (i > page) {
+                        sections[i].classList.add("after");
+                    }
+                }
+                wrapper.classList.remove("menu-open", "page-one", "page-two");
+                wrapper.classList.add("page-" + pages[page]);
+
+                // testing .....
+                menuNum = 1;
+                getData(menuNum);
+            }
+
+            //===================================================
+
+            async function getData(menuNum) {
+                if (menuNum == 1) {
+                    url =
+                        "https://opensheet.elk.sh/177jxMJFqFd6ZDtLf4sLvBkaeIS8MU9drvNXmC_zKP-E/resultsday1";
+                }
+                if (menuNum == 2) {
+                    url =
+                        "https://opensheet.elk.sh/177jxMJFqFd6ZDtLf4sLvBkaeIS8MU9drvNXmC_zKP-E/resultsday2";
+                }
+                if (menuNum == 3) {
+                    url =
+                        "https://opensheet.elk.sh/177jxMJFqFd6ZDtLf4sLvBkaeIS8MU9drvNXmC_zKP-E/resultsday3";
+                }
+                if (menuNum == 4) {
+                    url =
+                        "https://opensheet.elk.sh/177jxMJFqFd6ZDtLf4sLvBkaeIS8MU9drvNXmC_zKP-E/resultsday4";
+                }
+                if (menuNum == 5) {
+                    url =
+                        "https://opensheet.elk.sh/177jxMJFqFd6ZDtLf4sLvBkaeIS8MU9drvNXmC_zKP-E/resultsday5";
+                }
+                if (menuNum == 6) {
+                    url =
+                        "https://opensheet.elk.sh/177jxMJFqFd6ZDtLf4sLvBkaeIS8MU9drvNXmC_zKP-E/resultsfinal";
+                }
+                try {
+                    const dataStream = await fetch(url);
+                    if (!dataStream.ok) {
+                        throw new Error(
+                            `Response status: ${dataStream.status}`,
+                        );
+                    }
+                    data = await dataStream.json();
+                } catch (error) {
+                    console.error(error.message);
+                }
+                useData(menuNum);
+            }
+
+            function useData(menuNum) {
+                let container = document.getElementById("mondayresults");
+                // empty container
+                container.innerHTML = "";
+                data.sort((a, b) => {
+                    if (b.score === a.score) {
+                        return a.name.localeCompare(b.name); // Sort by name if scores are equal
+                    }
+                    return b.score - a.score; // Sort by score in descending order
+                });
+
+                data.forEach((e, i) => (e.rank = i));
+                // build screen
+                data.forEach((el, i) => {
+                    let box = document.createElement("div");
+                    box.id = "box" + i;
+                    box.className = "team";
+                    //box.style.setProperty("--i", i);
+                    let name = document.createElement("span");
+                    name.id = "name" + i;
+                    name.className = "name";
+
+                    let bird1 = document.createElement("span");
+                    bird1.id = "bird1" + i;
+                    bird1.className = "bird";
+                    let bird2 = document.createElement("span");
+                    bird2.id = "bird2" + i;
+                    bird2.className = "bird";
+                    let bird3 = document.createElement("span");
+                    bird3.id = "bird3" + i;
+                    bird3.className = "bird";
+                    let bird4 = document.createElement("span");
+                    bird4.id = "bird4" + i;
+                    bird4.className = "bird";
+                    let bird5 = document.createElement("span");
+                    bird5.id = "bird5" + i;
+                    bird5.className = "bird";
+                    let bird6 = document.createElement("span");
+                    bird6.id = "bird6" + i;
+                    bird6.className = "bird";
+                    let score = document.createElement("span");
+                    score.id = "score" + i;
+                    score.className = "score";
+                    let position = document.createElement("span");
+                    position.id = "position" + i;
+                    position.className = "position";
+                    position.innerHTML = el.position;
+                    box.appendChild(position);
+                    box.appendChild(name);
+                    box.appendChild(bird1);
+                    box.appendChild(bird2);
+                    box.appendChild(bird3);
+                    box.appendChild(bird4);
+                    box.appendChild(bird5);
+                    box.appendChild(bird6);
+                    box.appendChild(score);
+                    //box.style.setProperty("--color", el.color);
+                    container.appendChild(box);
+                    // fade the initial view
+                    //box.style.opacity = 0;
+                });
+                j = 0;
+                // Using an arrow function to sort players by their name
+                let xx = data.toSorted((a, b) =>
+                    a.name < b.name ? -1 : a.name > b.name ? 1 : 0,
+                );
+                // initial view which is hidden
+                xx.forEach((elstartx, j) => {
+                    initialBodyUpdate(elstartx.name, j);
+                });
+                k = 0;
+                // do proper display
+                data.forEach((el) => {
+                    k++;
+                    setTimeout(function () {
+                        if (el.name !== "") {
+                            bodyUpdate(el.name, el.score);
+                        }
+                    }, k * 600);
+                });
+            }
+
+            function bodyUpdate(nom, scr) {
+                let elName = nom;
+                data.find((team) => team.name === elName);
+                data.sort((a, b) => {
+                    if (b.score === a.score) {
+                        return a.name.localeCompare(b.name); // Sort by name if scores are equal
+                    }
+                    return b.score - a.score; // Sort by score in descending order
+                });
+                // now sort out positions for same scores
+                var held = 1;
+                var heldscore = 0;
+                data.forEach((elem, ind) => {
+                    if (elem.score == heldscore) {
+                        elem.position = held;
+                    } else {
+                        elem.position = ind + 1;
+                    }
+                    held = elem.position;
+                    heldscore = elem.score;
+                });
+
+                let AllTeams = Array.from(document.querySelectorAll(".team"));
+                var k = 0;
+                AllTeams.forEach((element) => {
+                    let elementName = element.querySelector(".name");
+                    let elementScore = element.querySelector(".score");
+                    if (elementName.innerHTML == elName) {
+                        elementScore.innerHTML = scr;
+                        let newRank = data.find(
+                            (team) => team.name === elementName.innerHTML,
+                        ).rank;
+                        // move player position
+                        // setProperty(propertyName, value)
+                        element.style.opacity = 1; //0.4;
+                        element.style.setProperty("--i", newRank);
+                        setTimeout(function () {
+                            element.style.opacity = 1;
+                        }, 800);
+                        let elementPos = element.querySelector(".position");
+                        elementPos.innerText = data.find(
+                            (team) => team.name === elementName.innerHTML,
+                        ).position;
+                    }
+                });
+                console.log("showBird()");
+                showBird();
+            }
+
+            function initialBodyUpdate(nom, pos) {
+                document.getElementById("name" + pos).innerText = nom;
+                document.getElementById("position" + pos).innerText = "";
+            }
+
+            function showBird() {
+                document.getElementById("bird111").style.visibility = "visible";
+                document.getElementById("bird211").style.visibility = "visible";
+                document.getElementById("bird311").style.visibility = "visible";
+                document.getElementById("bird411").style.visibility = "visible";
+                document.getElementById("bird511").style.visibility = "visible";
+                document.getElementById("bird611").style.visibility = "visible";
+
+                document.getElementById("bird13").style.visibility = "visible";
+                document.getElementById("bird23").style.visibility = "visible";
+            }
+        </script>
+    </body>
+</html>
