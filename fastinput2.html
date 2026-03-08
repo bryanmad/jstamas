@@ -558,6 +558,8 @@ https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5
             button1up.addEventListener("touchstart", function () {
                 incrementValue(targetID);
                 console.log("touchstart here");
+                document.getElementById("teamscore").innerText =
+                    "touchstart here";
             });
             // long touch
             button1up.addEventListener("contextmenu", function () {
@@ -571,7 +573,12 @@ https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5
                 }, 200);
             });
 
-            button1up.addEventListener("touchend", clearTimers);
+            button1up.addEventListener("touchend", function () {
+                clearTimers();
+                console.log("touchend here");
+                document.getElementById("teamscore").innerText =
+                    "touchend here";
+            });
 
             function clearTimers() {
                 clearTimeout(timeout);
