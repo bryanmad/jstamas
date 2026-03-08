@@ -571,6 +571,11 @@ https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5
                         incrementValue(targetID);
                     }, 50);
                 }, 200);
+
+                timeoutx = setTimeout(function () {
+                    // increment every 50ms during long press
+                    clearTimers();
+                }, 1200);
             });
 
             button1up.addEventListener("touchend", function () {
