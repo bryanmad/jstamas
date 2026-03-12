@@ -267,6 +267,9 @@
                            //border: 1px solid black;
                            border-radius: 5px;
                            margin-top: 1vh;
+
+                           touch-action: none;
+
                        }
         </style>
     </head>
@@ -569,11 +572,6 @@ https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5
                 event.preventDefault();
                 event.stopPropagation();
                 this.style.userSelect = "default";
-            });
-            button1up.addEventListener("contextmenu", (event) => {
-                event.preventDefault();
-                event.stopPropagation();
-                this.style.userSelect = "none";
             });
             // end of new
             // long touch
