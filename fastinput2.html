@@ -506,22 +506,6 @@ https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5
             var targetID = "";
             var sourceID = "";
 
-            function absorbEvent_(event) {
-                var e = event || window.event;
-                e.preventDefault && e.preventDefault();
-                e.stopPropagation && e.stopPropagation();
-                e.cancelBubble = true;
-                e.returnValue = false;
-                return false;
-            }
-
-            function preventLongPressMenu(node) {
-                //node.ontouchstart = absorbEvent_;
-                node.ontouchmove = absorbEvent_;
-                //node.ontouchend = absorbEvent_;
-                //node.ontouchcancel = absorbEvent_;
-            }
-
             // code for input areas: score, points etc.
             function usethis(id) {
                 //console.log("usethis");
@@ -560,9 +544,6 @@ https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5
                 document.getElementById(
                     id.replace("points", "player"),
                 ).style.background = "dodgerBlue";
-                //respondup();
-                //
-                //
             }
 
             // code for arrows
@@ -582,18 +563,7 @@ https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5
                 incrementValue(targetID);
                 //console.log("touchstart here");
             });
-            /* new
-            button1up.addEventListener("touchstart", (event) => {
-                event.preventDefault();
-                event.stopPropagation();
-                this.style.userSelect = "none";
-            });
-            button1up.addEventListener("touchend", (event) => {
-                event.preventDefault();
-                event.stopPropagation();
-                this.style.userSelect = "default";
-            });
-            end of new */
+
             // long touch
             button1up.addEventListener("contextmenu", function () {
                 incrementValue(targetID);
