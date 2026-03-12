@@ -559,6 +559,18 @@ https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5
                 incrementValue(targetID);
                 //console.log("touchstart here");
             });
+            // new
+            button1up.addEventListener("touchstart", (event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                this.style.userSelect = "none";
+            });
+            button1up.addEventListener("touchend", (event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                this.style.userSelect = "default";
+            });
+            // end of new
             // long touch
             button1up.addEventListener("contextmenu", function () {
                 incrementValue(targetID);
