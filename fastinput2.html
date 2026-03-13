@@ -30,7 +30,7 @@
             	}
 
             	body {
-            	   overflow/ hidden;
+            	   overflow: hidden;
             		font-family: Arial, Helvetica, sans-serif;
             		font-size: 6vw;
             		background: black;
@@ -254,22 +254,61 @@
                            border-radius: 5px;
                        }
 
-                       .arrow {
-                           //border: 1px solid blue;
-                           //width: 50%;
+
+                       #xxxrangeValue {
+                         position: relative;
+                         display: block;
+                         text-align: center;
+                         font-size: 6em;
+                         color: gray;
+                         font-weight: 400;
                        }
-                       #uparrow,
-                       #downarrow,
-                       #button1up,
-                       #button1down {
-                           height: 20vh;
-                           width: 49%;
-                           //border: 1px solid black;
-                           border-radius: 5px;
-                           margin-top: 1vh;
 
-                           //touch-action: none;
+                       .range1 {
+                           width: 96vw;
+                           height: 5vh;
+                           -webkit-appearance: none;
+                           background: rgba(100, 100, 100, .3);
+                           outline: none;
+                           border-radius: 15px;
+                           overflow: hidden;
+                         margin-bottom: 10vh;
+                         margin-left:2vw;
+                       }
+                       .range1::-webkit-slider-thumb {
+                           -webkit-appearance: none;
+                           width: 5vh;
+                           height: 5vh;
+                           border-radius: 50%;
+                           background: lime;
+                           cursor: pointer;
+                           border: 4px solid gray;
+                       }
 
+                       .range2 {
+                         width: 96vw;
+                         height: 5vh;
+                         -webkit-appearance: none;
+                         background: rgba(100, 100, 100, .3);
+                         outline: none;
+                         border-radius: 15px;
+                         overflow: hidden;
+                       margin-bottom: 10vh;
+                       margin-left:2vw;
+                       }
+
+                       .range2::-webkit-slider-thumb {
+                           -webkit-appearance: none;
+                           width: 5vh;
+                           height: 5vh;
+                           border-radius: 50%;
+                           background: cyan;
+                           cursor: pointer;
+                           border: 4px solid gray;
+                       }
+
+                       .sliderbox {
+                           border: 3px solid gray;
                        }
         </style>
     </head>
@@ -381,14 +420,31 @@
                     </tbody>
                 </table>
 
-                <!--
-        <span id="button1up" class="arrow">
-        -->
-                <img id="button1up" src="uparrow.png" alt="" />
-                <!-- </span> -->
+                <div class="sliderbox">
+                    <input
+                        class="range1"
+                        id="range1"
+                        type="range"
+                        name="tens"
+                        value="0"
+                        min="0"
+                        max="100"
+                        step="10"
+                        oninput="rangeSlide1(this.value)"
+                    />
 
-                <img id="button1down" src="downarrow.png" alt="" />
-
+                    <input
+                        class="range2"
+                        id="range2"
+                        type="range"
+                        name="units"
+                        value="0"
+                        min="0"
+                        max="9"
+                        step="1"
+                        oninput="rangeSlide2(this.value)"
+                    />
+                </div>
                 <br />
 
                 <div id="submit" class="submit" onclick="submitForm()">
@@ -396,28 +452,6 @@
                 </div>
             </div>
 
-            <!--
-21vh for keypad
-10vh for dropdown
-
-total 88vh ?
--->
-
-            <!--
-https://docs.google.com/forms/d/1-GEKe7IMBmNfrb-yZnVQtXJ_f7zEkQRmwkQ1_7wn034/preview
-https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5ya0/edit?resourcekey=&gid=348036107#gid=348036107
-// entry.1954606909=p1
-// entry.89122071=p2
-// entry.842961819=p3
-// entry.1180492687=p4
-//
-// entry.1395829184=po1
-// entry.2018604116=po2
-// entry.390274217=po3
-// entry.754308496=po4
-//
-// entry.346825177=tp
--->
             <!-- invisible but necessary for submit of data	-->
             <!-- form to construct data prior to submit -->
             <form
@@ -502,13 +536,39 @@ https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5
             // this runs on startup or reload
             //
             //=================================================================================
+            document.addEventListener("contextmenu", (event) => {
+                event.preventDefault();
+            });
+
+            function xusethis(xid) {
+                console.log("testing " + xid);
+            }
 
             var targetID = "";
             var sourceID = "";
+            var currentones = 0;
+            var currenttens = 0;
+
+            // 10's
+            function rangeSlide1(value) {
+                console.log("sourceID = " + sourceID);
+                currenttens = value;
+                document.getElementById(sourceID).innerHTML =
+                    parseInt(currenttens) + parseInt(currentones);
+            }
+
+            // units
+            function rangeSlide2(value) {
+                console.log("sourceID = " + sourceID);
+                currentones = value;
+                document.getElementById(sourceID).innerHTML =
+                    parseInt(currenttens) + parseInt(currentones);
+            }
 
             // code for input areas: score, points etc.
             function usethis(id) {
-                //console.log("usethis");
+                console.log("in usethis ");
+                console.log("usethis " + id);
                 // clear all
                 document.getElementById("points1").style.background = "";
                 document.getElementById("points2").style.background = "";
@@ -534,7 +594,7 @@ https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5
                 // blue for players and points
                 // cope with selecting player instead of points
                 id = id.replace("player", "points");
-
+                console.log("new id = " + id);
                 sourceID = id;
                 targetID = document.getElementById(id);
                 //console.log(targetID.textContent);
@@ -545,157 +605,6 @@ https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5
                     id.replace("points", "player"),
                 ).style.background = "dodgerBlue";
             }
-
-            // code for arrows
-            // for up arrow
-            //function respondup() {
-            var timeout, interval;
-            var button1up = document.getElementById("button1up");
-
-            preventLongPressMenu(button1up);
-
-            // prevent default menu of options
-            button1up.addEventListener("contextmenu", (event) => {
-                event.preventDefault();
-            });
-            // single touch
-            button1up.addEventListener("touchstart", function () {
-                incrementValue(targetID);
-                //console.log("touchstart here");
-            });
-
-            // long touch
-            button1up.addEventListener("contextmenu", function () {
-                incrementValue(targetID);
-                // delay until longpress detected
-                timeout = setTimeout(function () {
-                    // increment every 50ms during long press
-                    interval = setInterval(function () {
-                        incrementValue(targetID);
-                    }, 50);
-                }, 200);
-
-                timeoutx = setTimeout(function () {
-                    // increment every 50ms during long press
-                    clearTimers();
-                }, 1200);
-            });
-
-            button1up.addEventListener("touchend", function () {
-                clearTimers();
-                //console.log("touchend here");
-            });
-
-            function clearTimers() {
-                clearTimeout(timeout);
-                clearInterval(interval);
-            }
-
-            //}
-            // for down arrow
-            //function responddown() {
-            //    var timeout, interval;
-            var button1down = document.getElementById("button1down");
-            // prevent default menu of options
-            button1down.addEventListener("contextmenu", (event) => {
-                event.preventDefault();
-            });
-            button1down.addEventListener("touchstart", function () {
-                decrementValue(targetID);
-            });
-            button1down.addEventListener("contextmenu", function () {
-                decrementValue(targetID);
-                // delay until longpress detected
-                timeout = setTimeout(function () {
-                    // increment every 50ms during long press
-                    interval = setInterval(function () {
-                        decrementValue(targetID);
-                    }, 50);
-                }, 200);
-                timeoutx = setTimeout(function () {
-                    // increment every 50ms during long press
-                    clearTimers();
-                }, 1200);
-            });
-
-            button1down.addEventListener("touchend", clearTimers);
-
-            //function clearTimers() {
-            //    clearTimeout(timeout);
-            //    clearInterval(interval);
-            //}
-            //}
-
-            function incrementValue(id) {
-                id = sourceID;
-                //console.log("sourceid = " + sourceID);
-                //console.log("id = " + id);
-                //console.log("incrementValue " + id + " " + id.textContent);
-                value = parseInt(document.getElementById(id).innerText, 10);
-                //console.log(value);
-                document.getElementById(id).innerText = ++value;
-                //console.log("-" + id.slice(0, 6) + "-");
-                //console.log("id = " + id.replace("points", "player"));
-                /*
-                if (id.slice(0, 6) == "points") {
-                    gross = document
-                        .getElementById(id.replace("points", "player"))
-                        .innerText.slice(0, 4)
-                        .replace("(", "")
-                        .replace(")", "")
-                        .replace(" ", "");
-                    //console.log("gross = " + gross);
-                    //console.log(id.replace("points", "strokes"));
-                    //console.log(
-                        document.getElementById(id.replace("points", "strokes"))
-                            .innerText,
-                    );
-                    document.getElementById(
-                        id.replace("points", "strokes"),
-                    ).innerText = value - Number(gross);
-                }
-                */
-
-                //console.log(
-                //    "team = " + document.getElementById("team").innerText,
-                //);
-            }
-
-            function decrementValue(id) {
-                id = sourceID;
-                //console.log("sourceid = " + sourceID);
-                //console.log("id = " + id);
-                //console.log("incrementValue " + id + " " + id.textContent);
-                value = parseInt(document.getElementById(id).innerText, 10);
-                //console.log(value);
-                document.getElementById(id).innerText = --value;
-                //console.log("-" + id.slice(0, 6) + "-");
-                //console.log("id = " + id.replace("points", "player"));
-                /*
-                if (id.slice(0, 6) == "points") {
-                    gross = document
-                        .getElementById(id.replace("points", "player"))
-                        .innerText.slice(0, 4)
-                        .replace("(", "")
-                        .replace(")", "")
-                        .replace(" ", "");
-                    //console.log("gross = " + gross);
-                    //console.log(id.replace("points", "strokes"));
-                    //console.log(
-                        document.getElementById(id.replace("points", "strokes"))
-                            .innerText,
-                    );
-                    document.getElementById(
-                        id.replace("points", "strokes"),
-                    ).innerText = value - Number(gross);
-                }
-                */
-            }
-
-            // prevent default img menu of options
-            document.addEventListener("contextmenu", (event) => {
-                event.preventDefault();
-            });
 
             // declare global variables
 
@@ -941,53 +850,23 @@ https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5
             function dropSelected(playerName) {
                 document.getElementById("points1").style.background =
                     "dodgerBlue";
-                //sourceID = document.getElementById("points1");
-                //targetID = document.getElementById("points1");
-
                 // reset scores etc.
                 document.getElementById("points1").innerText = "0";
                 document.getElementById("points2").innerText = "0";
                 document.getElementById("points3").innerText = "0";
                 document.getElementById("points4").innerText = "0";
 
-                //document.getElementById("strokes1").innerText = "0";
-                //document.getElementById("strokes2").innerText = "0";
-                //document.getElementById("strokes3").innerText = "0";
-                //document.getElementById("strokes4").innerText = "0";
-                //console.log(document.getElementById("team").innerText);
                 document.getElementById("team").innerText = "0";
-                //console.log(document.getElementById("team").innerText);
-                usethis("points1");
 
                 var player1 = playerName.split("\n")[0];
                 var player2 = playerName.split("\n")[1];
                 var player3 = playerName.split("\n")[2];
                 var player4 = playerName.split("\n")[3];
 
-                //console.log(player1);
-                // console.log(player2);
-                // console.log(player3);
-                // console.log(player4);
-
                 document.getElementById("player1").innerText = player1;
                 document.getElementById("player2").innerText = player2;
                 document.getElementById("player3").innerText = player3;
                 document.getElementById("player4").innerText = player4;
-
-                //for(var k = 0; k < arrPlayers.length; k++) {
-                //	if(arrPlayers[k] == playerName) {
-                //		//hcp = arrHcps[k]
-                //		player1hcp = Math.round(hcp);
-                //        player1name = playerName;
-                //        document.getElementById("dropbtn").innerText = player1name;
-                //	}
-                //}
-
-                //for(var k = 0; k < arrOptions.length; k++) {
-                //if(arrOptions[k][0] == playerName) {
-                //	temppos = k;
-                //}
-                //}
 
                 // global player
                 player = playerName;
@@ -1005,6 +884,11 @@ https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5
 
                 // recalc in case a player name has changed
                 //calcAllHoles()
+                //
+                //
+                //
+                // set up first entry
+                usethis("points1");
             }
 
             //=============================================================
