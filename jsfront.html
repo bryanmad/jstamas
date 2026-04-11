@@ -26,251 +26,249 @@
 
 
 
-            body {
-                            height: 100vh;
-                            background-color: black;
-                            color: white;
-                            font-family: Helvetica, Arial, sans-serif;
-                            padding: 0;
-                            margin: 0;
-                            box-sizing: border-box;
-                            overflow: auto;
-                            background-image: url("arcot.png");
-                            background-position: center;
-                            background-repeat: no-repeat;
-                            background-size: cover;
-                            animation: fadein 1s;
+                        body {
+                                        height: 100vh;
+                                        background-color: black;
+                                        color: white;
+                                        font-family: Helvetica, Arial, sans-serif;
+                                        padding: 0;
+                                        margin: 0;
+                                        box-sizing: border-box;
+                                        overflow: auto;
+                                        background-image: url("arcot.png");
+                                        background-position: center;
+                                        background-repeat: no-repeat;
+                                        background-size: cover;
+                                        animation: fadein 1s;
 
 
-
-                             position: fixed; bottom:0; top:0; left:0; right:0; max-width: 100vw;
-
+            height: 100dvh;
 
 
-                        }
+                                    }
 
-                        /* menu */
+                                    /* menu */
 
-                        /* holds menu */
-                        .container {
-                            position: relative;
-                        }
+                                    /* holds menu */
+                                    .container {
+                                        position: relative;
+                                    }
 
-                        .icons {
-                            height: 20vh;
-                            background: transparent;
-                            color: white;
-                            display: flex;
-                            align-items: flex-end;
-                            justify-content: center;
-                            width: 100%;
-                            width: 150vw;
-                            margin: 20px auto;
-                            padding: 15px;
-                            max-width: 150vw;
+                                    .icons {
+                                        height: 20vh;
+                                        background: transparent;
+                                        color: white;
+                                        display: flex;
+                                        align-items: flex-end;
+                                        justify-content: center;
+                                        width: 100%;
+                                        width: 150vw;
+                                        margin: 20px auto;
+                                        padding: 15px;
+                                        max-width: 150vw;
 
-                        }
+                                    }
 
-                        .img1a {
-                            width: 25vw;
-                            text-align: center;
-                            font-size: 2.5vh;
-                            color: white;
-                        }
+                                    .img1a {
+                                        width: 25vw;
+                                        text-align: center;
+                                        font-size: 2.5vh;
+                                        color: white;
+                                    }
 
-                        /* end of menu */
+                                    /* end of menu */
 
-                        @keyframes slidein {
-                            0% {
-                                right: -100%;
-                            }
-                            100% {
-                                right: 0;
-                                display: block;
-                            }
-                        }
+                                    @keyframes slidein {
+                                        0% {
+                                            right: -100%;
+                                        }
+                                        100% {
+                                            right: 0;
+                                            display: block;
+                                        }
+                                    }
 
-                        .spacer {
-                            height: 2vh;
-                        }
+                                    .spacer {
+                                        height: 2vh;
+                                    }
 
-                        .txt1,
-                        .txt2 {
-                            font-size: 5vh;
-                            width: 100%;
-                            height: 40vh;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            color: white;
-                            font-family: "Kalam";
+                                    .txt1,
+                                    .txt2 {
+                                        font-size: 5vh;
+                                        width: 100%;
+                                        height: 40vh;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        color: white;
+                                        font-family: "Kalam";
 
-                            font-weight: bold;
+                                        font-weight: bold;
 
-                            height: 13vh;
-                            font-weight: 900;
-                            text-shadow:
-                                -2px -2px 0 gray,
-                                2px -2px 0 gray,
-                                -2px 2px 0 gray,
-                                2px 2px 0 gray,
-                                -3px 0px 0 gray,
-                                3px 0px 0 gray,
-                                0px -3px 0 gray,
-                                0px 3px 0 gray;
-                        }
+                                        height: 13vh;
+                                        font-weight: 900;
+                                        text-shadow:
+                                            -2px -2px 0 gray,
+                                            2px -2px 0 gray,
+                                            -2px 2px 0 gray,
+                                            2px 2px 0 gray,
+                                            -3px 0px 0 gray,
+                                            3px 0px 0 gray,
+                                            0px -3px 0 gray,
+                                            0px 3px 0 gray;
+                                    }
 
-                        .txt1 {
-                            position: absolute;
-                            top: 3vh;
-                            left: 0;
-                        }
-                        .txt2 {
-                            position: absolute;
-                            top: 10vh;
-                            left: 0;
-                        }
+                                    .txt1 {
+                                        position: absolute;
+                                        top: 3vh;
+                                        left: 0;
+                                    }
+                                    .txt2 {
+                                        position: absolute;
+                                        top: 10vh;
+                                        left: 0;
+                                    }
 
-                        .subtxt1,
-                        .subtxt2 {
-                            font-size: 5vh;
-                            width: 100%;
-                            height: 40vh;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            color: white;
-                            font-family: "Kalam";
-                            font-weight: bold;
-                            height: 13vh;
-                            font-weight: 900;
-                            text-shadow:
-                                -2px -2px 0 gray,
-                                2px -2px 0 gray,
-                                -2px 2px 0 gray,
-                                2px 2px 0 gray,
-                                -3px 0px 0 gray,
-                                3px 0px 0 gray,
-                                0px -3px 0 gray,
-                                0px 3px 0 gray;
-                        }
+                                    .subtxt1,
+                                    .subtxt2 {
+                                        font-size: 5vh;
+                                        width: 100%;
+                                        height: 40vh;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        color: white;
+                                        font-family: "Kalam";
+                                        font-weight: bold;
+                                        height: 13vh;
+                                        font-weight: 900;
+                                        text-shadow:
+                                            -2px -2px 0 gray,
+                                            2px -2px 0 gray,
+                                            -2px 2px 0 gray,
+                                            2px 2px 0 gray,
+                                            -3px 0px 0 gray,
+                                            3px 0px 0 gray,
+                                            0px -3px 0 gray,
+                                            0px 3px 0 gray;
+                                    }
 
-                        .subtxt1 {
-                            position: absolute;
-                            top: 18vh;
-                            left: 0;
-                        }
+                                    .subtxt1 {
+                                        position: absolute;
+                                        top: 18vh;
+                                        left: 0;
+                                    }
 
-                        .subtxt2 {
-                            position: absolute;
-                            top: 25vh;
-                            left: 0;
-                        }
+                                    .subtxt2 {
+                                        position: absolute;
+                                        top: 25vh;
+                                        left: 0;
+                                    }
 
-                        #warning {
-                            display: none;
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            background: indigo;
-                            width: 100vw;
-                            height: 100vh;
-                            z-index: 999;
-                            text-align: center;
-                            color: white;
-                            padding-top: 40vh;
-                            font-size: 5vw;
-                            font-family: "Kalam";
-                        }
+                                    #warning {
+                                        display: none;
+                                        position: absolute;
+                                        top: 0;
+                                        left: 0;
+                                        background: indigo;
+                                        width: 100vw;
+                                        height: 100vh;
+                                        z-index: 999;
+                                        text-align: center;
+                                        color: white;
+                                        padding-top: 40vh;
+                                        font-size: 5vw;
+                                        font-family: "Kalam";
+                                    }
 
-                        #round {
-                            position: absolute;
-                            top: 40vh;
-                            right: 30vw;
-                            width: 40vw;
-                            height: 40vw;
+                                    #round {
+                                        position: absolute;
+                                        top: 40vh;
+                                        right: 30vw;
+                                        width: 40vw;
+                                        height: 40vw;
 
-                            border-radius: 50%;
-                        }
+                                        border-radius: 50%;
+                                    }
 
-                        #js {
-                            max-height: 100%;
-                            max-width: 100%;
-                            border-radius: 50%;
-                            border: 3px solid white;
-                        }
+                                    #js {
+                                        max-height: 100%;
+                                        max-width: 100%;
+                                        border-radius: 50%;
+                                        border: 3px solid white;
+                                    }
 
-                        #round.half {
-                            background: white;
-                            box-shadow: 10px 10px 10px black;
-                            transform: scale(2.2) translateX(0.5%);
-                        }
+                                    #round.half {
+                                        background: white;
+                                        box-shadow: 10px 10px 10px black;
+                                        transform: scale(2.2) translateX(0.5%);
+                                    }
 
-                        /* back arrow */
-                        .imgrightcontainer {
-                            width: 20vw;
-                            height: 20vw;
-                            position: fixed;
-                            bottom: 15vh;
-                            right: 10vw;
-                            display: none; //flex;
-                            align-items: center;
-                            justify-content: center;
-                            animation: fadein 5s;
-                            background: transparent;
-                            border-radius: 50%;
-                            border: 5px solid rgba(255, 255, 255, 0.2);
-                            box-shadow: 10px 10px 25px black;
-                            background-clip: padding-box;
-                            z-index: 9;
-                            opacity: 0;
-                            animation: bounce 2.5s 2;
-                        }
+                                    /* back arrow */
+                                    .imgrightcontainer {
+                                        width: 20vw;
+                                        height: 20vw;
+                                        position: fixed;
+                                        bottom: 15vh;
+                                        right: 10vw;
+                                        display: none; //flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        animation: fadein 5s;
+                                        background: transparent;
+                                        border-radius: 50%;
+                                        border: 5px solid rgba(255, 255, 255, 0.2);
+                                        box-shadow: 10px 10px 25px black;
+                                        background-clip: padding-box;
+                                        z-index: 9;
+                                        opacity: 0;
+                                        animation: bounce 2.5s 2;
+                                    }
 
-                        @keyframes fadein {
-                            0% {
-                                opacity: 0;
-                            }
-                            100% {
-                                opacity: 1;
-                            }
-                        }
+                                    @keyframes fadein {
+                                        0% {
+                                            opacity: 0;
+                                        }
+                                        100% {
+                                            opacity: 1;
+                                        }
+                                    }
 
-                        @keyframes bounce {
-                          0%, 20%, 50%, 80% {
-                            transform: translateX(0);
-                            opacity: 1;
-                          }
-                          40% {
-                            transform: translateX(-50px);
-                            opacity: 1;
-                          }
-                          60% {
-                            transform: translateX(-15px);
-                            opacity: 1;
-                          }
-                          100% {
-                              transform: translateX(0);
-                              opacity: 0;
-                          }
-                        }
+                                    @keyframes bounce {
+                                      0%, 20%, 50%, 80% {
+                                        transform: translateX(0);
+                                        opacity: 1;
+                                      }
+                                      40% {
+                                        transform: translateX(-50px);
+                                        opacity: 1;
+                                      }
+                                      60% {
+                                        transform: translateX(-15px);
+                                        opacity: 1;
+                                      }
+                                      100% {
+                                          transform: translateX(0);
+                                          opacity: 0;
+                                      }
+                                    }
 
-                        .scroll {
-                                 height: 25vh;
-                                 background: transparent;
-                                 color: white;
-                                 display: flex;
-                                 position: fixed;
-                                 bottom: 0;
-                                 width: 100%;
-                                 overflow-y: hidden;
-                                 overflow-x: scroll;
-                                 white-space: nowrap;
-                                 max-width: 100%;
-                                 overflow-x: auto;
-                                 overflow-y: hidden;
-                                 white-space: nowrap;
-                                 }
+                                    .scroll {
+                                             height: 25vh;
+                                             background: transparent;
+                                             color: white;
+                                             display: flex;
+                                             position: fixed;
+                                             bottom: 0;
+                                             width: 100%;
+                                             overflow-y: hidden;
+                                             overflow-x: scroll;
+                                             white-space: nowrap;
+                                             max-width: 100%;
+                                             overflow-x: auto;
+                                             overflow-y: hidden;
+                                             white-space: nowrap;
+                                             }
         </style>
     </head>
 
