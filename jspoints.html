@@ -245,7 +245,6 @@
         </div>
         <div class="spacer2vh"></div>
         <div id="container" class="container">
-            <!--
             <div
                 id="imgbackcontainer"
                 class="imgbackcontainer"
@@ -258,7 +257,6 @@
                     alt="x"
                 />
             </div>
-            -->
             <div class="spacer2vh"></div>
             <div id="menu1"></div>
         </div>
@@ -379,59 +377,18 @@
                 });
 
                 k = 0;
-                kk = 0;
                 // do proper display
                 data.forEach((el) => {
                     k++;
                     setTimeout(function () {
-                        kk++;
                         if (el.players !== "") {
                             bodyUpdate(el.players, el.playerpoints);
                         }
-
-                        if (kk > 11) {
-                            window.scrollBy({
-                                left: 0,
-                                top: document.body.scrollHeight / 200,
-                                behaviour: "smooth",
-                            });
-
-                            window.scrollBy({
-                                left: 0,
-                                top: document.body.scrollHeight / 200,
-                                behaviour: "smooth",
-                            });
-
-                            window.scrollBy({
-                                left: 0,
-                                top: document.body.scrollHeight / 200,
-                                behaviour: "smooth",
-                            });
-
-                            window.scrollBy({
-                                left: 0,
-                                top: document.body.scrollHeight / 200,
-                                behaviour: "smooth",
-                            });
-
-                            window.scrollBy({
-                                left: 0,
-                                top: document.body.scrollHeight / 200,
-                                behaviour: "smooth",
-                            });
-
-                            window.scrollBy({
-                                left: 0,
-                                top: document.body.scrollHeight / 200,
-                                behaviour: "smooth",
-                            });
-                        }
-                    }, k * 500); //delay each individual name update
+                    }, k * 300);
                 });
             }
 
             function bodyUpdate(nom, scr) {
-                i = 0;
                 let elName = nom;
                 data.find((team) => team.players === elName);
                 // now sort out positions for same scores
@@ -448,7 +405,7 @@
                 });
                 let AllTeams = Array.from(document.querySelectorAll(".team"));
                 var k = 0;
-                AllTeams.forEach((element, i) => {
+                AllTeams.forEach((element) => {
                     let elementName = element.querySelector(".name");
                     let elementScore = element.querySelector(".score");
                     if (elementName.innerHTML == elName) {
@@ -460,45 +417,15 @@
                         // setProperty(propertyName, value)
                         element.style.opacity = 1; //0.4;
                         element.style.setProperty("--i", newRank);
-                        // display all results by screenfull
-                        //setTimeout(function () {
-                        // show element
-                        element.style.opacity = 1;
-                        /*
-                        if (
-                            i == 11 ||
-                            i == 22 ||
-                            i == 33 ||
-                            i == 44 ||
-                            i == 55 ||
-                            i == 66 ||
-                            i == 77 ||
-                            i == 88
-                        ) {
-                        */
-
-                        //}, 0);
+                        setTimeout(function () {
+                            element.style.opacity = 1;
+                        }, 800);
                         let elementPos = element.querySelector(".position");
                         elementPos.innerText = data.find(
                             (team) => team.players === elementName.innerHTML,
                         ).position;
                     }
-                }); // end of looping through players
-
-                // move back to top
-                x = setTimeout(function () {
-                    window.scroll({
-                        top: 0,
-                        left: 0,
-                        behavior: "smooth",
-                    });
-                    clearTimeout(x);
-                }, AllTeams.length * 1000);
-                // start again
-                y = setTimeout(function () {
-                    location.reload();
-                    clearTimeout(y);
-                }, AllTeams.length * 2000);
+                });
             }
 
             function initialBodyUpdate(nom, pos) {
