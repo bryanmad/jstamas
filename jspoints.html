@@ -418,14 +418,13 @@
                         ).rank;
                         // move player position
                         // setProperty(propertyName, value)
-                        if (scr == "n/a") {
-                            element.style.opacity = 0.5; //0.4;
-                        } else {
-                            element.style.opacity = 1.0; //0.4;
-                        }
                         element.style.setProperty("--i", newRank);
                         setTimeout(function () {
-                            element.style.opacity = 1;
+                            if (scr == "n/a") {
+                                element.style.opacity = 0.5; //0.4;
+                            } else {
+                                element.style.opacity = 1.0; //0.4;
+                            }
                         }, 800);
                         let elementPos = element.querySelector(".position");
                         elementPos.innerText = data.find(
