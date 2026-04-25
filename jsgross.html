@@ -415,15 +415,15 @@
                         ).rank;
                         // move player position
                         // setProperty(propertyName, value)
-                        if (scr == -99) {
-                            element.style.opacity = 0.5; //0.4;
-                            elementScore.innerHTML = "n/a";
-                        } else {
-                            element.style.opacity = 1.0; //0.4;
-                        }
+
                         element.style.setProperty("--i", newRank);
                         setTimeout(function () {
-                            element.style.opacity = 1;
+                            if (scr == -99) {
+                                element.style.opacity = 0.5; //0.4;
+                                elementScore.innerHTML = "n/a";
+                            } else {
+                                element.style.opacity = 1.0; //0.4;
+                            }
                         }, 800);
                         let elementPos = element.querySelector(".position");
                         elementPos.innerText = data.find(
