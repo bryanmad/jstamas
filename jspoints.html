@@ -409,13 +409,20 @@
                     let elementName = element.querySelector(".name");
                     let elementScore = element.querySelector(".score");
                     if (elementName.innerHTML == elName) {
+                        if (scr == 0) {
+                            scr = "n/a";
+                        }
                         elementScore.innerHTML = scr;
                         let newRank = data.find(
                             (team) => team.players === elementName.innerHTML,
                         ).rank;
                         // move player position
                         // setProperty(propertyName, value)
-                        element.style.opacity = 1; //0.4;
+                        if (scr == "n/a") {
+                            element.style.opacity = 0.5; //0.4;
+                        } else {
+                            element.style.opacity = 1.0; //0.4;
+                        }
                         element.style.setProperty("--i", newRank);
                         setTimeout(function () {
                             element.style.opacity = 1;
