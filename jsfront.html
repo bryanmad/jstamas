@@ -329,17 +329,17 @@
                 setTimeout(function () {
                     document.getElementById("scroll").scrollBy({
                         bottom: 0,
-                        left: 100,
-                        behavior: "smooth"
-                    });
-                }, 500);
-                setTimeout(function () {
-                    document.getElementById("scroll").scrollBy({
-                        bottom: 0,
-                        left: -100,
+                        left: 200,
                         behavior: "smooth"
                     });
                 }, 1000);
+                setTimeout(function () {
+                    document.getElementById("scroll").scrollBy({
+                        bottom: 0,
+                        left: -200,
+                        behavior: "smooth"
+                    });
+                }, 1500);
             }
 
             // detect using a phone or not
