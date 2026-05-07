@@ -322,10 +322,8 @@
 
         <script>
             // scroll menu slightly on each first load
-
-            if (navigator.userActivation.hasBeenActive) {
-                console.log("in use");
-            } else {
+            if (sessionStorage.getItem("menuwobble") === null) {
+                sessionStorage.setItem("menuwobble", "todo");
                 setTimeout(function () {
                     document.getElementById("scroll").scrollBy({
                         bottom: 0,
@@ -341,7 +339,9 @@
                     });
                 }, 1500);
             }
-
+            
+            console.log("menuwobble = " + sessionStorage.getItem("menuwobble"));
+            
             // detect using a phone or not
             if (
                 /Android|webOS|iPhone|iPad|iPod|BlackBerryAndroid|webOS/i.test(navigator.userAgent) ||
