@@ -119,7 +119,7 @@
             .child-one {
                 height: 20vh;
                 font-size: 7vh;
-                
+
             }
 
             /* player names */
@@ -562,6 +562,20 @@ https://docs.google.com/forms/d/e/1FAIpQLSelqGwakOEy-yeaKADOK-hPh8scrFT0fRgbplN1
                 document.getElementById("tsscore5").value = 70;
 
                 document.getElementById("submit").innerText = "submit";
+
+                // modify scores for "no player"
+                if ((document.getElementById("player1").innerText = "----------")) {
+                    document.getElementById("tsscore1").value = 0;
+                }
+                if ((document.getElementById("player2").innerText = "----------")) {
+                    document.getElementById("tsscore2").value = 0;
+                }
+                if ((document.getElementById("player3").innerText = "----------")) {
+                    document.getElementById("tsscore3").value = 0;
+                }
+                if ((document.getElementById("player4").innerText = "----------")) {
+                    document.getElementById("tsscore4").value = 0;
+                }
 
                 // global player
                 player = playerName;
