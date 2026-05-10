@@ -15,208 +15,196 @@
 
         <link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet" />
         <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
 
-            	* {
-            		margin: 0;
-            		padding: 0;
-            		box-sizing: border-box;
-            	}
+            html {
+                width: 100vw;
+            }
 
-            	html {
-            		width: 100vw;
-            	}
+            body {
+                overflow: hidden;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 6vw;
+                background: black;
+                height: 100%;
+                width: 100%;
+            }
 
-            	body {
-            	   overflow: hidden;
-            		font-family: Arial, Helvetica, sans-serif;
-            		font-size: 6vw;
-            		background: black;
-            		height: 100%;
-            		width: 100%;
-            	}
+            /* dropdown */
 
-            	/* dropdown */
+            #dropbtn {
+                color: white;
+                background: black;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid Gray;
+            }
 
-            	#dropbtn {
-            		color: white;
-            		background: black;
-            		height: 100%;
-            		display: flex;
-            		justify-content: center;
-            		align-items: center;
-            		border: 1px solid Gray;
-            	}
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
 
-            	.dropdown {
-            		position: relative;
-            		display: inline-block;
-            	}
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: black;
+                min-width: 160px;
+                overflow: auto;
+                z-index: 1;
+                border-radius: 5px;
+                box-shadow: 10px 10px 25px black;
+                max-height: 70vh;
+            }
 
-            	.dropdown-content {
-            		display: none;
-            		position: absolute;
-            		background-color: black;
-            		min-width: 160px;
-            		overflow: auto;
-            		z-index: 1;
-            		border-radius: 5px;
-            		box-shadow: 10px 10px 25px black;
-            		max-height: 70vh;
-            	}
+            .dropdown-content a {
+                color: black;
+                font-size: 4vh;
+                background: whiteSmoke;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                border: 1px solid gray;
+                border-radius: 5px;
+            }
 
-            	.dropdown-content a {
-            		color: black;
-            		font-size: 4vh;
-            		background: whiteSmoke;
-            		padding: 12px 16px;
-            		text-decoration: none;
-            		display: block;
-            		border: 1px solid gray;
-            		border-radius: 5px;
-            	}
+            .show {
+                display: block;
+            }
 
-            	.show {
-            		display: block;
-            	}
+            /* end of dropdown */
 
-            	/* end of dropdown */
+            #info {
+                display: none;
+                overflow: auto;
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                color: white;
+                background-color: black;
+                padding-left: 1px;
+                padding-right: 1px;
+                padding-bottom: 1px;
+            }
 
+            #popuppanel {
+                background-color: #ddd;
+                font-size: 3vh;
+                display: inline-block;
+                border-radius: 3px;
+                border: 1px solid #aaa;
+                padding: 10px;
+                margin: 5vw;
+                text-align: center;
+                width: 80vw;
+                cursor: pointer;
+            }
+            /* hide forms */
 
+            #my-response-iframe,
+            #my-form {
+                display: none;
+            }
+            /* */
 
-            	#info {
-            		display: none;
-            		overflow: auto;
-            		position: absolute;
-            		top: 0;
-            		left: 0;
-            		height: 100%;
-            		width: 100%;
-            		color: white;
-            		background-color: black;
-            		padding-left: 1px;
-            		padding-right: 1px;
-            		padding-bottom: 1px;
-            	}
+            .child-one {
+                height: 10vh;
+                font-size: 5vh;
+                border: 2px solid Gray;
+                border-radius: 5px;
+            }
 
-            	#popuppanel {
-            		background-color: #ddd;
-            		font-size: 3vh;
-            		display: inline-block;
-            		border-radius: 3px;
-            		border: 1px solid #aaa;
-            		padding: 10px;
-            		margin: 5vw;
-            		text-align: center;
-            		width: 80vw;
-            		cursor: pointer;
-            	}
-            	/* hide forms */
+            /* player names */
 
-            	#my-response-iframe,
-            	#my-form {
-            		display: none;
-            	}
-            	/* */
+            #player1,
+            #player2,
+            #player3,
+            #player4,
+            #teamscore {
+                text-align: left;
+                padding-left: 1vw;
+                height: 7vh;
+                font-size: 5vw;
+            }
 
-            	.child-one {
-            		height: 10vh;
-            		font-size: 5vh;
-            		border: 2px solid Gray;
-            		border-radius: 5px;
-            	}
+            /* default "keyboard" */
 
+            .small {
+                font-size: 4vh;
+                display: inline-block;
+                height: 7vh;
+                line-height: 7vh;
+                padding-left: 20%;
+                padding-right: 20%;
+                border: 1px solid Gray;
+                text-align: center;
+                font-family: Arial, Helvetica, sans-serif;
+                border-radius: 5px;
+            }
 
-            	/* player names */
+            .submit {
+                font-size: 7vh;
+                color: white;
+                //background: dodgerBlue;
+                height: 12vh;
+                //line-height: 10vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid Gray;
+            }
 
-                #player1, #player2, #player3, #player4, #teamscore {
-                   text-align: left;
-                   padding-left: 1vw;
-                   height: 7vh;
-                    font-size: 5vw;
-                }
+            #sending {
+                position: relative;
+                background: black;
+            }
 
+            #front9 {
+                color: white;
+                //height: 100vh;
+            }
 
+            tr {
+                text-align: center;
+            }
+            td {
+                width: calc(100vw / 6);
+            }
+            .head {
+                font-size: 4vw;
+                height: 5vh;
+            }
 
-            	/* default "keyboard" */
+            #score1,
+            #score2,
+            #score3,
+            #score4 {
+                //margin: 3vh;
+                padding: 3vh;
+                height: 11vh;
+            }
 
-            	.small {
-            		font-size: 4vh;
-            		display: inline-block;
-            		height: 7vh;
-            		line-height: 7vh;
-            		padding-left: 20%;
-            		padding-right: 20%;
-            		border: 1px solid Gray;
-            		text-align: center;
-            		font-family: Arial, Helvetica, sans-serif;
-            		border-radius: 5px;
-            	}
-
-
-
-
-            	.submit {
-            		font-size: 7vh;
-            		color: white;
-            		//background: dodgerBlue;
-            		height: 12vh;
-            		//line-height: 10vh;
-            		display: flex;
-            		justify-content: center;
-            		align-items: center;
-            		border: 1px solid Gray;
-            	}
-
-
-
-
-            	#sending {
-            		position: relative;
-            		background: black;
-            	}
-
-
-
-                #front9 {
-                  color:  white;
-                  //height:  100vh;
-                }
-
-                tr {
-                    text-align: center;
-                }
-                td {
-                    width: calc(100vw/6);
-                }
-                .head {
-                    font-size: 4vw;
-                    height: 5vh;
-                }
-
-
-                #score1,
-                #score2,
-                #score3,
-                #score4 {
-                    //margin: 3vh;
-            		padding: 3vh;
-                    height: 11vh;
-                }
-
-
-               #acceptpanel {
-                   display: none;
-                   position: fixed;
-                   bottom: 5vh;
-                   border: 1px silver solid;
-                   background: black;
-                   color: white;
-                   font-size: 4vw;
-                   padding: 5vw;
-                   border-radius: 5px;
-                   text-align: center;
-                   margin-left: 14vw;
-               }
+            #acceptpanel {
+                display: none;
+                position: fixed;
+                bottom: 5vh;
+                border: 1px silver solid;
+                background: black;
+                color: white;
+                font-size: 4vw;
+                padding: 5vw;
+                border-radius: 5px;
+                text-align: center;
+                margin-left: 14vw;
+            }
 
             .button1 {
                 width: 25vw;
@@ -232,71 +220,19 @@
             }
 
             #datatarget,
-                       #datatarget2,
-                       #datatarget3 {
-                           font-size: 10vh;
-                           font-family:
-                               "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-                               "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-                           border: 1px solid black;
-                           border-radius: 5px;
-                       }
-
-                       .range1 {
-                           width: 96vw;
-                           height: 5vh;
-                           -webkit-appearance: none;
-                           background: rgba(100, 100, 100, .4);
-                           outline: none;
-                           border-radius: 15px;
-                           overflow: hidden;
-                         margin-top: 2vh;
-                         margin-bottom: 2vh;
-                         margin-left:2vw;
-                       }
-                       .range1::-webkit-slider-thumb {
-                           -webkit-appearance: none;
-                           width: 5vh;
-                           height: 5vh;
-                           border-radius: 50%;
-                           background: lime;
-                           cursor: pointer;
-                           border: 4px solid gray;
-                       }
-
-                       .range2 {
-                         width: 96vw;
-                         height: 5vh;
-                         -webkit-appearance: none;
-                         background: rgba(100, 100, 100, .4);
-                         outline: none;
-                         border-radius: 15px;
-                         overflow: hidden;
-                       margin-top: 2vh;
-                       margin-bottom: 2vh;
-                       margin-left:2vw;
-                       }
-
-                       .range2::-webkit-slider-thumb {
-                           -webkit-appearance: none;
-                           width: 5vh;
-                           height: 5vh;
-                           border-radius: 50%;
-                           background: cyan;
-                           cursor: pointer;
-                           border: 4px solid gray;
-                       }
-
-                       .sliderbox {
-                           border: 3px solid gray;
-                       }
-
-            #tsdown, #tsup {
-                font-size: 5vh;
-                color cyan;
-                background: silver;
-                width: 20%;
+            #datatarget2,
+            #datatarget3 {
+                font-size: 10vh;
+                font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva,
+                    Verdana, sans-serif;
+                border: 1px solid black;
+                border-radius: 5px;
             }
+
+            .sliderbox {
+                border: 3px solid gray;
+            }
+
             input {
                 font-size: 4vh;
                 color: white;
@@ -305,11 +241,41 @@
                 border: none;
             }
 
-            #tsdown2, #tsup2 {
+            #tsdown1,
+            #tsdown2,
+            #tsdown3,
+            #tsdown4,
+            #tsdown5,
+            #tsup1,
+            #tsup2,
+            #tsup3,
+            #tsup4,
+            #tsup5 {
                 font-size: 4vh;
                 background: gray;
                 width: 8vw;
             }
+            
+            #tsdown1,
+            #tsdown2,
+            #tsdown3,
+            #tsdown4,
+            #tsdown5 {
+            float: left;
+            }
+            
+            #tsup1,
+            #tsup2,
+            #tsup3,
+            #tsup4,
+            #tsup5 {
+                float: right;
+            }
+            
+            
+            
+            
+            
         </style>
     </head>
 
@@ -331,13 +297,13 @@
                             <td colspan="3" id="player1">(15) Dale Aitkenheadxx</td>
                             <td colspan="2" id="points1">
                                 <div id="ts1" class="touchspin">
-                                    <button id="tsdown2" type="button" data-touchspin-down>-</button>
+                                    <button id="tsdown1" type="button" data-touchspin-down>-</button>
                                     <input
-                                        id="tsscore2"
+                                        id="tsscore1"
                                         type="number"
                                         data-touchspin-input
                                         style="text-align: center" />
-                                    <button id="tsup2" type="button" data-touchspin-up>+</button>
+                                    <button id="tsup1" type="button" data-touchspin-up>+</button>
                                 </div>
                             </td>
                         </tr>
@@ -359,28 +325,28 @@
                         <tr>
                             <td colspan="3" id="player3">3</td>
                             <td colspan="2" id="points3">
-                                <div id="ts1" class="touchspin">
-                                    <button id="tsdown2" type="button" data-touchspin-down>-</button>
+                                <div id="ts3" class="touchspin">
+                                    <button id="tsdown3" type="button" data-touchspin-down>-</button>
                                     <input
-                                        id="tsscore2"
+                                        id="tsscore3"
                                         type="number"
                                         data-touchspin-input
                                         style="text-align: center" />
-                                    <button id="tsup2" type="button" data-touchspin-up>+</button>
+                                    <button id="tsup3" type="button" data-touchspin-up>+</button>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3" id="player4">4</td>
                             <td colspan="2" id="points4">
-                                <div id="ts1" class="touchspin">
-                                    <button id="tsdown2" type="button" data-touchspin-down>-</button>
+                                <div id="ts4" class="touchspin">
+                                    <button id="tsdown4" type="button" data-touchspin-down>-</button>
                                     <input
-                                        id="tsscore2"
+                                        id="tsscore4"
                                         type="number"
                                         data-touchspin-input
                                         style="text-align: center" />
-                                    <button id="tsup2" type="button" data-touchspin-up>+</button>
+                                    <button id="tsup4" type="button" data-touchspin-up>+</button>
                                 </div>
                             </td>
                         </tr>
@@ -388,14 +354,14 @@
                         <tr>
                             <td colspan="3" id="teamscore">Team score</td>
                             <td colspan="2" id="team">
-                                <div id="ts1" class="touchspin">
-                                    <button id="tsdown2" type="button" data-touchspin-down>-</button>
+                                <div id="ts5" class="touchspin">
+                                    <button id="tsdown5" type="button" data-touchspin-down>-</button>
                                     <input
-                                        id="tsscore2"
+                                        id="tsscore5"
                                         type="number"
                                         data-touchspin-input
                                         style="text-align: center" />
-                                    <button id="tsup2" type="button" data-touchspin-up>+</button>
+                                    <button id="tsup5" type="button" data-touchspin-up>+</button>
                                 </div>
                             </td>
                         </tr>
@@ -461,176 +427,10 @@
             // team
             new InputTouchspin(document.querySelectorAll(".touchspin")[4]);
 
-            var targetID = "";
-            var sourceID = "";
-            var currentones = 0;
-            var currenttens = 0;
-
-            // 10's
-            function rangeSlide1(value) {
-                console.log("sourceID = " + sourceID);
-                currenttens = value;
-                document.getElementById(sourceID).innerHTML = parseInt(currenttens) + parseInt(currentones);
-            }
-
-            // units
-            function rangeSlide2(value) {
-                console.log("sourceID = " + sourceID);
-                currentones = value;
-                document.getElementById(sourceID).innerHTML = parseInt(currenttens) + parseInt(currentones);
-            }
-
-            // code for input areas: score, points etc.
-            function usethis(id) {
-                console.log("in usethis ");
-                console.log("usethis " + id);
-                // clear all
-                document.getElementById("points1").style.background = "";
-                document.getElementById("points2").style.background = "";
-                document.getElementById("points3").style.background = "";
-                document.getElementById("points4").style.background = "";
-                document.getElementById("team").style.background = "";
-                document.getElementById("teamscore").style.background = "";
-                document.getElementById("player1").style.background = "";
-                document.getElementById("player2").style.background = "";
-                document.getElementById("player3").style.background = "";
-                document.getElementById("player4").style.background = "";
-
-                // blue for team and teamscore
-                if (id == "team" || id == "teamscore") {
-                    // make sure of id
-                    id = "team";
-                    document.getElementById("team").style.background = "dodgerBlue";
-                    document.getElementById("teamscore").style.background = "dodgerBlue";
-                }
-
-                // blue for players and points
-                // cope with selecting player instead of points
-                id = id.replace("player", "points");
-                console.log("new id = " + id);
-                sourceID = id;
-                targetID = document.getElementById(id);
-                //console.log(targetID.textContent);
-
-                targetID.style.background = "dodgerBlue";
-
-                document.getElementById(id.replace("points", "player")).style.background = "dodgerBlue";
-            }
-
-            // declare global variables
-
-            var currenthole = 0;
-
-            var selectedplayer = 1;
-            // highlight first player entry
-            //	document.getElementById("p1name").classList.add("highlight");
-            var arrCourse = [];
-            var arrHcps = [];
-            var arrPlayers = [];
-            var arrLadies = [];
-            var arrOptions = [];
-            var oldArrOptions = [];
-            var compcourse = "none";
-            var compdate = "";
-            var shotsscore = "";
-
-            // declare global variables
-            var hcp = "0";
-            var player = "select player";
-            var comp;
-            var course = "";
-            var arrOptions = [];
-            var hcplist = "";
-            var msglist = "";
-            var msglistcount = 0;
-            var player1name = "player 1";
-
-            var player1hcp = "?";
-            var fullday = "";
-
-            var player1teecolor = "yellow";
-
-            var whichhole = 1;
-            var frontp1 = 0;
-            var frontp2 = 0;
-            var frontp3 = 0;
-            var backp1 = 0;
-            var backp2 = 0;
-            var backp3 = 0;
-            var allp1 = 0;
-            var allp2 = 0;
-            var allp3 = 0;
-            var fronttxt9 = "";
-            var backtxt9 = "";
-            var alltxt18 = "";
-
-            var scorelist = "";
-
-            var tempteam = "";
             var tempteamnumber = 0;
+            var tempteam = "";
             var arrTemp = [];
-
-            var tens = " ";
-            var units = " ";
-
-            var arrIdOrder = [
-                "points1",
-                "strokes1",
-                "points2",
-                "strokes2",
-                "points3",
-                "strokes3",
-                "points4",
-                "strokes4",
-                "team"
-            ];
-            var currentInput = 0;
-
-            //==============================================================
-            // data may change so retrieve it on each occasion
-            //==============================================================
-            // retrieve arrays
-
-            dd = new Date();
-            day = dd.getDay();
-
-            //============================================
-            // default
-            //console.log(day + " using Monday as default")
-            // console.log(day + " Monday")
-            course = "Arcot Hall";
-            fullday = "Sunday";
-            setupArcotCourse();
-            //============================================
-
-            function setupArcotCourse() {
-                // set up courses with details for calculations etc.
-                // array ["hole num",par,si]
-                // Arcot
-                // hole, par, si
-                arrCourse = [
-                    [0, 0, 0],
-                    [1, 4, 8],
-                    [2, 3, 16],
-                    [3, 4, 12],
-                    [4, 3, 4],
-                    [5, 4, 6],
-                    [6, 5, 18],
-                    [7, 5, 14],
-                    [8, 4, 2],
-                    [9, 3, 10],
-                    [10, 5, 11],
-                    [11, 3, 15],
-                    [12, 4, 1],
-                    [13, 4, 9],
-                    [14, 4, 5],
-                    [15, 3, 17],
-                    [16, 4, 3],
-                    [17, 4, 13],
-                    [18, 4, 7]
-                ];
-            }
-
+            var player;
             //===========================
             // this code runs at startup
             //===========================
@@ -651,21 +451,11 @@
                 var resultsarray = await dataStream.json();
                 // split into separate arrays
                 arrPlayers = resultsarray.map((d) => d.players);
-                //arrTeeSlots = resultsarray.map(d => d.teeslots);
-                //arrOptions = resultsarray.map(d => d.allplayers);
-                //arrHcps = resultsarray.map(d => d.hcps);
 
                 // remove null items
                 arrPlayers = arrPlayers.filter(function (el) {
                     return el != null;
                 });
-                //arrTeeSlots = arrTeeSlots.filter(function(el) {return el != null;})
-                //arrOptions = arrOptions.filter(function(el) {return el != null;})
-                //arrHcps = arrHcps.filter(function(el) {return el != null;})
-                // remove empty items
-                //arrPlayers = arrPlayers.filter(function(el) {return el != "";})
-
-                //arrTeeSlots = arrTeeSlots.filter(function(el) {return el != "";})
 
                 arrPlayers = arrPlayers.filter(function (el) {
                     return el != "";
@@ -684,26 +474,6 @@
                         tempteamnumber++;
                     }
                 }
-
-                //console.log("=================================");
-                // console.log(arrTemp[0]);
-                //console.log("=================================");
-                //console.log(arrTemp[1]);
-                //console.log("=================================");
-                //console.log(arrTemp[2]);
-                //console.log("=================================");
-                // console.log(arrTemp[3]);
-                //console.log("=================================");
-                //console.log(arrTemp[4]);
-                // console.log("=================================");
-                // console.log(arrTemp[5]);
-
-                //arrOptions = arrOptions.filter(function(el) {return el != "";})
-                //arrHcps = arrHcps.filter(function(el) {return el != "";})
-                // console.log(arrPlayers);
-                //console.log(arrTeeSlots)
-                //console.log(arrOptions)
-                //console.log(arrHcps)
 
                 dd = new Date();
                 day = dd.getDay();
@@ -755,14 +525,14 @@
             //=============================================================
             // name selected, do stuff
             function dropSelected(playerName) {
-                document.getElementById("points1").style.background = "dodgerBlue";
+                //document.getElementById("points1").style.background = "dodgerBlue";
                 // reset scores etc.
-                document.getElementById("points1").innerText = "0";
-                document.getElementById("points2").innerText = "0";
-                document.getElementById("points3").innerText = "0";
-                document.getElementById("points4").innerText = "0";
+                //document.getElementById("points1").innerText = "0";
+                //document.getElementById("points2").innerText = "0";
+                //document.getElementById("points3").innerText = "0";
+                //document.getElementById("points4").innerText = "0";
 
-                document.getElementById("team").innerText = "0";
+                //document.getElementById("team").innerText = "0";
 
                 var player1 = playerName.split("\n")[0];
                 var player2 = playerName.split("\n")[1];
@@ -788,14 +558,6 @@
                         openDropdown.classList.remove("show");
                     }
                 }
-
-                // recalc in case a player name has changed
-                //calcAllHoles()
-                //
-                //
-                //
-                // set up first entry
-                usethis("points1");
             }
 
             //=============================================================
@@ -828,17 +590,18 @@
                 // entry.754308496=po4
                 //
                 // entry.346825177=tp
+                // players
                 document.getElementById("mx1954606909").value = document.getElementById("player1").innerText;
                 document.getElementById("mx89122071").value = document.getElementById("player2").innerText;
                 document.getElementById("mx842961819").value = document.getElementById("player3").innerText;
                 document.getElementById("mx1180492687").value = document.getElementById("player4").innerText;
-
-                document.getElementById("mx1395829184").value = document.getElementById("points1").innerText;
-                document.getElementById("mx2018604116").value = document.getElementById("points2").innerText;
-                document.getElementById("mx390274217").value = document.getElementById("points3").innerText;
-                document.getElementById("mx754308496").value = document.getElementById("points4").innerText;
-
-                document.getElementById("mx346825177").value = document.getElementById("team").innerText;
+                // points
+                document.getElementById("mx1395829184").value = document.getElementById("tsscore1").innerText;
+                document.getElementById("mx2018604116").value = document.getElementById("tsscore2").innerText;
+                document.getElementById("mx390274217").value = document.getElementById("tsscore3").innerText;
+                document.getElementById("mx754308496").value = document.getElementById("tsscore4").innerText;
+                // team
+                document.getElementById("mx346825177").value = document.getElementById("tsscore5").innerText;
 
                 //===== submit data ==========
                 //============================
@@ -853,10 +616,6 @@
                 //clearForm();
             }
 
-            function resetInput() {
-                location.reload();
-            }
-
             function acceptButton() {
                 document.getElementById("acceptpanel").style.display = "none";
                 submitForm();
@@ -868,9 +627,12 @@
 
             function clearForm() {
                 // reset each hole
-                for (var i = 1; i < arrTemp; i++) {
-                    document.getElementById(arrTemp[i]).innerText = "0";
-                }
+                document.getElementById("tsscore1").value = 0;
+                document.getElementById("tsscore2").value = 0;
+                document.getElementById("tsscore3").value = 0;
+                document.getElementById("tsscore4").value = 0;
+
+                document.getElementById("tsscore5").value = 0;
             }
         </script>
     </body>
