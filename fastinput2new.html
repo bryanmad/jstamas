@@ -176,7 +176,7 @@
                 text-align: center;
             }
             td {
-                width: calc(100vw / 6);
+                //width: calc(100vw / 6);
             }
             .head {
                 font-size: 4vw;
@@ -255,27 +255,28 @@
                 background: gray;
                 width: 8vw;
             }
-            
+
             #tsdown1,
             #tsdown2,
             #tsdown3,
             #tsdown4,
             #tsdown5 {
-            float: left;
+                float: left;
+                background: black;
+                color: cyan;
+                border: none;
             }
-            
+
             #tsup1,
             #tsup2,
             #tsup3,
             #tsup4,
             #tsup5 {
                 float: right;
+                background: black;
+                color: cyan;
+                border: none;
             }
-            
-            
-            
-            
-            
         </style>
     </head>
 
@@ -375,8 +376,14 @@
 
             <!-- invisible but necessary for submit of data	-->
             <!-- form to construct data prior to submit -->
+            <!--
+
+https://docs.google.com/forms/d/e/1FAIpQLSelqGwakOEy-yeaKADOK-hPh8scrFT0fRgbplN1DOn0rCA5DQ/viewform?usp=pp_url
+
+-->
+
             <form
-                action="https://docs.google.com/forms/d/1UtAcYnO9O70aAFoHOpLiBPXeb26jCfGFxOXHBXr-DUE/formResponse"
+                action="https://docs.google.com/forms/d/e/1FAIpQLSelqGwakOEy-yeaKADOK-hPh8scrFT0fRgbplN1DOn0rCA5DQ/formResponse"
                 id="my-form"
                 method="post"
                 name="my-form"
@@ -401,7 +408,7 @@
                 height="0"
                 id="my-response-iframe"
                 name="my-response-iframe"
-                src="https://docs.google.com/forms/d/1UtAcYnO9O70aAFoHOpLiBPXeb26jCfGFxOXHBXr-DUE/viewform?embedded=true"
+                src="https://docs.google.com/forms/d/e/1FAIpQLSelqGwakOEy-yeaKADOK-hPh8scrFT0fRgbplN1DOn0rCA5DQ/viewform?embedded=true"
                 width="0">
             </iframe>
         </div>
@@ -440,7 +447,7 @@
             // need to set up a couple of arrays from the data in google sheets
             async function getData() {
                 var dataStream = await fetch(
-                    "https://opensheet.elk.sh/18v--oTO4IICCTf8uCQEmFgItvVFIHukQz9Q0D_Sp1FQ/teeslotscsvtidy"
+                    "https://opensheet.elk.sh/1ZktlHzXfxuZEjEAqr8puzb8Brt-iXojbLdL2Vo9iCDo/teeslotscsvtidy"
                 );
 
                 if (!dataStream.ok) {
@@ -534,6 +541,8 @@
 
                 //document.getElementById("team").innerText = "0";
 
+                document.getElementById("dropbtn").innerText = "team selected";
+
                 var player1 = playerName.split("\n")[0];
                 var player2 = playerName.split("\n")[1];
                 var player3 = playerName.split("\n")[2];
@@ -543,6 +552,13 @@
                 document.getElementById("player2").innerText = player2;
                 document.getElementById("player3").innerText = player3;
                 document.getElementById("player4").innerText = player4;
+
+                document.getElementById("tsscore1").value = 30;
+                document.getElementById("tsscore2").value = 30;
+                document.getElementById("tsscore3").value = 30;
+                document.getElementById("tsscore4").value = 30;
+                // team
+                document.getElementById("tsscore5").value = 70;
 
                 document.getElementById("submit").innerText = "submit";
 
@@ -596,16 +612,40 @@
                 document.getElementById("mx842961819").value = document.getElementById("player3").innerText;
                 document.getElementById("mx1180492687").value = document.getElementById("player4").innerText;
                 // points
-                document.getElementById("mx1395829184").value = document.getElementById("tsscore1").innerText;
-                document.getElementById("mx2018604116").value = document.getElementById("tsscore2").innerText;
-                document.getElementById("mx390274217").value = document.getElementById("tsscore3").innerText;
-                document.getElementById("mx754308496").value = document.getElementById("tsscore4").innerText;
+                document.getElementById("mx1395829184").value = document.getElementById("tsscore1").value;
+                document.getElementById("mx2018604116").value = document.getElementById("tsscore2").value;
+                document.getElementById("mx390274217").value = document.getElementById("tsscore3").value;
+                document.getElementById("mx754308496").value = document.getElementById("tsscore4").value;
                 // team
-                document.getElementById("mx346825177").value = document.getElementById("tsscore5").innerText;
+                document.getElementById("mx346825177").value = document.getElementById("tsscore5").value;
 
                 //===== submit data ==========
                 //============================
+
                 document.forms[0].submit();
+
+                /*
+                alert(
+                    document.getElementById("mx1954606909").value +
+                        " " +
+                        document.getElementById("mx89122071").value +
+                        " " +
+                        document.getElementById("mx842961819").value +
+                        " " +
+                        document.getElementById("mx1180492687").value +
+                        " " +
+                        document.getElementById("mx1395829184").value +
+                        " " +
+                        document.getElementById("mx2018604116").value +
+                        " " +
+                        document.getElementById("mx390274217").value +
+                        " " +
+                        document.getElementById("mx754308496").value +
+                        " " +
+                        document.getElementById("mx346825177").value
+                );
+*/
+
                 document.getElementById("submit").innerText = "submit done";
                 // vibrate if android phone or "pop" for anything else
                 const canVibrate = window.navigator.vibrate;
@@ -613,26 +653,23 @@
                     window.navigator.vibrate(50);
                 }
 
-                //clearForm();
-            }
-
-            function acceptButton() {
-                document.getElementById("acceptpanel").style.display = "none";
-                submitForm();
-            }
-
-            function rejectButton() {
-                document.getElementById("acceptpanel").style.display = "none";
+                clearForm();
+                document.getElementById("dropbtn").innerText = "select team";
             }
 
             function clearForm() {
                 // reset each hole
-                document.getElementById("tsscore1").value = 0;
-                document.getElementById("tsscore2").value = 0;
-                document.getElementById("tsscore3").value = 0;
-                document.getElementById("tsscore4").value = 0;
+                document.getElementById("player1").innerText = "1";
+                document.getElementById("player2").innerText = "2";
+                document.getElementById("player3").innerText = "3";
+                document.getElementById("player4").innerText = "4";
 
-                document.getElementById("tsscore5").value = 0;
+                document.getElementById("tsscore1").value = 30;
+                document.getElementById("tsscore2").value = 30;
+                document.getElementById("tsscore3").value = 30;
+                document.getElementById("tsscore4").value = 30;
+
+                document.getElementById("tsscore5").value = 70;
             }
         </script>
     </body>
