@@ -131,7 +131,8 @@
                 #player1, #player2, #player3, #player4, #teamscore {
                    text-align: left;
                    padding-left: 1vw;
-                   height:7vh;
+                   height: 7vh;
+                    font-size: 4vw;
                 }
 
 
@@ -317,19 +318,19 @@
                 width: 20%;
             }
             input {
-
-                font-size: 5vh;
+                font-size: 4vh;
                 color: white;
                 background: black;
-                width: 20vw;
-border: none;
+                width: calc(100vw / 9 + 2vw);
+                border: none;
+                //height: 6vh;
             }
 
             #tsdown2, #tsup2 {
-                font-size: 5vh;
+                font-size: 4vh;
                 color cyan;
-                background: silver;
-                width: 15vw;
+                background: gray;
+                width: calc(100vw / 9 - 1vw);
             }
         </style>
     </head>
@@ -349,8 +350,18 @@ border: none;
                             <td colspan="2" class="head">points</td>
                         </tr>
                         <tr>
-                            <td colspan="3" id="player1">1</td>
-                            <td colspan="2" id="points1">0</td>
+                            <td colspan="3" id="player1">(15) Dale Aitkenheadxx</td>
+                            <td colspan="2" id="points1">
+                                <div id="ts1" class="touchspin">
+                                    <button id="tsdown2" type="button" data-touchspin-down>-</button>
+                                    <input
+                                        id="tsscore2"
+                                        type="number"
+                                        data-touchspin-input
+                                        style="text-align: center" />
+                                    <button id="tsup2" type="button" data-touchspin-up>+</button>
+                                </div>
+                            </td>
                         </tr>
                         <tr>
                             <td colspan="3" id="player2">2</td>
@@ -369,16 +380,46 @@ border: none;
 
                         <tr>
                             <td colspan="3" id="player3">3</td>
-                            <td colspan="2" id="points3">0</td>
+                            <td colspan="2" id="points3">
+                                <div id="ts1" class="touchspin">
+                                    <button id="tsdown2" type="button" data-touchspin-down>-</button>
+                                    <input
+                                        id="tsscore2"
+                                        type="number"
+                                        data-touchspin-input
+                                        style="text-align: center" />
+                                    <button id="tsup2" type="button" data-touchspin-up>+</button>
+                                </div>
+                            </td>
                         </tr>
                         <tr>
                             <td colspan="3" id="player4">4</td>
-                            <td colspan="2" id="points4">0</td>
+                            <td colspan="2" id="points4">
+                                <div id="ts1" class="touchspin">
+                                    <button id="tsdown2" type="button" data-touchspin-down>-</button>
+                                    <input
+                                        id="tsscore2"
+                                        type="number"
+                                        data-touchspin-input
+                                        style="text-align: center" />
+                                    <button id="tsup2" type="button" data-touchspin-up>+</button>
+                                </div>
+                            </td>
                         </tr>
 
                         <tr>
                             <td colspan="3" id="teamscore">Team score</td>
-                            <td colspan="2" id="team">0</td>
+                            <td colspan="2" id="team">
+                                <div id="ts1" class="touchspin">
+                                    <button id="tsdown2" type="button" data-touchspin-down>-</button>
+                                    <input
+                                        id="tsscore2"
+                                        type="number"
+                                        data-touchspin-input
+                                        style="text-align: center" />
+                                    <button id="tsup2" type="button" data-touchspin-up>+</button>
+                                </div>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -431,7 +472,16 @@ border: none;
             });
             //new InputTouchspin(document.querySelector(".touchspin"));
             //new InputTouchspin(document.getElementById("ts1"));
+            // player 1
             new InputTouchspin(document.querySelectorAll(".touchspin")[0]);
+            // player 2
+            new InputTouchspin(document.querySelectorAll(".touchspin")[1]);
+            // player 3
+            new InputTouchspin(document.querySelectorAll(".touchspin")[2]);
+            // player 4
+            new InputTouchspin(document.querySelectorAll(".touchspin")[3]);
+            // team
+            new InputTouchspin(document.querySelectorAll(".touchspin")[4]);
 
             var targetID = "";
             var sourceID = "";
