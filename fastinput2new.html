@@ -645,10 +645,18 @@ https://docs.google.com/forms/d/e/1FAIpQLSelqGwakOEy-yeaKADOK-hPh8scrFT0fRgbplN1
 
                 //===== submit data ==========
                 //============================
-
-                document.forms[0].submit();
-
+                if (
+                    document.getElementById("player1").innerText == "----------" &&
+                    document.getElementById("player2").innerText == "----------" &&
+                    document.getElementById("player3").innerText == "----------" &&
+                    document.getElementById("player4").innerText == "----------"
+                ) {
+                    alert("no team members, so not submitted.");
+                } else {
+                    document.forms[0].submit();
+                }
                 /*
+                 // for testing ...
                 alert(
                     document.getElementById("mx1954606909").value +
                         " " +
