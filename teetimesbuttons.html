@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <meta content="ie=edge" http-equiv="X-UA-Compatible" />
+        <link href="originalgolf.svg" rel="icon" type="image/x-icon" />
+        <link rel="apple-touch-icon" sizes="180x180" href="originalgolf.svg" />
+        <title>cardrona2026</title>
+        <link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+        <style>
+            * {
+                color: cyan;
+                background: black;
+                font-family: arial;
+            }
+
+            body {
+                height: 85vh;
+            }
+
+            #tee1,
+            #tee2,
+            #tee3 {
+                width: 50vw;
+                height: auto;
+                //border: 2px solid silver;
+                margin-left: 5vw;
+                background: gray;
+                padding-top: 1vh;
+                padding-bottom: 1vh;
+                color: blue;
+            }
+
+            .pp {
+                height: 5vh;
+                //width: 50vw;
+                border: 2px solid gray;
+                display: flex;
+                align-items: center;
+                text-align: center;
+                padding-left: 2vw;
+            }
+
+            #buttonmonday {
+                position: fixed;
+                top: 2vh;
+                right: 2vw;
+                height: 5vh;
+                width: 25vw;
+                border: 3px solid silver;
+                border-radius: 10px;
+            }
+
+            #buttonotherdays {
+                position: fixed;
+                top: 12vh;
+                right: 2vw;
+                height: 5vh;
+                width: 25vw;
+                border: 3px solid silver;
+                border-radius: 10px;
+            }
+
+            #buttonformonday,
+            #buttonfortuesday,
+            #buttonforwednesday,
+            #buttonforthursday,
+            #buttonfornone {
+                position: fixed;
+                top: 35vh;
+                left: 20vw;
+                height: 20vh;
+                width: 60vw;
+                border: 3px solid cyan;
+                border-radius: 10px;
+                display: none;
+                justify-content: center;
+                align-items: center;
+                font-size: 5vh;
+                -webkit-box-shadow: 0px 0px 105px 45px rgba(0, 255, 255, 0.9);
+                -moz-box-shadow: 0px 0px 105px 45px rgba(0, 255, 255, 0.9);
+                box-shadow: 0px 0px 105px 45px rgba(0, 255, 255, 0.9);
+            }
+
+            button:active {
+                background: cyan;
+                color: black;
+                box-shadow: 0 0 0 black;
+                margin: 5px 0 0 0;
+            }
+
+            /* hide forms */
+
+            #my-response-iframe,
+            #my-form {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <button id="buttonformonday" onclick="buttonMonday()">Monday</button>
+        <button id="buttonfortuesday" onclick="buttonTuesday()">Tuesday</button>
+        <button id="buttonforwednesday" onclick="buttonWednesday()">Wednesday</button>
+        <button id="buttonforthursday" onclick="buttonThursday()">Thursday</button>
+        <button id="buttonfornone">Finished</button>
+        <form
+            action="https://docs.google.com/forms/d/e/1FAIpQLScFK8JK2SlfivsoWswPE4xjtIh2grOAzyRqb3KdKmY-sNjDKA/formResponse"
+            id="my-form"
+            method="post"
+            name="my-form"
+            target="my-response-iframe">
+            <!-- day -->
+            <input id="mx1128778441" name="entry.1128778441" type="text" value="default" />
+            <!-- p1 -->
+            <input id="mx1947858612" name="entry.1947858612" type="text" value="default" />
+            <!-- p2 -->
+            <input id="mx2032682500" name="entry.2032682500" type="text" value="default" />
+            <!-- p3 -->
+            <input id="mx911459720" name="entry.911459720" type="text" value="default" />
+            <!-- p4 -->
+            <input id="mx1962266904" name="entry.1962266904" type="text" value="default" />
+            <!-- p5 -->
+            <input id="mx2117794420" name="entry.2117794420" type="text" value="default" />
+            <!-- p6 -->
+            <input id="mx421859266" name="entry.421859266" type="text" value="default" />
+            <!-- p7 -->
+            <input id="mx233293744" name="entry.233293744" type="text" value="default" />
+            <!-- p8 -->
+            <input id="mx44027195" name="entry.44027195" type="text" value="default" />
+            <!-- p9 -->
+            <input id="mx1073395585" name="entry.1073395585" type="text" value="default" />
+            <!-- p10 -->
+            <input id="mx527083497" name="entry.527083497" type="text" value="default" />
+            <!-- p11 -->
+            <input id="mx1717757436" name="entry.1717757436" type="text" value="default" />
+            <!-- p12 -->
+            <input id="mx308534750" name="entry.308534750" type="text" value="default" />
+
+            <input type="submit" />
+        </form>
+        <!-- google iframe inserted here - invisible -->
+        <iframe
+            title="teetimes"
+            height="0"
+            id="my-response-iframe"
+            name="my-response-iframe"
+            src="https://docs.google.com/forms/d/e/1FAIpQLScFK8JK2SlfivsoWswPE4xjtIh2grOAzyRqb3KdKmY-sNjDKA/viewform?embedded=true"
+            width="0">
+        </iframe>
+
+        <script>
+            document.addEventListener("contextmenu", (event) => {
+                event.preventDefault();
+            });
+
+            var arrPlayers;
+            var arrEntries;
+
+            arrEntries = [];
+
+            arrPlayers = [
+                "Andy",
+                "Bob",
+                "Bryan",
+                "Dale",
+                "Graham",
+                "Joe",
+                "JohnD",
+                "JohnM",
+                "Oz",
+                "Peter",
+                "Richard",
+                "Steve"
+            ];
+
+            //resetArr();
+
+            if (whichDay() == "Monday") {
+                document.getElementById("buttonformonday").style.display = "flex";
+                buttonMonday();
+            }
+
+            if (whichDay() == "Tuesday") {
+                document.getElementById("buttonfortuesday").style.display = "flex";
+                buttonTuesday();
+            }
+
+            if (whichDay() == "Wednesday") {
+                document.getElementById("buttonforwednesday").style.display = "flex";
+                buttonWednesday();
+            }
+
+            if (whichDay() == "Thursday") {
+                document.getElementById("buttonforthursday").style.display = "flex";
+                buttonThursday();
+            }
+
+            if (whichDay() == "Friday" || whichDay() == "Saturday" || whichDay() == "Sunday") {
+                document.getElementById("buttonfornone").style.display = "flex";
+            }
+
+            //========================================
+            // functions
+            //========================================
+
+            function buttonThursday() {
+                manipulateArrayOtherDays(arrPlayers);
+                shuffle(arrPlayers);
+                arrEntries.push(whichDay());
+                for (i = 0; i < arrPlayers.length; i++) {
+                    arrEntries.push(arrPlayers[i]);
+                }
+                arrEntries.push("Andy");
+                arrEntries.push("JohnD");
+
+                submitForm();
+            }
+
+            function buttonWednesday() {
+                manipulateArrayOtherDays(arrPlayers);
+                shuffle(arrPlayers);
+                arrEntries.push(whichDay());
+                for (i = 0; i < arrPlayers.length; i++) {
+                    arrEntries.push(arrPlayers[i]);
+                }
+                arrEntries.push("Andy");
+                arrEntries.push("JohnD");
+
+                submitForm();
+            }
+
+            function buttonTuesday() {
+                manipulateArrayOtherDays(arrPlayers);
+                shuffle(arrPlayers);
+                arrEntries.push(whichDay());
+                for (i = 0; i < arrPlayers.length; i++) {
+                    arrEntries.push(arrPlayers[i]);
+                }
+                arrEntries.push("Andy - walking");
+                arrEntries.push("JohnD - walking");
+
+                submitForm();
+            }
+
+            function buttonMonday() {
+                manipulateArrayMonday(arrPlayers);
+                shuffle(arrPlayers);
+                arrEntries.push(whichDay());
+                for (i = 0; i < arrPlayers.length; i++) {
+                    arrEntries.push(arrPlayers[i - 1]);
+                }
+                arrEntries.push("JohnM");
+                arrEntries.push("Joe");
+                arrEntries.push("Andy");
+                arrEntries.push("JohnD");
+
+                submitForm();
+            }
+
+            function shuffle(array) {
+                let currentIndex = array.length;
+
+                // While there remain elements to shuffle...
+                while (currentIndex != 0) {
+                    // Pick a remaining element...
+                    let randomIndex = Math.floor(Math.random() * currentIndex);
+                    currentIndex--;
+
+                    // And swap it with the current element.
+                    [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+                }
+            }
+
+            function manipulateArrayMonday(array) {
+                // Monday it would just be 8 players who are in buggies (Jmc, Joe, Andy and JD walking)
+                // other 3 days it would be 8 in buggies and remains 2 to playwith JD and Andy on foot
+                // remove Jmc, Joe, Andy, JD
+                var index = array.indexOf("JohnM");
+                if (index > -1) {
+                    array.splice(index, 1);
+                }
+                var index = array.indexOf("Joe");
+                if (index > -1) {
+                    array.splice(index, 1);
+                }
+                var index = array.indexOf("Andy");
+                if (index > -1) {
+                    array.splice(index, 1);
+                }
+                var index = array.indexOf("JohnD");
+                if (index > -1) {
+                    array.splice(index, 1);
+                }
+            }
+
+            function manipulateArrayOtherDays(array) {
+                // Monday it would just be 8 players who are in buggies (Jmc, Joe, Andy and JD walking)
+                // other 3 days it would be 8 in buggies and remains 2 to playwith JD and Andy on foot
+                // remove Jmc, Joe, Andy, JD
+                var index = array.indexOf("Andy");
+                if (index > -1) {
+                    array.splice(index, 1);
+                }
+                var index = array.indexOf("JohnD");
+                if (index > -1) {
+                    array.splice(index, 1);
+                }
+            }
+
+            function resetArr() {
+                arrPlayers = [
+                    "Andy",
+                    "Bob",
+                    "Bryan",
+                    "Dale",
+                    "Graham",
+                    "Joe",
+                    "JohnD",
+                    "JohnM",
+                    "Oz",
+                    "Peter",
+                    "Richard",
+                    "Steve"
+                ];
+
+                arrEntries = [];
+
+                document.getElementById("mx1128778441").value = "";
+                document.getElementById("mx1947858612").value = "";
+                document.getElementById("mx2032682500").value = "";
+                document.getElementById("mx911459720").value = "";
+                document.getElementById("mx1962266904").value = "";
+                document.getElementById("mx2117794420").value = "";
+                document.getElementById("mx421859266").value = "";
+                document.getElementById("mx233293744").value = "";
+                document.getElementById("mx44027195").value = "";
+                document.getElementById("mx1073395585").value = "";
+                document.getElementById("mx527083497").value = "";
+                document.getElementById("mx1717757436").value = "";
+                document.getElementById("mx308534750").value = "";
+            }
+
+            function submitForm() {
+                //console.log(arrEntries[3]);
+                document.getElementById("mx1128778441").value = arrEntries[0];
+                document.getElementById("mx1947858612").value = arrEntries[1];
+                document.getElementById("mx2032682500").value = arrEntries[2];
+                document.getElementById("mx911459720").value = arrEntries[3];
+                document.getElementById("mx1962266904").value = arrEntries[4];
+                document.getElementById("mx2117794420").value = arrEntries[5];
+                document.getElementById("mx421859266").value = arrEntries[6];
+                document.getElementById("mx233293744").value = arrEntries[7];
+                document.getElementById("mx44027195").value = arrEntries[8];
+                document.getElementById("mx1073395585").value = arrEntries[9];
+                document.getElementById("mx527083497").value = arrEntries[10];
+                document.getElementById("mx1717757436").value = arrEntries[11];
+                document.getElementById("mx308534750").value = arrEntries[12];
+
+                //===== submit data ==========
+                //============================
+                document.forms[0].submit();
+
+                // vibrate if android phone
+                const canVibrate = window.navigator.vibrate;
+                if (canVibrate) {
+                    window.navigator.vibrate(50);
+                }
+                resetArr();
+            }
+
+            function whichDay() {
+                // if run before noon give same day
+                // if after noon give tomorrow
+                var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                var d = new Date();
+                d.setHours(d.getHours() + 12);
+                console.log("day = " + days[d.getDay()]);
+                return days[d.getDay()];
+            }
+        </script>
+    </body>
+</html>
