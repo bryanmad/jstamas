@@ -43,8 +43,7 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                border: 5px solid Gray;
-                border-radius: 15px;
+                border: 1px solid Gray;
             }
 
             .dropdown {
@@ -81,7 +80,33 @@
 
             /* end of dropdown */
 
+            #info {
+                display: none;
+                overflow: auto;
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                color: white;
+                background-color: black;
+                padding-left: 1px;
+                padding-right: 1px;
+                padding-bottom: 1px;
+            }
 
+            #popuppanel {
+                background-color: #ddd;
+                font-size: 3vh;
+                display: inline-block;
+                border-radius: 3px;
+                border: 1px solid #aaa;
+                padding: 10px;
+                margin: 5vw;
+                text-align: center;
+                width: 80vw;
+                cursor: pointer;
+            }
             /* hide forms */
 
             #my-response-iframe,
@@ -91,9 +116,10 @@
             /* */
 
             .child-one {
-                height: 20vh;
-                font-size: 7vh;
-
+                height: 10vh;
+                font-size: 5vh;
+                border: 2px solid Gray;
+                border-radius: 5px;
             }
 
             /* player names */
@@ -111,21 +137,35 @@
 
             /* default "keyboard" */
 
-
+            .small {
+                font-size: 4vh;
+                display: inline-block;
+                height: 7vh;
+                line-height: 7vh;
+                padding-left: 20%;
+                padding-right: 20%;
+                border: 1px solid Gray;
+                text-align: center;
+                font-family: Arial, Helvetica, sans-serif;
+                border-radius: 5px;
+            }
 
             .submit {
                 font-size: 7vh;
                 color: white;
                 //background: dodgerBlue;
-                height: 25vh; //12vh;
+                height: 12vh;
                 //line-height: 10vh;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                border: 5px solid Gray;
-                border-radius: 15px;
+                border: 1px solid Gray;
             }
 
+            #sending {
+                position: relative;
+                background: black;
+            }
 
             #front9 {
                 color: white;
@@ -147,10 +187,51 @@
             #score2,
             #score3,
             #score4 {
+                //margin: 3vh;
                 padding: 3vh;
                 height: 11vh;
             }
 
+            #acceptpanel {
+                display: none;
+                position: fixed;
+                bottom: 5vh;
+                border: 1px silver solid;
+                background: black;
+                color: white;
+                font-size: 4vw;
+                padding: 5vw;
+                border-radius: 5px;
+                text-align: center;
+                margin-left: 14vw;
+            }
+
+            .button1 {
+                width: 25vw;
+                height: 10vh;
+                text-align: center;
+                font-size: 4vw;
+                border-radius: 5px;
+                background: silver;
+            }
+
+            .bordersubmit {
+                border: 5px solid lime;
+            }
+
+            #datatarget,
+            #datatarget2,
+            #datatarget3 {
+                font-size: 10vh;
+                font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva,
+                    Verdana, sans-serif;
+                border: 1px solid black;
+                border-radius: 5px;
+            }
+
+            .sliderbox {
+                border: 3px solid gray;
+            }
 
             input {
                 font-size: 4vh;
@@ -221,7 +302,6 @@
                                     <input
                                         id="tsscore1"
                                         type="number"
-                                        min="0"
                                         data-touchspin-input
                                         style="text-align: center" />
                                     <button id="tsup1" type="button" data-touchspin-up>+</button>
@@ -236,7 +316,6 @@
                                     <input
                                         id="tsscore2"
                                         type="number"
-                                        min="0"
                                         data-touchspin-input
                                         style="text-align: center" />
                                     <button id="tsup2" type="button" data-touchspin-up>+</button>
@@ -252,7 +331,6 @@
                                     <input
                                         id="tsscore3"
                                         type="number"
-                                        min="0"
                                         data-touchspin-input
                                         style="text-align: center" />
                                     <button id="tsup3" type="button" data-touchspin-up>+</button>
@@ -267,7 +345,6 @@
                                     <input
                                         id="tsscore4"
                                         type="number"
-                                        min="0"
                                         data-touchspin-input
                                         style="text-align: center" />
                                     <button id="tsup4" type="button" data-touchspin-up>+</button>
@@ -283,7 +360,6 @@
                                     <input
                                         id="tsscore5"
                                         type="number"
-                                        min="0"
                                         data-touchspin-input
                                         style="text-align: center" />
                                     <button id="tsup5" type="button" data-touchspin-up>+</button>
@@ -300,14 +376,8 @@
 
             <!-- invisible but necessary for submit of data	-->
             <!-- form to construct data prior to submit -->
-            <!--
-
-https://docs.google.com/forms/d/e/1FAIpQLSelqGwakOEy-yeaKADOK-hPh8scrFT0fRgbplN1DOn0rCA5DQ/viewform?usp=pp_url
-
--->
-
             <form
-                action="https://docs.google.com/forms/d/e/1FAIpQLSelqGwakOEy-yeaKADOK-hPh8scrFT0fRgbplN1DOn0rCA5DQ/formResponse"
+                action="https://docs.google.com/forms/d/1UtAcYnO9O70aAFoHOpLiBPXeb26jCfGFxOXHBXr-DUE/formResponse"
                 id="my-form"
                 method="post"
                 name="my-form"
@@ -332,7 +402,7 @@ https://docs.google.com/forms/d/e/1FAIpQLSelqGwakOEy-yeaKADOK-hPh8scrFT0fRgbplN1
                 height="0"
                 id="my-response-iframe"
                 name="my-response-iframe"
-                src="https://docs.google.com/forms/d/e/1FAIpQLSelqGwakOEy-yeaKADOK-hPh8scrFT0fRgbplN1DOn0rCA5DQ/viewform?embedded=true"
+                src="https://docs.google.com/forms/d/1UtAcYnO9O70aAFoHOpLiBPXeb26jCfGFxOXHBXr-DUE/viewform?embedded=true"
                 width="0">
             </iframe>
         </div>
@@ -371,7 +441,7 @@ https://docs.google.com/forms/d/e/1FAIpQLSelqGwakOEy-yeaKADOK-hPh8scrFT0fRgbplN1
             // need to set up a couple of arrays from the data in google sheets
             async function getData() {
                 var dataStream = await fetch(
-                    "https://opensheet.elk.sh/1ZktlHzXfxuZEjEAqr8puzb8Brt-iXojbLdL2Vo9iCDo/teeslotscsvtidy"
+                    "https://opensheet.elk.sh/18v--oTO4IICCTf8uCQEmFgItvVFIHukQz9Q0D_Sp1FQ/teeslotscsvtidy"
                 );
 
                 if (!dataStream.ok) {
@@ -486,29 +556,6 @@ https://docs.google.com/forms/d/e/1FAIpQLSelqGwakOEy-yeaKADOK-hPh8scrFT0fRgbplN1
 
                 document.getElementById("submit").innerText = "submit";
 
-                // modify scores for "no player"
-                if (document.getElementById("player1").innerText == "----------") {
-                    document.getElementById("tsscore1").value = 0;
-                }
-                if (document.getElementById("player2").innerText == "----------") {
-                    document.getElementById("tsscore2").value = 0;
-                }
-                if (document.getElementById("player3").innerText == "----------") {
-                    document.getElementById("tsscore3").value = 0;
-                }
-                if (document.getElementById("player4").innerText == "----------") {
-                    document.getElementById("tsscore4").value = 0;
-                }
-
-                if (
-                    document.getElementById("player1").innerText == "----------" &&
-                    document.getElementById("player2").innerText == "----------" &&
-                    document.getElementById("player3").innerText == "----------" &&
-                    document.getElementById("player4").innerText == "----------"
-                ) {
-                    document.getElementById("tsscore5").value = 0;
-                }
-
                 // global player
                 player = playerName;
 
@@ -568,18 +615,7 @@ https://docs.google.com/forms/d/e/1FAIpQLSelqGwakOEy-yeaKADOK-hPh8scrFT0fRgbplN1
 
                 //===== submit data ==========
                 //============================
-                if (
-                    document.getElementById("player1").innerText == "----------" &&
-                    document.getElementById("player2").innerText == "----------" &&
-                    document.getElementById("player3").innerText == "----------" &&
-                    document.getElementById("player4").innerText == "----------"
-                ) {
-                    alert("no team members, so not submitted.");
-                } else {
-                    document.forms[0].submit();
-                }
-                /*
-                 // for testing ...
+
                 alert(
                     document.getElementById("mx1954606909").value +
                         " " +
@@ -599,7 +635,8 @@ https://docs.google.com/forms/d/e/1FAIpQLSelqGwakOEy-yeaKADOK-hPh8scrFT0fRgbplN1
                         " " +
                         document.getElementById("mx346825177").value
                 );
-*/
+
+                //document.forms[0].submit();
 
                 document.getElementById("submit").innerText = "submit done";
                 // vibrate if android phone or "pop" for anything else
@@ -612,19 +649,23 @@ https://docs.google.com/forms/d/e/1FAIpQLSelqGwakOEy-yeaKADOK-hPh8scrFT0fRgbplN1
                 document.getElementById("dropbtn").innerText = "select team";
             }
 
+            function acceptButton() {
+                document.getElementById("acceptpanel").style.display = "none";
+                submitForm();
+            }
+
+            function rejectButton() {
+                document.getElementById("acceptpanel").style.display = "none";
+            }
+
             function clearForm() {
                 // reset each hole
-                document.getElementById("player1").innerText = "1";
-                document.getElementById("player2").innerText = "2";
-                document.getElementById("player3").innerText = "3";
-                document.getElementById("player4").innerText = "4";
+                document.getElementById("tsscore1").value = 0;
+                document.getElementById("tsscore2").value = 0;
+                document.getElementById("tsscore3").value = 0;
+                document.getElementById("tsscore4").value = 0;
 
-                document.getElementById("tsscore1").value = 30;
-                document.getElementById("tsscore2").value = 30;
-                document.getElementById("tsscore3").value = 30;
-                document.getElementById("tsscore4").value = 30;
-
-                document.getElementById("tsscore5").value = 70;
+                document.getElementById("tsscore5").value = 0;
             }
         </script>
     </body>
