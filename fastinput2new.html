@@ -484,7 +484,7 @@
 
                 // create teams of 4
 
-                for (var i = 0; i < arrPlayers.length; i++) {
+                for (var i = 0; i <= arrPlayers.length; i++) {
                     if (tempteamnumber == 4) {
                         arrTemp.push(tempteam);
                         tempteamnumber = 0;
@@ -635,7 +635,7 @@
 
                 //===== submit data ==========
                 //============================
-
+                /*
                 alert(
                     document.getElementById("mx1954606909").value +
                         " " +
@@ -655,8 +655,8 @@
                         " " +
                         document.getElementById("mx346825177").value
                 );
-
-                //document.forms[0].submit();
+                */
+                document.forms[0].submit();
 
                 document.getElementById("submit").innerText = "submit done";
                 // vibrate if android phone or "pop" for anything else
