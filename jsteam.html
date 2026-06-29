@@ -246,23 +246,6 @@
 			<div id="menu1" onclick="activateMenu(this.id)"></div>
 		</div>
 		<script>
-			// Detect whether device supports orientationchange event, otherwise fall back to
-			// the resize event.
-			var supportsOrientationChange = "onorientationchange" in window,
-				orientationEvent = supportsOrientationChange ? "orientationchange" : "resize";
-
-			window.addEventListener(
-				orientationEvent,
-				function () {
-					if (window.orientation == 0) {
-						document.getElementById("warning").style.display = "none";
-					} else if (window.orientation == 90 || window.orientation == -90) {
-						document.getElementById("warning").style.display = "block";
-					}
-				},
-				false
-			);
-
 			//------------------------------------------------------------------------------
 
 			var data;
@@ -272,7 +255,7 @@
 			var currentscore = 0;
 			var currentpos = 0;
 			//document.getElementById("menu1").innerText = "Gross score"
-			document.getElementById("menu1").className = "contractmenu";
+			//document.getElementById("menu1").className = "contractmenu";
 			activateMenu("menu1");
 
 			function activateMenu(thisid) {
@@ -287,13 +270,6 @@
 				getData(menuNum);
 			}
 
-			// data is available here
-			/*
-individualpointscsv
-https://docs.google.com/spreadsheets/d/1IWb7VKBi-FWzzgMHEu1ZVi8tE684QZ_Wh-iGTNJ5ya0/edit?gid=1316277170#gid=1316277170
-https://docs.google.com/spreadsheets/d/e/2PACX-1vTZXo5wqMAIQ5cdGyb_ZczrereiMQd5wGFIdNbyirolhaSJ8Fex2_-q641jVzV0Srted6EvDMtdfQE3/pub?gid=1316277170&single=true&output=csv
-*/
-
 			async function getData() {
 				url = "https://opensheet.elk.sh/18v--oTO4IICCTf8uCQEmFgItvVFIHukQz9Q0D_Sp1FQ/teamscorecsv";
 				try {
@@ -307,12 +283,9 @@ https://docs.google.com/spreadsheets/d/e/2PACX-1vTZXo5wqMAIQ5cdGyb_ZczrereiMQd5w
 				}
 
 				// get rid of "blanks"
-				console.log(data);
 				data = data.filter(function (el) {
 					return el.name != "----------\n----------\n----------\n----------";
 				});
-
-				console.log(data);
 
 				useData();
 			}
@@ -321,7 +294,10 @@ https://docs.google.com/spreadsheets/d/e/2PACX-1vTZXo5wqMAIQ5cdGyb_ZczrereiMQd5w
 				let container = document.getElementById("menu1");
 				// empty container
 				container.innerHTML = "";
-				data.forEach((e, i) => (e.rank = i));
+				data.forEach((e, i) => {
+					e.rank = i;
+				});
+
 				// build screen
 				data.forEach((el, i) => {
 					let box = document.createElement("div");
@@ -348,7 +324,6 @@ https://docs.google.com/spreadsheets/d/e/2PACX-1vTZXo5wqMAIQ5cdGyb_ZczrereiMQd5w
 				j = 0;
 
 				data.forEach((elstartx, j) => {
-					//console.log(elstartx)
 					initialBodyUpdate(elstartx.name, j, elstartx.score);
 				});
 				k = 0;
@@ -358,7 +333,6 @@ https://docs.google.com/spreadsheets/d/e/2PACX-1vTZXo5wqMAIQ5cdGyb_ZczrereiMQd5w
 					k++;
 					setTimeout(function () {
 						if (el.name !== "") {
-							//console.log("el.name = " + el.name)
 							console.log("el.score = " + el.score);
 							bodyUpdate(el.name, el.score);
 						}
@@ -367,7 +341,6 @@ https://docs.google.com/spreadsheets/d/e/2PACX-1vTZXo5wqMAIQ5cdGyb_ZczrereiMQd5w
 			}
 
 			function bodyUpdate(nom, scr) {
-				//console.log("scr = " + scr)
 				let elName = nom;
 				data.find((team) => team.name === elName);
 				// now sort out positions for same scores
@@ -385,9 +358,6 @@ https://docs.google.com/spreadsheets/d/e/2PACX-1vTZXo5wqMAIQ5cdGyb_ZczrereiMQd5w
 				let AllTeams = Array.from(document.querySelectorAll(".team"));
 				var k = 0;
 				AllTeams.forEach((elx, j) => {
-					//let elementName = element.querySelector(".name");
-					//let elementScore = element.querySelector(".score");
-					//console.log("=====" + document.getElementById("name" + j).innerText)
 					let elementName = document.getElementById("name" + j).innerText;
 					let elementScore = document.getElementById("score" + j).innerText;
 
@@ -409,8 +379,6 @@ https://docs.google.com/spreadsheets/d/e/2PACX-1vTZXo5wqMAIQ5cdGyb_ZczrereiMQd5w
 
 				if (score !== currentscore) {
 					currentpos = pos + 1;
-				} else {
-					//currentpos++;
 				}
 
 				arrpos = [
