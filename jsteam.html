@@ -331,12 +331,12 @@
 
 				data.forEach((el) => {
 					k++;
-					setTimeout(function () {
-						if (el.name !== "") {
-							console.log("el.score = " + el.score);
-							bodyUpdate(el.name, el.score);
-						}
-					}, k * 300);
+					//setTimeout(function () {
+					if (el.name !== "") {
+						console.log("el.score = " + el.score);
+						bodyUpdate(el.name, el.score);
+					}
+					//}, k * 300);
 				});
 			}
 
