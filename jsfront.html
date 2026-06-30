@@ -259,6 +259,90 @@
                                              overflow-y: hidden;
                                              white-space: nowrap;
                                              }
+
+             #panel {
+                                    //display: none;
+                                    position: fixed;
+                                    top: 3vh;
+                                    text-align: center;
+                                    justify-content: center;
+                                    height: 85vh;
+                                    width: 80%;
+                                    left: 7%;
+                                    background: black;
+                                    opacity: 0.9;
+                                    color: white;
+                                    font-family: arial;
+                                    font-size: 3vh;
+                                    border-radius: 5px;
+                                    padding: 2vh;
+                                    padding-top: 2vh;
+                                      //box-shadow: 0px 0px 25px 25px rgba(0,0,0, 1);
+                        box-shadow: 0px 0px 25px 25px rgba(43, 56, 86, 1);
+                 }
+
+             .fl {
+                 display: inline-block;
+                 text-align: center; //left;
+                 width: 100%;
+                 font-size: 3.1vw;
+                 font-family: "Kalam";
+                 font-weight: bold;
+                 //border: 1px solid silver;
+                 //border-radius: 5px;
+                 padding: 0.2vw;
+             }
+            .fm {
+                display: inline-block;
+                 text-align: center;
+                 width: 100%;
+                 font-size: 3.1vw;
+                 font-family: "Kalam";
+                //border: 1px solid silver;
+                //border-radius: 5px;
+                padding: 0.2vw;
+            }
+             .fr {
+                 display: inline-block;
+                 width: 100%;
+                 text-align: center; //left;
+                 font-size: 3.1vw;
+                 font-family: "Kalam";
+                 color: cyan;
+                 //border: 1px solid silver;
+                 //border-radius: 5px;
+                 padding: 0.2vw;
+             }
+            .fgap {
+                display: inline-block;
+                 width: 100%;
+                 text-align: center; //left;
+                 font-size: 3.1vw;
+                 font-family: "Kalam";
+                 //border: 1px solid silver;
+                 //border-radius: 5px;
+                 //padding: 2vw;
+            }
+             #txta {
+            //border: 1px solid red;
+            font-size: 2vw;
+            font-family: Kalam;
+            }
+            #blackpanel {
+                line-height: 40%;
+            }
+            #blackfooter {
+                padding-top: 2vh;
+                font-size: 4vw;
+                font-family: Kalam;
+                color: lime;
+            }
+            #headprizes {
+                //padding-top: 2vh;
+                font-size: 7vw;
+            font-family: Kalam;
+                color: lime;
+            }
         </style>
     </head>
 
@@ -318,6 +402,88 @@
 
         <div id="imgrightcontainer" class="imgrightcontainer">
             <img id="tempright" style="border: 0; height: 15vw; width: 15vw" src="swipe.png" alt=">" />
+        </div>
+
+        <!-- popup panel -->
+        <div id="panel" onclick="closePanel()">
+            <div id="blackpanel">
+                <p id="headprizes">Prizes</p>
+
+                <div class="txta">
+                    <div class="fl">1st individual</div>
+                    <div class="fm">Hat & 3 seed pro golf balls</div>
+                    <div class="fr">Richard Ingham</div>
+                    <div class="fgap">&nbsp;</div>
+                </div>
+                <div class="txta">
+                    <div class="fl">2nd individual</div>
+                    <div class="fm">Tee bag & 3 seed pro golf balls</div>
+                    <div class="fr">John Harbetson</div>
+                    <div class="fgap">&nbsp;</div>
+                </div>
+                <div class="txta">
+                    <div class="fl">3rd individual</div>
+                    <div class="fm">3 seed pro golf balls</div>
+                    <div class="fr">Jamie Dent</div>
+                    <div class="fgap">&nbsp;</div>
+                </div>
+                <div class="txta">
+                    <div class="fl">Best Gross</div>
+                    <div class="fm">Tee bag & 3 seed pro golf balls</div>
+                    <div class="fr">Stu Moffat</div>
+                    <div class="fgap">&nbsp;</div>
+                </div>
+                <div class="txta">
+                    <div class="fl">1st Team</div>
+                    <div class="fm">Towel & 3 seed pro golf balls</div>
+                    <div class="fr">(10) Derek Whitworth</div>
+                    <div class="fr">(21) John Harbertson</div>
+                    <div class="fr">(19) Chris Harbertson</div>
+                    <div class="fr">(15) Ernie Clarkson</div>
+                    <div class="fgap">&nbsp;</div>
+                </div>
+                <div class="txta">
+                    <div class="fl">2nd Team</div>
+                    <div class="fm">3 seed pro golf balls</div>
+                    <div class="fr">(18) Paul Burt</div>
+                    <div class="fr">(15) Bob Nicholas</div>
+                    <div class="fr">(22) Clive Beattie</div>
+                    <div class="fr">(17) Trevor Charlton</div>
+                    <div class="fgap">&nbsp;</div>
+                </div>
+                <!--
+                <div class="txta">
+                    <div class="fl">3rd Team</div>
+                    <div class="fm">3 seed pro golf balls</div>
+                    <div class="fr">(8) Graham Airey<br>
+(7) Jamie Morton<br>
+(9) Anthony Mitchinson<br>
+(20) Steve Thompson</div>
+                    <div class="fgap">&nbsp;</div>
+                </div>
+-->
+                <!--
+                <div class="txta">
+                    <div class="fl">Nearest pin 9th</div>
+                    <div class="fm">3 seed pro golf balls</div>
+                    <div class="fr">3 seed pro golf balls</div>
+                    <div class="fgap">&nbsp;</div>
+                </div>
+                <div class="txta">
+                    <div class="fl">Nearest pin 11th</div>
+                    <div class="fm">3 seed pro golf balls</div>
+                    <div class="fr">3 seed pro golf balls</div>
+                    <div class="fgap">&nbsp;</div>
+                </div>
+                <div class="txta">
+                    <div class="fl">Nearest pin 15th</div>
+                    <div class="fm">3 seed pro golf balls</div>
+                    <div class="fr">3 seed pro golf balls</div>
+                    <div class="fgap">&nbsp;</div>
+                </div>
+-->
+            </div>
+            <div id="blackfooter">... tap to close</div>
         </div>
 
         <script>
@@ -410,6 +576,10 @@
 
             function enlarge() {
                 document.getElementById("round").classList.toggle("half");
+            }
+
+            function closePanel() {
+                document.getElementById("panel").style.display = "none";
             }
         </script>
     </body>
