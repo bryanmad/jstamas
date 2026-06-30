@@ -284,6 +284,12 @@
 					data = data.filter(function (el) {
 						t = el.name.split("\n");
 						// to cope with "wrapping"
+						t[0] = bryPad(t[0]);
+						t[1] = bryPad(t[1]);
+						t[2] = bryPad(t[2]);
+						t[3] = bryPad(t[3]);
+
+						/*
 						if (t[0].length < 15) {
 							t[0] = t[0] + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 						}
@@ -296,7 +302,7 @@
 						if (t[3].length < 15) {
 							t[3] = t[3] + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 						}
-
+*/
 						//return (el.name = t[0] + "<br>" + t[1] + "<br>" + t[2] + "<br>" + t[3]);
 						return (el.name =
 							'<div class="p">' +
@@ -490,6 +496,13 @@
 
 			function goBack() {
 				location.href = "jsteam.html";
+			}
+
+			function bryPad(t) {
+				t = t.padEnd(25, "$");
+				t = t.replaceAll("$", "&nbsp;");
+				t = t.split("&").slice(0, -1).join("&");
+				return t;
 			}
 		</script>
 	</body>
