@@ -13,7 +13,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet" />
 		<style>
 			:root {
-				--team-height: 20vh;
+				--team-height: 17vh;
 				--team-spacing: 5vh;
 			}
 
@@ -72,7 +72,7 @@
 			}
 
 			.name {
-				width: 58%;
+				width: 65%;
 				//display: flex;
 				align-items: center;
 				justify-content: left;
@@ -283,6 +283,20 @@
 					// change to html format
 					data = data.filter(function (el) {
 						t = el.name.split("\n");
+						// to cope with "wrapping"
+						if (t[0].length < 15) {
+							t[0] = t[0] + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+						}
+						if (t[1].length < 15) {
+							t[1] = t[1] + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+						}
+						if (t[2].length < 15) {
+							t[2] = t[2] + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+						}
+						if (t[3].length < 15) {
+							t[3] = t[3] + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+						}
+
 						//return (el.name = t[0] + "<br>" + t[1] + "<br>" + t[2] + "<br>" + t[3]);
 						return (el.name =
 							'<div class="p">' +
