@@ -289,20 +289,6 @@
 						t[2] = bryPad(t[2]);
 						t[3] = bryPad(t[3]);
 
-						/*
-						if (t[0].length < 15) {
-							t[0] = t[0] + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-						}
-						if (t[1].length < 15) {
-							t[1] = t[1] + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-						}
-						if (t[2].length < 15) {
-							t[2] = t[2] + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-						}
-						if (t[3].length < 15) {
-							t[3] = t[3] + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-						}
-*/
 						//return (el.name = t[0] + "<br>" + t[1] + "<br>" + t[2] + "<br>" + t[3]);
 						return (el.name =
 							'<div class="p">' +
@@ -315,8 +301,8 @@
 							t[3] +
 							"</div>");
 					});
-					console.log(t[0] + "<br>" + t[1] + "<br>" + t[2] + "<br>" + t[3]);
-					console.log(data);
+					//console.log(t[0] + "<br>" + t[1] + "<br>" + t[2] + "<br>" + t[3]);
+					//console.log(data);
 					// sort by score, highest first
 					//data.sort(
 					//    (a, b) =>
@@ -495,7 +481,7 @@
 			}
 
 			function goBack() {
-				location.href = "jsteam.html";
+				location.href = "jsfront.html";
 			}
 
 			function bryPad(t) {
